@@ -1,0 +1,38 @@
+﻿@page "/fetchdata"
+@using BlazorComponent.Data
+@inject WeatherForecastService ForecastService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<BlazorDataGrid Items="@forecasts" PageSize="4">
+    <BlazorDataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="Date" DisplayColumnName="Date"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>
+    </BlazorDataGridColumn>
+    <GridRow>
+        <td>@context.Date.ToShortDateString()</td>
+        <td>@context.TemperatureC</td>
+        <td>@context.TemperatureF</td>
+        <td>@context.Summary</td>
+    </GridRow>
+</BlazorDataGrid>
+}
+
+@code {
+    WeatherForecast[] forecasts;
+
+    protected override async Task OnInitAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}

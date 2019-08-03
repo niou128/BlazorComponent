@@ -1,0 +1,72 @@
+﻿@typeparam TItem
+
+@using BlazorDataGrid.Services
+@inject AppState AppState
+
+<th>
+    <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
+    <span class="oi @(GetSortStyle(ColumnName))"></span>
+</th>
+
+
+
+@functions {
+    [Parameter]
+    string ColumnName { get; set; }
+    [Parameter]
+    string DisplayColumnName { get; set; } = string.Empty;
+
+    [CascadingParameter]
+    BlazorDataGrid.BlazorDataGrid<TItem> BlazorDataTable { get; set; }
+
+    private bool IsSortedAscending;
+
+    [Parameter]
+    IEnumerable<TItem> Items { get; set; }
+
+
+    private void SortTable(string columnName)
+    {
+        if (columnName != BlazorDataTable.CurrentSortColumn)
+        {
+            BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+
+            BlazorDataTable.CurrentSortColumn = columnName;
+            IsSortedAscending = true;
+            AppState.CallRequestRefresh();
+
+        }
+        else //Sorting against same column but in different direction
+        {
+            if (IsSortedAscending)
+            {
+                BlazorDataTable.Items = BlazorDataTable.Items.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+                AppState.CallRequestRefresh();
+            }
+            else
+            {
+                BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+                AppState.CallRequestRefresh();
+            }
+
+            //Toggle this boolean
+            IsSortedAscending = !IsSortedAscending;
+        }
+    }
+
+    private string GetSortStyle(string columnName)
+    {
+        if (BlazorDataTable.CurrentSortColumn != columnName)
+        {
+            return string.Empty;
+        }
+        if (IsSortedAscending)
+        {
+            return "oi-arrow-thick-top";
+        }
+        else
+        {
+            return "oi-arrow-thick-bottom";
+        }
+    }
+}
