@@ -96,7 +96,6 @@
 
     IEnumerable<TableItem> ItemList { get; set; }
 
-    public dynamic FilterObject { get; set; }
 
     public Dictionary<string, string> FilterDictionary { get; set; }
 
@@ -110,7 +109,6 @@
 
         AppState.RefreshRequested += RefreshMe;
 
-        FilterObject = new DynamicDictionary();
         FilterDictionary = new Dictionary<string, string>();
 
         SetPagerSize("forward");
