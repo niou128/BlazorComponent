@@ -8,9 +8,10 @@
     <LangVersion>7.3</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
     <Authors>Sébastien Bernard</Authors>
-    <Company>NRESébastien Bernard</Company>
-    <Copyright>(c) Sébastien Bernard</Copyright>
+    <Company>NRE</Company>
+    <Copyright>© Sébastien Bernard</Copyright>
     <Description>Une datagrid filtrée et ordonnée</Description>
+    <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
