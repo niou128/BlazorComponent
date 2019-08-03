@@ -6,6 +6,12 @@
 <th>
     <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
     <span class="oi @(GetSortStyle(ColumnName))"></span>
+    @if (Filter)
+    {
+        <br />
+        <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+
+    }
 </th>
 
 
@@ -16,6 +22,9 @@
     [Parameter]
     string DisplayColumnName { get; set; } = string.Empty;
 
+    [Parameter]
+    bool Filter { get; set; } = false;
+
     [CascadingParameter]
     BlazorDataGrid.BlazorDataGrid<TItem> BlazorDataTable { get; set; }
 
@@ -23,6 +32,8 @@
 
     [Parameter]
     IEnumerable<TItem> Items { get; set; }
+
+    private string PreviousValue { get; set; } = string.Empty;
 
 
     private void SortTable(string columnName)
@@ -69,4 +80,23 @@
             return "oi-arrow-thick-bottom";
         }
     }
+
+    private void Filtering(string value, string columnName)
+    {
+        BlazorDataTable.FilterDictionary[columnName] = value;
+
+        if (value.Length < PreviousValue.Length)
+        {
+            BlazorDataTable.Items = Items;
+        }
+
+        foreach (var column in BlazorDataTable.FilterDictionary)
+        {
+            BlazorDataTable.Items = BlazorDataTable.Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+        }
+
+        AppState.CallRequestRefresh();
+        PreviousValue = value;
+    }
+
 }

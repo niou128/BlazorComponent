@@ -3,6 +3,7 @@
 @using BlazorDataGrid.Services
 @inject AppState AppState
 
+
 <style>
     .blazor-grid-header {
         text-align: center;
@@ -93,8 +94,11 @@
     [Parameter]
     RenderFragment OtherContent { get; set; }
 
-
     IEnumerable<TableItem> ItemList { get; set; }
+
+    public dynamic FilterObject { get; set; }
+
+    public Dictionary<string, string> FilterDictionary { get; set; }
 
     protected override async Task OnInitAsync()
     {
@@ -106,6 +110,8 @@
 
         AppState.RefreshRequested += RefreshMe;
 
+        FilterObject = new DynamicDictionary();
+        FilterDictionary = new Dictionary<string, string>();
 
         SetPagerSize("forward");
     }
