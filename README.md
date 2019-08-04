@@ -63,3 +63,6 @@ BlazorDataGrid Items="@forecasts" PageSize="4">
     </GridRow>
 </BlazorDataGrid>
 ```
+
+# Aperçu
+![Alt Text](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/apercu.png)
