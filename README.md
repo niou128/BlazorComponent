@@ -71,6 +71,9 @@ Exemple de code :
 ![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
 
 # Release notes
+**1.1.1**
+> - Le nombre de résultat est maintenant le nombre total filtré au lieu du nombre de résultat sur la page
+
 **1.1.0**
 > - Ajout de la possiblité d'afficher le nombre total d'élément en haut de la datagrid
 > - Le nombre de pages affichées est mis à jour lors de l'application d'un filtre
