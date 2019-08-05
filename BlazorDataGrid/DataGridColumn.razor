@@ -3,16 +3,23 @@
 @using BlazorDataGrid.Services
 @inject AppState AppState
 
-<th>
-    <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
-    <span class="oi @(GetSortStyle(ColumnName))"></span>
-    @if (Filter)
-    {
-        <br />
-        <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+    <th>
+        @if (ChildContent != null)
+        {
+            <span @onclick="@(() => SortTable(ColumnName))">@ChildContent</span>
+        }
+        else
+        {
+            <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
+        }
+        <span class="oi @(GetSortStyle(ColumnName))"></span>
+        @if (Filter)
+        {
+            <br />
+            <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
 
-    }
-</th>
+        }
+    </th>
 
 
 
@@ -21,6 +28,9 @@
     string ColumnName { get; set; }
     [Parameter]
     string DisplayColumnName { get; set; } = string.Empty;
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
 
     [Parameter]
     bool Filter { get; set; } = false;
