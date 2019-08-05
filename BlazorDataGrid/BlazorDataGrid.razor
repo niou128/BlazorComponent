@@ -36,7 +36,7 @@
 {
     if (@Items.Count() != @initCount)
     {
-<h4 class="TotalCount">@ItemList.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
+        <h4 class="TotalCount">@ItemList.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
     }
     else
     {
@@ -143,7 +143,9 @@
     private void RefreshMe()
     {
         StateHasChanged();
-        updateList(curPage);
+        curPage = 1;
+        updateList(curPage);  
+        SetPagerSize("filtre");
     }
 
     public void updateList(int currentPage)
@@ -151,10 +153,12 @@
         if (PageSize == 0)
         {
             ItemList = Items;
+            totalPages = 1;
         }
         else
         {
             ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
+            totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
         }
         curPage = currentPage;
         this.StateHasChanged();
@@ -179,6 +183,24 @@
         {
             endPage = startPage - 1;
             startPage = startPage - pagerSize;
+        }
+        if (direction == "filtre")
+        {
+            if (endPage > totalPages)
+            {
+                endPage = totalPages;
+            }
+            if (endPage < totalPages)
+            {
+                if (endPage + pagerSize < totalPages)
+                {
+                    endPage = startPage + pagerSize - 1;
+                }
+                else
+                {
+                    endPage = totalPages;
+                }
+            }
         }
     }
 

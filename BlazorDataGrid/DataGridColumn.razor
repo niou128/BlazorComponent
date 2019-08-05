@@ -57,20 +57,18 @@
             AppState.CallRequestRefresh();
 
         }
-        else //Sorting against same column but in different direction
+        else 
         {
             if (IsSortedAscending)
             {
                 BlazorDataTable.Items = BlazorDataTable.Items.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-                AppState.CallRequestRefresh();
             }
             else
             {
                 BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-                AppState.CallRequestRefresh();
             }
 
-            //Toggle this boolean
+            AppState.CallRequestRefresh();
             IsSortedAscending = !IsSortedAscending;
         }
     }
