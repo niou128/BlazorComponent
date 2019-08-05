@@ -32,6 +32,17 @@
     }
 </style>
 
+@if (ShowTotalResult)
+{
+    if (@Items.Count() != @initCount)
+    {
+<h4 class="TotalCount">@ItemList.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
+    }
+    else
+    {
+        <h4 class="TotalCount">@Items.Count() enregistrement@(Items.Count() <= 1 ? "" : "s")</h4>
+    }
+}
 <table class="table table-striped table-bordered mdl-data-table">
     <thead class="thead-inverse">
         <tr>
@@ -77,6 +88,8 @@
     int startPage;
     int endPage;
 
+    int initCount;
+
     public string CurrentSortColumn;
 
     [Parameter]
@@ -93,6 +106,9 @@
     int PageSize { get; set; }
 
     [Parameter]
+    bool ShowTotalResult { get; set; } = false;
+
+    [Parameter]
     RenderFragment OtherContent { get; set; }
 
     IEnumerable<TableItem> ItemList { get; set; }
@@ -103,6 +119,7 @@
     protected override async Task OnInitAsync()
     {
         curPage = 1;
+        initCount = Items.Count();
         if (PageSize == 0)
         {
             ItemList = Items;
@@ -137,7 +154,7 @@
         }
         else
         {
-             ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
+            ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
         }
         curPage = currentPage;
         this.StateHasChanged();
