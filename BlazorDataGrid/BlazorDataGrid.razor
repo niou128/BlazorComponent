@@ -102,11 +102,19 @@
 
     protected override async Task OnInitAsync()
     {
-        pagerSize = 5;
         curPage = 1;
-
-        ItemList = Items.Skip((curPage - 1) * PageSize).Take(PageSize);
-        totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        if (PageSize == 0)
+        {
+            ItemList = Items;
+            totalPages = 1;
+            pagerSize = 1;
+        }
+        else
+        {
+            ItemList = Items.Skip((curPage - 1) * PageSize).Take(PageSize);
+            totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+            pagerSize = 5;
+        }
 
         AppState.RefreshRequested += RefreshMe;
 
@@ -123,7 +131,14 @@
 
     public void updateList(int currentPage)
     {
-        ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
+        if (PageSize == 0)
+        {
+            ItemList = Items;
+        }
+        else
+        {
+             ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
+        }
         curPage = currentPage;
         this.StateHasChanged();
     }
