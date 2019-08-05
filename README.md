@@ -33,6 +33,7 @@ services.AddScoped<AppState, AppState>();
 Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -	**Items** : La liste qui remplie la datagrid
 -	**PageSize** : Le nombre de résultat par page. Le paramètre est obligatoire
+-   **ShowTotalResult** : Un booléen pour afficher ou non le nombre de résultats
 -	**BlazorDataGridColumn** : Un composant permettant d'afficher les header
 -	**GridRow** : Les lignes de la datagrid
 
@@ -42,17 +43,17 @@ Le composant ```<BlazorDataGridColumn>``` accepte les paramètres suivant :
 Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 -	**Items** : Il faut passer le même paramètre que pour le composant ```<BlazorDataGrid>```
 -	**ColumnName** : Le nom réel de la colonne sur laquelle se base le filtre et le tri
--	**DisplayColumnName** : Le nom qui sera affiché dans le header
+-	**DisplayColumnName** : (non obligatoire) Le nom qui sera affiché dans le header. *Il est possible de passer le contenu du header entre les balises à la place*
 -	**Filter** : true ou false pour afficher ou non le champ filtre sur la colonne
 
 Exemple de code :
 
 ```
-BlazorDataGrid Items="@forecasts" PageSize="4">
+<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true">
     <BlazorDataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="Date" DisplayColumnName="Date" Filter="true"></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="Temperature C" Filter="true"></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="Temperature F"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>
     </BlazorDataGridColumn>
     <GridRow>
@@ -65,4 +66,15 @@ BlazorDataGrid Items="@forecasts" PageSize="4">
 ```
 
 # Aperçu
-![Alt Text](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/apercu.png)
+![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)
+
+![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
+
+# Release notes
+**1.1.0**
+> - Ajout de la possiblité d'afficher le nombre total d'élément en haut de la datagrid
+> - Le nombre de pages affichées est mis à jour lors de l'application d'un filtre
+> - Au lieu d'utiliser DisplayColumnName, il est possible de passer le texte du header entre les balises de la colonne :  ```<DataGridColumn>Texte du header</DataGridColumn>```
+
+**1.0.0**
+> - Initial release
