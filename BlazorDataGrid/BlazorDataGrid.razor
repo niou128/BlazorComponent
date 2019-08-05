@@ -36,7 +36,7 @@
 {
     if (@Items.Count() != @initCount)
     {
-        <h4 class="TotalCount">@ItemList.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
+        <h4 class="TotalCount">@Items.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
     }
     else
     {
@@ -144,7 +144,7 @@
     {
         StateHasChanged();
         curPage = 1;
-        updateList(curPage);  
+        updateList(curPage);
         SetPagerSize("filtre");
     }
 
