@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorDataGrid\BlazorDataGrid.csproj" />
+    <ProjectReference Include="..\BlazorTabsComponent\BlazorTabsComponent.csproj" />
   </ItemGroup>
 
 </Project>
