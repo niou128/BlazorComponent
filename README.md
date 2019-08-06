@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.1.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.1.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 # BlazorDatagrid
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
@@ -11,11 +11,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le pacquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.1.0
+Install-Package BlazorDataGrid -Version 1.1.1
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.1.0
+dotnet add package BlazorDataGrid --version 1.1.1
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -32,7 +32,7 @@ services.AddScoped<AppState, AppState>();
 
 Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -	**Items** : La liste qui remplie la datagrid
--	**PageSize** : Le nombre de résultat par page. Le paramètre est obligatoire
+-	**PageSize** : Le nombre de résultat par page. Le paramètre est obligatoire (0 signifie tout sur une seule page)
 -   **ShowTotalResult** : Un booléen pour afficher ou non le nombre de résultats
 -	**BlazorDataGridColumn** : Un composant permettant d'afficher les header
 -	**GridRow** : Les lignes de la datagrid
