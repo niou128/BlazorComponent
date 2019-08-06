@@ -1,19 +1,12 @@
 ﻿@inherits BlazorTabsBase
 
-<h1>@BlazorRocksText</h1>
+    <CascadingValue Value="this">
+        <nav class="nav nav-tabs">
+            @ChildContent
+        </nav>
+    </CascadingValue>
 
-<table>
-    <thead>
-        <tr>
-            <th>Princesse 1</th>
-            <th>Princesse 2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Ariel</td>
-            <td>Jasmine</td>
-        </tr>
-    </tbody>
-</table>
+    <div class="nav-tabs-body">
+        @ActiveTab?.ChildContent
+    </div>
 

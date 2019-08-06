@@ -1,14 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace BlazorTabsComponent
 {
     public class BlazorTabsBase : ComponentBase
     {
-        public string BlazorRocksText { get; set; } =
-            "Blazor rocks the browser!";
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
+
+        public ITab ActiveTab { get; set; }
+
+        public void SetActiveTab(ITab tab)
+        {
+            if (ActiveTab != tab)
+            {
+                ActiveTab = tab;
+                StateHasChanged();
+            }
+        }
+
+        public void ActivetFirstTab(ITab tab)
+        {
+            if (ActiveTab == null)
+            {
+                SetActiveTab(tab);
+            }
+        }
     }
 }
