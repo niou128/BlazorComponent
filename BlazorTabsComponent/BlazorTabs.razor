@@ -1,12 +1,14 @@
 ﻿@inherits BlazorTabsBase
 
-    <CascadingValue Value="this">
-        <nav class="nav nav-tabs">
-            @ChildContent
-        </nav>
-    </CascadingValue>
+<CascadingValue Value="this">
+    <nav class="nav nav-tabs">
+        @ChildContent
+    </nav>
+</CascadingValue>
 
-    <div class="nav-tabs-body">
-        @ActiveTab?.ChildContent
-    </div>
+
+<div class="nav-tabs-body">
+    @ActiveTab?.ChildContent
+</div>
+
 

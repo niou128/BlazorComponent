@@ -8,10 +8,19 @@
     }
 
     .nav-link {
-        cursor:pointer;
+        cursor: pointer;
         margin-right: 3px;
     }
 </style>
 
-<div @onclick="@Activate" class="@ClassCss @Active">@Title</div>
+<div @onclick="@Activate" class="@ClassCss @Active">
+    @if (TabHeader == null)
+    {
+        @Title
+    }
+    else
+    {
+        @TabHeader
+    }
+</div>
 

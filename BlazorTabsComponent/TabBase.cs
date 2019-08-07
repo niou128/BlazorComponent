@@ -7,6 +7,9 @@ namespace BlazorTabsComponent
         [Parameter]
         protected string Title { get; set; }
 
+        [Parameter]
+        protected RenderFragment TabHeader { get; set; }
+
         [CascadingParameter]
         protected BlazorTabsBase ContainerTab { get; set; }
 

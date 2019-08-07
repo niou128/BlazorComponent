@@ -7,6 +7,9 @@ namespace BlazorTabsComponent
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        protected RenderFragment TabContent { get; set; }
+
         public ITab ActiveTab { get; set; }
 
         public void SetActiveTab(ITab tab)
