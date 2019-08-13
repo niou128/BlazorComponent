@@ -26,7 +26,7 @@ namespace BlazorTabsComponent
             ContainerTab.SetActiveTab(this);
         }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
             ContainerTab.ActivetFirstTab(this);
         }

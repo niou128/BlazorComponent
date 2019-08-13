@@ -25,15 +25,15 @@
 
 @functions {
     [Parameter]
-    string ColumnName { get; set; }
+    public string ColumnName { get; set; }
     [Parameter]
-    string DisplayColumnName { get; set; } = string.Empty;
+    public string DisplayColumnName { get; set; } = string.Empty;
 
     [Parameter]
-    RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    bool Filter { get; set; } = false;
+   public bool Filter { get; set; } = false;
 
     [CascadingParameter]
     BlazorDataGrid.BlazorDataGrid<TItem> BlazorDataTable { get; set; }
@@ -41,7 +41,7 @@
     private bool IsSortedAscending;
 
     [Parameter]
-    IEnumerable<TItem> Items { get; set; }
+    public IEnumerable<TItem> Items { get; set; }
 
     private string PreviousValue { get; set; } = string.Empty;
 

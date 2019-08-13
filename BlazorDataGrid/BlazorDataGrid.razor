@@ -93,30 +93,30 @@
     public string CurrentSortColumn;
 
     [Parameter]
-    private RenderFragment BlazorDataGridColumn { get; set; }
+    public RenderFragment BlazorDataGridColumn { get; set; }
 
 
     [Parameter]
-    RenderFragment<TableItem> GridRow { get; set; }
+   public RenderFragment<TableItem> GridRow { get; set; }
 
     [Parameter]
     public IEnumerable<TableItem> Items { get; set; }
 
     [Parameter]
-    int PageSize { get; set; }
+    public int PageSize { get; set; }
 
     [Parameter]
-    bool ShowTotalResult { get; set; } = false;
+    public bool ShowTotalResult { get; set; } = false;
 
     [Parameter]
-    RenderFragment OtherContent { get; set; }
+    public RenderFragment OtherContent { get; set; }
 
     IEnumerable<TableItem> ItemList { get; set; }
 
 
     public Dictionary<string, string> FilterDictionary { get; set; }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         curPage = 1;
         initCount = Items.Count();
