@@ -12,9 +12,9 @@
     <Copyright>© Sébastien Bernard</Copyright>
     <Description>Une datagrid filtrée, ordonnée et paginée</Description>
     <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
-    <FileVersion>1.1.1.0</FileVersion>
-    <Version>1.1.1</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
