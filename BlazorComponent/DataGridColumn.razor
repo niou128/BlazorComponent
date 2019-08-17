@@ -1,0 +1,88 @@
+﻿@typeparam TItem
+
+@using Services
+@inject AppState AppState
+
+    <th>
+        <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
+        <span class="oi @(GetSortStyle(ColumnName))"></span>
+        <br />
+        <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+    </th>
+
+@functions {
+    [Parameter]
+    public string DisplayColumnName { get; set; } = string.Empty;
+
+    [CascadingParameter]
+    public BlazorDataGrid<TItem> BlazorDataTable { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    [Parameter]
+    public string ColumnName { get; set; }
+
+    private bool IsSortedAscending;
+    private string PreviousValue { get; set; } = string.Empty;
+
+    private void SortTable(string columnName)
+    {
+        if (columnName != BlazorDataTable.CurrentSortColumn)
+        {
+            BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+
+            BlazorDataTable.CurrentSortColumn = columnName;
+            IsSortedAscending = true;
+            AppState.CallRequestRefresh();
+
+        }
+        else
+        {
+            if (IsSortedAscending)
+            {
+                BlazorDataTable.Items = BlazorDataTable.Items.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+            }
+            else
+            {
+                BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+            }
+            AppState.CallRequestRefresh();
+
+            IsSortedAscending = !IsSortedAscending;
+        }
+    }
+    private string GetSortStyle(string columnName)
+    {
+        if (BlazorDataTable.CurrentSortColumn != columnName)
+        {
+            return string.Empty;
+        }
+        if (IsSortedAscending)
+        {
+            return "oi-arrow-thick-top";
+        }
+        else
+        {
+            return "oi-arrow-thick-bottom";
+        }
+    }
+
+    private void Filtering(string value, string columnName)
+    {
+        BlazorDataTable.FilterDictionary[columnName] = value;
+
+        if (value.Length < PreviousValue.Length)
+        {
+            BlazorDataTable.Items = Items;
+        }
+
+        foreach (var column in BlazorDataTable.FilterDictionary)
+        {
+            BlazorDataTable.Items = BlazorDataTable.Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+        }
+
+        AppState.CallRequestRefresh();
+        PreviousValue = value;
+    }
+}
