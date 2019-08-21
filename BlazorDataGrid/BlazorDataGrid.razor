@@ -43,8 +43,8 @@
         <h4 class="TotalCount">@Items.Count() enregistrement@(Items.Count() <= 1 ? "" : "s")</h4>
     }
 }
-<table class="@TableClass">
-    <thead class="@TheadClass">
+<table class="@TableClass" style="@TableStyle">
+    <thead class="@TheadClass" style="@TheadStyle">
         <tr>
             <CascadingValue Value="this">
                 @BlazorDataGridColumn
@@ -52,7 +52,7 @@
         </tr>
 
     </thead>
-    <tbody class="@TbodyClass">
+    <tbody class="@TbodyClass" style="@TbodyStyle">
         @OtherContent
         @foreach (var item in ItemList)
         {
@@ -119,6 +119,15 @@
 
     [Parameter]
     public string TbodyClass { get; set; }
+
+    [Parameter]
+    public string TableStyle { get; set; }
+
+    [Parameter]
+    public string TheadStyle { get; set; }
+
+    [Parameter]
+    public string TbodyStyle { get; set; }
 
 
     IEnumerable<TableItem> ItemList { get; set; }

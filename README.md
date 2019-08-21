@@ -49,7 +49,7 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 Exemple de code :
 
 ```
-<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true">
+<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
@@ -76,6 +76,9 @@ Exemple de code :
 >   - TableClass : ajoute les classes spécifiées à la balise ```<table>```
 >   - TheadClass : ajoute les classes spécifiées à la balise ```<thead>```
 >   - TbodyClass : ajoute les classes spécifiées à la balise ```<tbody>```
+>   - TableStyle : ajoute les styles spécifiés à la balise ```<table>```
+>   - TheadStyle : ajoute les styles spécifiés à la balise ```<thead>```
+>   - TbodyStyle : ajoute les styles spécifiés à la balise ```<tbody>```
 
 **1.2.0**
 > - Compatibilité avec la preview 8 de Blazor
