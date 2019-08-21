@@ -3,23 +3,23 @@
 @using BlazorDataGrid.Services
 @inject AppState AppState
 
-    <th>
-        @if (ChildContent != null)
-        {
-            <span @onclick="@(() => SortTable(ColumnName))">@ChildContent</span>
-        }
-        else
-        {
-            <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
-        }
-        <span class="oi @(GetSortStyle(ColumnName))"></span>
-        @if (Filter)
-        {
-            <br />
-            <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+<th>
+    @if (ChildContent != null)
+    {
+        <span @onclick="@(() => SortTable(ColumnName))">@ChildContent</span>
+    }
+    else
+    {
+        <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
+    }
+    <span class="oi @(GetSortStyle(ColumnName))"></span>
+    @if (Filter)
+    {
+        <br />
+        <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
 
-        }
-    </th>
+    }
+</th>
 
 
 
@@ -33,7 +33,7 @@
     public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-   public bool Filter { get; set; } = false;
+    public bool Filter { get; set; } = false;
 
     [CascadingParameter]
     BlazorDataGrid.BlazorDataGrid<TItem> BlazorDataTable { get; set; }
@@ -57,7 +57,7 @@
             AppState.CallRequestRefresh();
 
         }
-        else 
+        else
         {
             if (IsSortedAscending)
             {

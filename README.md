@@ -71,6 +71,15 @@ Exemple de code :
 ![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
 
 # Release notes
+**1.3.0**
+> - Ajout des paramètres suivant pour BlazorDatagrid :
+>   - TableClass : ajoute les classes spécifiées à la balise ```<table>```
+>   - TheadClass : ajoute les classes spécifiées à la balise ```<thead>```
+>   - TbodyClass : ajoute les classes spécifiées à la balise ```<tbody>```
+
+**1.2.0**
+> - Compatibilité avec la preview 8 de Blazor
+
 **1.1.1**
 > - Le nombre de résultat est maintenant le nombre total filtré au lieu du nombre de résultat sur la page
 
