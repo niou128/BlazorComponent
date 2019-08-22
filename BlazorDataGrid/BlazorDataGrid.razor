@@ -43,8 +43,8 @@
         <h4 class="TotalCount">@Items.Count() enregistrement@(Items.Count() <= 1 ? "" : "s")</h4>
     }
 }
-<table class="table table-striped table-bordered mdl-data-table">
-    <thead class="thead-inverse">
+<table class="@TableClass" style="@TableStyle">
+    <thead class="@TheadClass" style="@TheadStyle">
         <tr>
             <CascadingValue Value="this">
                 @BlazorDataGridColumn
@@ -52,7 +52,7 @@
         </tr>
 
     </thead>
-    <tbody>
+    <tbody class="@TbodyClass" style="@TbodyStyle">
         @OtherContent
         @foreach (var item in ItemList)
         {
@@ -97,7 +97,7 @@
 
 
     [Parameter]
-   public RenderFragment<TableItem> GridRow { get; set; }
+    public RenderFragment<TableItem> GridRow { get; set; }
 
     [Parameter]
     public IEnumerable<TableItem> Items { get; set; }
@@ -110,6 +110,25 @@
 
     [Parameter]
     public RenderFragment OtherContent { get; set; }
+
+    [Parameter]
+    public string TableClass { get; set; } = "table table-striped table-bordered mdl-data-table";
+
+    [Parameter]
+    public string TheadClass { get; set; } = "thead-inverse";
+
+    [Parameter]
+    public string TbodyClass { get; set; }
+
+    [Parameter]
+    public string TableStyle { get; set; }
+
+    [Parameter]
+    public string TheadStyle { get; set; }
+
+    [Parameter]
+    public string TbodyStyle { get; set; }
+
 
     IEnumerable<TableItem> ItemList { get; set; }
 
