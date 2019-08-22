@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.1.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.3.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 # BlazorDatagrid
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
@@ -11,11 +11,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le pacquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.1.1
+Install-Package BlazorDataGrid -Version 1.3.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.1.1
+dotnet add package BlazorDataGrid --version 1.3.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -36,6 +36,12 @@ Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -   **ShowTotalResult** : Un booléen pour afficher ou non le nombre de résultats
 -	**BlazorDataGridColumn** : Un composant permettant d'afficher les header
 -	**GridRow** : Les lignes de la datagrid
+-   **TableClass** : ajoute les classes spécifiées à la balise ```<table>```
+-   **TheadClass** : ajoute les classes spécifiées à la balise ```<thead>```
+-   **TbodyClass** : ajoute les classes spécifiées à la balise ```<tbody>```
+- **TableStyle** : ajoute les styles spécifiés à la balise ```<table>```
+- **TheadStyle** : ajoute les styles spécifiés à la balise ```<thead>```
+- **TbodyStyle** : ajoute les styles spécifiés à la balise ```<tbody>```
 
 Le composant ```<BlazorDataGridColumn>``` accepte les paramètres suivant :
 -	**DataGridColumn** : Le composant détaillant chaque header
