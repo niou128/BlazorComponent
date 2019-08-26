@@ -1,5 +1,8 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
 [![Package Version](https://img.shields.io/badge/nuget-v1.4.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+
+[Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
+
 # BlazorDatagrid
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
@@ -9,7 +12,7 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 # Installation
 
-Ajouter le pacquet NuGet à votre solution. 
+Ajouter le paquet NuGet à votre solution. 
 ```
 Install-Package BlazorDataGrid -Version 1.4.0
 ```
@@ -85,7 +88,7 @@ La différentes valeur de clé sont les suivantes :
 > - **pages** : La zone d'affichage de la page courrante et du nombre total de pages. Dans la partie valeur, il est possible de renseigner les variables suivante
 >   - **```__curpage__```** : la page actuelle
 >   - **```__totalpages__```** : le nombre totale de pages
-> - **totalresult** : La phrase affiche le nombre total de résultats au singulier (0 ou 1 résulta). La partie valeur accepte la variable suivante : 
+> - **totalresult** : La phrase affiche le nombre total de résultats au singulier (0 ou 1 résultat). La partie valeur accepte la variable suivante : 
 >   - **```__totalcount__```** : Le nombre total de résultats
 > - **totalresultplural**: idem que le précédent mais au pluriel (2 résultats ou plus)
 >   - **```__totalcount__```** : Le nombre total de résultats
@@ -101,5 +104,5 @@ La différentes valeur de clé sont les suivantes :
 
 ![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
 
-**[Release notes](https://github.com/niou128/BlazorComponent/blob/master/README.md)** 
+**[Release notes](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)** 
 

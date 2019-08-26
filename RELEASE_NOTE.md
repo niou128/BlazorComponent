@@ -1,6 +1,8 @@
+[Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
+
 # Release notes
 **1.4.0**
-> - Ajout de la traduction de la Datagrid via le passage en paramètre d'un tableau de traduction. 
+> - Ajout de la traduction de la Datagrid via le passage en paramètre d'un dictionnaire de traduction. 
 >   - Nouveau paramètre : Translation
 
 **1.3.0**
