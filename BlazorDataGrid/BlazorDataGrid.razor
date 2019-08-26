@@ -36,11 +36,11 @@
 {
     if (@Items.Count() != @initCount)
     {
-        <h4 class="TotalCount">@Items.Count() résultat@(ItemList.Count() <= 1 ? "" : "s") sur @initCount enregistrement@(initCount <= 1 ? "" : "s")</h4>
+        <h4 class="TotalCount">@(ItemList.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
     }
     else
     {
-        <h4 class="TotalCount">@Items.Count() enregistrement@(Items.Count() <= 1 ? "" : "s")</h4>
+        <h4 class="TotalCount">@(Items.Count() <= 1 ? Translation["totalresult"] : Translation["totalresultplural"])</h4>
     }
 }
 <table class="@TableClass" style="@TableStyle">
@@ -63,7 +63,7 @@
 <div class="pagination">
 
     <button class="btn pagebutton btn-info" @onclick=@(async () => SetPagerSize("back"))>&laquo;</button>
-    <button class="btn pagebutton btn-secondary" @onclick=@(async () => NavigateToPage("previous"))>Prec.</button>
+    <button class="btn pagebutton btn-secondary" @onclick=@(async () => NavigateToPage("previous"))>@Translation["previous"]</button>
 
     @for (int i = startPage; i <= endPage; i++)
     {
@@ -73,10 +73,10 @@
         </button>
     }
 
-    <button class="btn pagebutton btn-secondary" @onclick=@(async () => NavigateToPage("next"))>Suiv.</button>
+    <button class="btn pagebutton btn-secondary" @onclick=@(async () => NavigateToPage("next"))>@Translation["next"]</button>
     <button class="btn pagebutton btn-info" @onclick=@(async () => SetPagerSize("forward"))>&raquo;</button>
 
-    <span class="pagebutton btn btn-link disabled">Page @curPage de @totalPages</span>
+    <span class="pagebutton btn btn-link disabled">@Translation["pages"]</span>
 
 </div>
 
@@ -129,9 +129,19 @@
     [Parameter]
     public string TbodyStyle { get; set; }
 
+    [Parameter]
+    public Dictionary<string, string> Translation { get; set; }
+
+    #region Translation
+    string OriginalPages { get; set; }
+    string OriginalTotalResult { get; set; }
+    string OriginalTotalResultPlural { get; set; }
+    string OriginalFilteredResults { get; set; }
+    string OriginalFilteredResultsPlural { get; set; }
+    #endregion
+
 
     IEnumerable<TableItem> ItemList { get; set; }
-
 
     public Dictionary<string, string> FilterDictionary { get; set; }
 
@@ -157,6 +167,9 @@
         FilterDictionary = new Dictionary<string, string>();
 
         SetPagerSize("forward");
+
+        InitTranslationDictionnary();
+        UpdateTranslationDictionnary();
     }
 
     private void RefreshMe()
@@ -181,6 +194,7 @@
         }
         curPage = currentPage;
         this.StateHasChanged();
+        UpdateTranslationDictionnary();
     }
 
     public void SetPagerSize(string direction)
@@ -249,6 +263,112 @@
         }
 
         updateList(curPage);
+        UpdateTranslationDictionnary();
+    }
+
+    private void InitTranslationDictionnary()
+    {
+        if (Translation is null)
+        {
+            Translation = new Dictionary<string, string>();
+            Translation.Add("previous", "Prec.");
+            Translation.Add("next", "Suiv.");
+            Translation.Add("pages", $"Page {curPage} de {totalPages}");
+            OriginalPages = "Page __curpage__ de __totalpages__";
+            Translation.Add("totalresult", $"{Items.Count().ToString()} enregistrement");
+            Translation.Add("totalresultplural", $"{Items.Count().ToString()} enregistrements");
+            OriginalTotalResult = "__totalcount__ enregistrement";
+            OriginalTotalResultPlural = "__totalcount__ enregistrements";
+
+            Translation.Add("filteredresults", $"{@Items.Count()} résultat sur {@initCount} enregistrements");
+            OriginalFilteredResults = "__filteredcount__ résultat sur __totalcount__ enregistrements";
+            Translation.Add("filteredresultsplural", $"{@Items.Count()} résultats sur {@initCount} enregistrements");
+            OriginalFilteredResultsPlural = "__filteredcount__ résultats sur __totalcount__ enregistrements";
+
+        }
+        else
+        {
+            if (!Translation.ContainsKey("previous"))
+            {
+                Translation.Add("previous", "Prec.");
+            }
+            if (!Translation.ContainsKey("next"))
+            {
+                Translation.Add("next", "Suiv.");
+            }
+            if (!Translation.ContainsKey("pages"))
+            {
+                Translation.Add("pages", $"Page {curPage} de {totalPages}");
+                OriginalPages = "Page __curpage__ de __totalpages__";
+            }
+            else
+            {
+                OriginalPages = Translation["pages"];
+            }
+
+            if (!Translation.ContainsKey("totalresult"))
+            {
+                Translation.Add("totalresult", $"{Items.Count().ToString()} enregistrement");
+                OriginalTotalResult = "__totalcount__ enregistrement";
+            }
+            else
+            {
+                OriginalTotalResult = Translation["totalresult"];
+            }
+
+            if (!Translation.ContainsKey("totalresultplural"))
+            {
+                Translation.Add("totalresultplural", $"{Items.Count().ToString()} enregistrements");
+                OriginalTotalResultPlural = "__totalcount__ enregistrements";
+            }
+            else
+            {
+                OriginalTotalResultPlural = Translation["totalresultplural"];
+            }
+
+            if (!Translation.ContainsKey("filteredresults"))
+            {
+                Translation.Add("filteredresults", $"{Items.Count()} résultat sur {initCount} enregistrements");
+                OriginalFilteredResults = "__filteredcount__ résultat sur __totalcount__ enregistrements";
+            }
+            else
+            {
+                OriginalFilteredResults = Translation["filteredresults"];
+            }
+
+            if (!Translation.ContainsKey("filteredresultsplural"))
+            {
+                Translation.Add("filteredresultsplural", $"{Items.Count()} résultats sur {initCount} enregistrements");
+                OriginalFilteredResultsPlural = "__filteredcount__ résultats sur __totalcount__ enregistrements";
+            }
+            else
+            {
+                OriginalFilteredResultsPlural = Translation["filteredresultsplural"];
+            }
+        }
+    }
+
+    private void UpdateTranslationDictionnary()
+    {
+        try
+        {
+            Translation["pages"] = OriginalPages.Replace("__curpage__", curPage.ToString())
+                                                .Replace("__totalpages__", totalPages.ToString());
+
+            Translation["totalresult"] = OriginalTotalResult?.Replace("__totalcount__", Items?.Count().ToString());
+
+            Translation["totalresultplural"] = OriginalTotalResultPlural?.Replace("__totalcount__", Items?.Count().ToString());
+
+            Translation["filteredresults"] = OriginalFilteredResults?.Replace("__filteredcount__", Items?.Count().ToString())
+                                                          .Replace("__totalcount__", initCount.ToString());
+
+            Translation["filteredresultsplural"] = OriginalFilteredResultsPlural?.Replace("__filteredcount__", Items?.Count().ToString())
+                                                                .Replace("__totalcount__", initCount.ToString());
+        }
+        catch (System.NullReferenceException nre)
+        {
+            Console.WriteLine(nre.Message);
+        }
     }
 
 }

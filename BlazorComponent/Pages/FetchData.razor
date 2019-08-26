@@ -12,7 +12,7 @@
 }
 else
 {
-<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark">
+<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
@@ -35,4 +35,15 @@ else
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
+
+    private Dictionary<string, string> translate = new Dictionary<string, string>
+    {
+        {"next", "next" },
+        {"previous", "Previous" },
+        {"pages", "Page __curpage__ of __totalpages__" },
+        {"totalresult", "__totalcount__ item" },
+        {"totalresultplural", "__totalcount__ items"},
+        {"filteredresults", "__filteredcount__ result of __totalcount__ items" },
+        {"filteredresultsplural", "__filteredcount__ results of __totalcount__ items"  }
+    };
 }
