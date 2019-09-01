@@ -64,7 +64,7 @@
 <div class="pagination">
 
 
-    Résultats par page :
+    @Translation["selector"]
     <select @bind="@PageSize" style="margin-right:5px">
         @foreach (var item in PageSizeList)
         {
@@ -344,6 +344,8 @@
             Translation.Add("filteredresultsplural", $"{@Items.Count()} résultats sur {@initCount} enregistrements");
             OriginalFilteredResultsPlural = "__filteredcount__ résultats sur __totalcount__ enregistrements";
 
+            Translation.Add("selector", "Résultats par page");
+
         }
         else
         {
@@ -405,6 +407,11 @@
                 else
                 {
                     OriginalFilteredResultsPlural = Translation["filteredresultsplural"];
+                }
+
+                if(!Translation.ContainsKey("selector"))
+                {
+                    Translation.Add("selector", "Résultats par page : ");
                 }
             }
             catch (Exception ex)
