@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlazorDataGrid
 {
     public class BlazorDataGridBase : ComponentBase
-    {       
+    {
         [Parameter]
         public bool ShowPageSelector { get; set; } = true;
 
