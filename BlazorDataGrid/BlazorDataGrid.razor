@@ -1,5 +1,6 @@
 ﻿@typeparam TableItem
 
+@inherits BlazorDataGridBase
 @using BlazorDataGrid.Services
 @inject AppState AppState
 
@@ -62,6 +63,16 @@
 </table>
 <div class="pagination">
 
+    <div style="margin-right:5px">
+        Résultats par page :
+        <select @bind="@PageSize">
+            @foreach (var item in PageSizeList)
+            {
+                <option value="@item.Value">@item.Label</option>
+            }
+        </select>
+    </div>
+
     <button class="btn pagebutton btn-info" @onclick=@(async () => SetPagerSize("back"))>&laquo;</button>
     <button class="btn pagebutton btn-secondary" @onclick=@(async () => NavigateToPage("previous"))>@Translation["previous"]</button>
 
@@ -92,6 +103,24 @@
 
     public string CurrentSortColumn;
 
+    private int _pageSize = 5;
+    [Parameter]
+    public int PageSize
+    {
+        get => _pageSize;
+        set
+        {
+            _pageSize = value;
+            curPage = 1;
+            StateHasChanged();
+            updateList(curPage);
+            SetPagerSize("filtre");
+        }
+    }
+
+    public int ItemPerPage { get; set; }
+
+
     [Parameter]
     public RenderFragment BlazorDataGridColumn { get; set; }
 
@@ -101,9 +130,6 @@
 
     [Parameter]
     public IEnumerable<TableItem> Items { get; set; }
-
-    [Parameter]
-    public int PageSize { get; set; }
 
     [Parameter]
     public bool ShowTotalResult { get; set; } = false;
@@ -147,6 +173,24 @@
 
     protected override async Task OnInitializedAsync()
     {
+        if (ShowPageSelector)
+        {
+            if (PageSizeList == null)
+            {
+                PageSizeList = new List<PageSizeStruct>
+        {
+                    new PageSizeStruct() {Label = "5", Value = 5},
+                    new PageSizeStruct() {Label = "10", Value = 10},
+                    new PageSizeStruct() {Label = "25", Value = 25},
+                    new PageSizeStruct() {Label = "50", Value = 50},
+                    new PageSizeStruct() {Label = "100", Value = 100},
+                    new PageSizeStruct() {Label = "Tout", Value = 0},
+                };
+            }
+            pagerSize = 5;
+            PageSize = 5;
+        }
+
         curPage = 1;
         initCount = Items.Count();
         if (PageSize == 0)
@@ -166,7 +210,7 @@
 
         FilterDictionary = new Dictionary<string, string>();
 
-        SetPagerSize("forward");
+        //SetPagerSize("forward");
 
         InitTranslationDictionnary();
         UpdateTranslationDictionnary();
@@ -219,21 +263,23 @@
         }
         if (direction == "filtre")
         {
+            startPage = 1;
+            endPage = pagerSize;
             if (endPage > totalPages)
             {
                 endPage = totalPages;
             }
-            if (endPage < totalPages)
-            {
-                if (endPage + pagerSize < totalPages)
-                {
-                    endPage = startPage + pagerSize - 1;
-                }
-                else
-                {
-                    endPage = totalPages;
-                }
-            }
+            //if (endPage < totalPages)
+            //{
+            //    if (endPage + pagerSize < totalPages)
+            //    {
+            //        endPage = startPage + pagerSize - 1;
+            //    }
+            //    else
+            //    {
+            //        endPage = totalPages;
+            //    }
+            //}
         }
     }
 
@@ -352,7 +398,7 @@
     {
         try
         {
-            Translation["pages"] = OriginalPages.Replace("__curpage__", curPage.ToString())
+            Translation["pages"] = OriginalPages?.Replace("__curpage__", curPage.ToString())
                                                 .Replace("__totalpages__", totalPages.ToString());
 
             Translation["totalresult"] = OriginalTotalResult?.Replace("__totalcount__", Items?.Count().ToString());
