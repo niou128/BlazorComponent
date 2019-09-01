@@ -73,8 +73,8 @@
     </select>
 
     <ul class="pagination">
-        <li class="page-item">
-            <button class="page-link" @onclick=@(async () => SetPagerSize("back"))>&laquo;</button>
+        <li class="page-item @(endPage - pagerSize <= 1 ? "disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.PreviousSegment))>&laquo;</button>
         </li>
         <li class="page-item @(curPage==1?"disabled":"")">
             <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.Previous)) tabindex="-1" aria-disabled="true">@Translation["previous"]</button>
@@ -91,8 +91,8 @@
         <li class="page-item @(curPage==totalPages?"disabled":"")">
             <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.Next)) tabindex="-1" aria-disabled="true">@Translation["next"]</button>
         </li>
-        <li class="page-item">
-            <button class="page-link" @onclick=@(async () => SetPagerSize("forward"))>&raquo;</button>
+        <li class="page-item @(startPage + pagerSize >= totalPages ? "disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.NextSegment))>&raquo;</button>
         </li>
     </ul>
 
@@ -309,8 +309,12 @@
                 curPage++;
                 break;
             case Direction.PreviousSegment:
+                SetPagerSize("back");
+                curPage = endPage;
                 break;
             case Direction.NextSegment:
+                SetPagerSize("forward");
+                curPage = startPage;
                 break;
             case Direction.Last:
                 break;
