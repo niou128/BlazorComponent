@@ -16,6 +16,7 @@
     <FileVersion>1.5.0.0</FileVersion>
     <Version>1.5.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

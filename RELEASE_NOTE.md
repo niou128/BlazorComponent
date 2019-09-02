@@ -1,6 +1,9 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
 # Release notes
+**1.5.1**
+> - Mise à jour du style des filtres
+
 **1.5.0**
 > - Ajout d'un sélecteur du nombre de résultat par page
 > - Ajout d'un paramètre **ShowPageSelector** permettant d'afficher ou non le selecteur du nombre de résultat par page

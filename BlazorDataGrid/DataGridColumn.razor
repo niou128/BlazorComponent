@@ -15,8 +15,11 @@
     <span class="oi @(GetSortStyle(ColumnName))"></span>
     @if (Filter)
     {
-        <br />
-        <input width="70" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-sm" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+            </div>
+        </form>
 
     }
 </th>
