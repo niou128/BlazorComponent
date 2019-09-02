@@ -37,12 +37,25 @@
 {
     if (@Items.Count() != @initCount)
     {
-        <h4 class="TotalCount">@(ItemList.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
+        <h4 class="TotalCount" style="float:left">@(ItemList.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
     }
     else
     {
-        <h4 class="TotalCount">@(Items.Count() <= 1 ? Translation["totalresult"] : Translation["totalresultplural"])</h4>
+        <h4 class="TotalCount" style="float:left">@(Items.Count() <= 1 ? Translation["totalresult"] : Translation["totalresultplural"])</h4>
     }
+}
+@if (ShowPageSelector)
+{
+    <div class="form-inline" style="float:right">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">@Translation["selector"]</label>
+
+        <select @bind="@PageSize" style="margin-right:5px" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            @foreach (var item in PageSizeList)
+            {
+                <option value="@item.Value">@item.Label</option>
+            }
+        </select>
+    </div>
 }
 <table class="@TableClass" style="@TableStyle">
     <thead class="@TheadClass" style="@TheadStyle">
@@ -62,19 +75,6 @@
     </tbody>
 </table>
 <div class="pagination">
-    @if (ShowPageSelector)
-    {
-        <div class="form-inline">
-            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">@Translation["selector"]</label>
-
-            <select @bind="@PageSize" style="margin-right:5px" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                @foreach (var item in PageSizeList)
-                {
-                    <option value="@item.Value">@item.Label</option>
-                }
-            </select>
-        </div>
-    }
     <ul class="pagination">
         <li class="page-item @(endPage - pagerSize <= 1 ? "disabled":"")">
             <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.PreviousSegment))>&laquo;</button>
