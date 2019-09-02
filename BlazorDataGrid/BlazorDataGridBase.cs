@@ -8,6 +8,9 @@ namespace BlazorDataGrid
         [Parameter]
         public bool ShowPageSelector { get; set; } = true;
 
+        [Parameter]
+        public Dictionary<string, int> PageSelector { get; set; }
+
         protected List<PageSizeStruct> PageSizeList { get; set; }
 
         public class PageSizeStruct

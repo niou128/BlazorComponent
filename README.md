@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.4.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.5.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.4.0
+Install-Package BlazorDataGrid -Version 1.5.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.4.0
+dotnet add package BlazorDataGrid --version 1.5.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -31,7 +31,7 @@ Et dans le fichier ```Startup.cs``` dans la méthode ```public void ConfigureSer
 services.AddScoped<AppState, AppState>();
 ```
 
-# Exemple d'utilisation
+# Paramètres
 
 Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -	**Items** : La liste qui remplie la datagrid
@@ -40,6 +40,14 @@ Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -	**BlazorDataGridColumn** : Un composant permettant d'afficher les header
 -	**GridRow** : Les lignes de la datagrid
 - **Translation** : (optionnel) Un dictionnaire contenant la traduction de la datagrid. La [partie traduction](#Traduction) détail le contenu du dictionnaire.
+- **ShowPageSelector** : true ou false, affiche ou non le selecteur du nombre d'élément par page.
+- **PageSelector** : Un dictionnaire string int, qui permet de personaliser le sélecteur affichage/valeur. La valeur 0 correspond à tous les éléments. Par défaut l'affichage est le suivant :
+    - "5", 5
+    - "10", 10
+    - "25", 25
+    - "50", 50
+    - "100", 100
+    - "*", 0
 
 Le composant ```<BlazorDataGridColumn>``` accepte les paramètres suivant :
 -	**DataGridColumn** : Le composant détaillant chaque header
@@ -50,10 +58,10 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 -	**DisplayColumnName** : (non obligatoire) Le nom qui sera affiché dans le header. *Il est possible de passer le contenu du header entre les balises à la place*
 -	**Filter** : true ou false pour afficher ou non le champ filtre sur la colonne
 
-Exemple de code :
+# Exemple d'utilisation
 
 ```
-<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate">
+<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
@@ -76,7 +84,17 @@ private Dictionary<string, string> translate = new Dictionary<string, string>
         {"totalresult", "__totalcount__ item" },
         {"totalresultplural", "__totalcount__ items"},
         {"filteredresults", "__filteredcount__ result of __totalcount__ items" },
-        {"filteredresultsplural", "__filteredcount__ results of __totalcount__ items"  }
+        {"filteredresultsplural", "__filteredcount__ results of __totalcount__ items"  },
+        {"selector", "Items per page"}
+    };
+
+private Dictionary<string, int> PageSelector = new Dictionary<string, int>
+    {
+        {"5", 5 },
+        {"10", 10 },
+        {"20", 20 },
+        {"30", 30 },
+        {"All", 0 }
     };
 ```
 
@@ -98,6 +116,7 @@ La différentes valeur de clé sont les suivantes :
 > - **filteredresultsplural** : permet l'affichage des résultats filtrés au pluriel (2 résultats ou plus).
 >   - **```__filteredcount__```** : le nombre de résultats filtrés.
 >   - **```__totalcount__```** : Le nombre total de résultats
+> - **selector** : Le text pour le nombre de résultats par page.
 
 # Aperçu
 ![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)

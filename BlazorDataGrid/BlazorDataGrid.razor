@@ -208,15 +208,26 @@
         {
             if (PageSizeList == null)
             {
-                PageSizeList = new List<PageSizeStruct>
+                if (PageSelector != null)
+                {
+                    PageSizeList = new List<PageSizeStruct>();
+                    foreach (var selector in PageSelector)
+                    {
+                        PageSizeList.Add(new PageSizeStruct() { Label = selector.Key, Value = selector.Value });
+                    }
+                }
+                else
+                {
+                    PageSizeList = new List<PageSizeStruct>
 {
                     new PageSizeStruct() {Label = "5", Value = 5},
                     new PageSizeStruct() {Label = "10", Value = 10},
                     new PageSizeStruct() {Label = "25", Value = 25},
                     new PageSizeStruct() {Label = "50", Value = 50},
                     new PageSizeStruct() {Label = "100", Value = 100},
-                    new PageSizeStruct() {Label = "Tout", Value = 0},
+                    new PageSizeStruct() {Label = "*", Value = 0},
                 };
+                }
             }
             PageSize = 5;
         }

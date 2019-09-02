@@ -1,5 +1,13 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.5.0**
+> - Adding a selector for the number of display per page
+> - Adding the parameter **ShowPageSelector** to display or not the selector
+> - New look for the pagination
+> - Clicking the next or previous pagination segment button places the current page on the first or last page of the new segment, respectively
+> - Update the translation to incorporate the selector
+> - Adding the parameter **PageSelector** to personalise the selector
+
 **1.4.0**
 > - Added the translation of the Datagrid by passing a translation dictionnary in parameter. 
 >   - New parameter : Translation
