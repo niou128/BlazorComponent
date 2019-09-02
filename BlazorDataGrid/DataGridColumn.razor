@@ -1,4 +1,5 @@
 ﻿@typeparam TItem
+@inherits BlazorGridColumnBase
 
 @using BlazorDataGrid.Services
 @inject AppState AppState
@@ -13,14 +14,25 @@
         <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
     }
     <span class="oi @(GetSortStyle(ColumnName))"></span>
-    @if (Filter)
+    @if (Filter && !DropdownFilter)
     {
         <form>
             <div class="form-group">
-                <input type="text" class="form-control form-control-sm" @oninput="@((ui) => { Filtering((string)ui.Value, ColumnName); })" />
+                <input type="text" class="form-control form-control-sm" @oninput="@((e) => OnInput(e))" />
             </div>
         </form>
-
+    }
+    @if (DropdownFilter)
+    {
+        <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected value=""></option>
+                @foreach (var item in CreateFilterList())
+                {
+                    <option value="@item" @onclick="@(() => Filtering(item, ColumnName))">@item</option>
+                }
+            </select>
+        </div>
     }
 </th>
 
@@ -38,10 +50,15 @@
     [Parameter]
     public bool Filter { get; set; } = false;
 
+    [Parameter]
+    public bool DropdownFilter { get; set; } = false;
+
     [CascadingParameter]
     BlazorDataGrid.BlazorDataGrid<TItem> BlazorDataTable { get; set; }
 
     private bool IsSortedAscending;
+
+    protected int DebounceMilliseconds { get; set; } = 800;
 
     [Parameter]
     public IEnumerable<TItem> Items { get; set; }
@@ -110,4 +127,40 @@
         PreviousValue = value;
     }
 
+    private List<string> CreateFilterList()
+    {
+        List<string> filterList = new List<string>();
+
+        var properties = typeof(TItem).GetProperties();
+        foreach (var item in Items)
+        {
+            foreach (var property in properties)
+            {
+                if (string.Equals(property.Name, ColumnName, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (!filterList.Any(x => x == property.GetValue(item, null).ToString()))
+                    {
+                        filterList.Add(property.GetValue(item, null).ToString());
+                    }
+                }
+            }
+        }
+        filterList.Sort();
+        return filterList;
+    }
+
+    private void OnInput(UIChangeEventArgs eventArgs)
+    {
+        var filterValue = ((UIChangeEventArgs)eventArgs).Value?.ToString();
+        Debounce(eventArgs, DebounceMilliseconds, async (e) =>
+        {
+           await InvokeAsync(async () =>
+            {
+                await Task.Delay(1);
+                Filtering(filterValue, ColumnName);
+            }).ConfigureAwait(false);
+
+        });
+
+    }
 }
