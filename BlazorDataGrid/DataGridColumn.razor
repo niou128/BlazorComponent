@@ -71,7 +71,7 @@
         set
         {
             _selectedDropdownFilter = value;
-            Filtering(value, ColumnName);
+            Filtering(value, ColumnName, true);
         }
     }
 
@@ -118,11 +118,11 @@
         }
     }
 
-    private void Filtering(string value, string columnName)
+    private void Filtering(string value, string columnName, bool fromlist = false)
     {
         BlazorDataTable.FilterDictionary[columnName] = value;
 
-        if (value.Length < PreviousValue.Length)
+        if (fromlist || value.Length < PreviousValue.Length)
         {
             BlazorDataTable.Items = Items;
         }
