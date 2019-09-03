@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.5.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.6.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.5.1
+Install-Package BlazorDataGrid -Version 1.6.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.5.1
+dotnet add package BlazorDataGrid --version 1.6.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -57,6 +57,7 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 -	**ColumnName** : Le nom réel de la colonne sur laquelle se base le filtre et le tri
 -	**DisplayColumnName** : (non obligatoire) Le nom qui sera affiché dans le header. *Il est possible de passer le contenu du header entre les balises à la place*
 -	**Filter** : true ou false pour afficher ou non le champ filtre sur la colonne
+- **DropdownFilter** : true ou false. Remplace la zone de texte du filtre par une liste contenant toutes les valeurs différentes de la colonnes.
 
 # Exemple d'utilisation
 
@@ -64,7 +65,7 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 <BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" DropdownFilter="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>
     </BlazorDataGridColumn>
