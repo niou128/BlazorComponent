@@ -25,11 +25,11 @@
     @if (DropdownFilter)
     {
         <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="inputGroupSelect01" @bind="@SelectedDropdownFilter">
                 <option selected value=""></option>
                 @foreach (var item in CreateFilterList())
                 {
-                    <option value="@item" @onclick="@(() => Filtering(item, ColumnName))">@item</option>
+                    <option value="@item">@item</option>
                 }
             </select>
         </div>
@@ -65,6 +65,15 @@
 
     private string PreviousValue { get; set; } = string.Empty;
 
+    private string _selectedDropdownFilter;
+    protected string SelectedDropdownFilter {
+        get => _selectedDropdownFilter;
+        set
+        {
+            _selectedDropdownFilter = value;
+            Filtering(value, ColumnName);
+        }
+    }
 
     private void SortTable(string columnName)
     {
@@ -154,7 +163,7 @@
         var filterValue = ((UIChangeEventArgs)eventArgs).Value?.ToString();
         Debounce(eventArgs, DebounceMilliseconds, async (e) =>
         {
-           await InvokeAsync(async () =>
+            await InvokeAsync(async () =>
             {
                 await Task.Delay(1);
                 Filtering(filterValue, ColumnName);
