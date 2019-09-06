@@ -9,6 +9,7 @@ namespace BlazorDataGrid
 {
     public class BlazorGridColumnBase : ComponentBase
     {
+
         private Timer DebounceTimerInterval { get; set; }
         private Action<object> DebounceAction { get; set; }
         private object LastObjectDebounced { get; set; }

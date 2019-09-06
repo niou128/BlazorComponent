@@ -5,18 +5,18 @@ namespace BlazorTabsComponent
     public class TabBase : ComponentBase, ITab
     {
         [Parameter]
-        protected string Title { get; set; }
+        public string Title { get; set; }
 
         [Parameter]
-        protected RenderFragment TabHeader { get; set; }
+        public RenderFragment TabHeader { get; set; }
 
         [CascadingParameter]
-        protected BlazorTabsBase ContainerTab { get; set; }
+        public BlazorTabsBase ContainerTab { get; set; }
 
         protected string Active => ContainerTab.ActiveTab == this ? "active" : null;
 
         [Parameter]
-        protected string ClassCss { get; set; } = "nav-link";
+        public string ClassCss { get; set; } = "nav-link";
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }

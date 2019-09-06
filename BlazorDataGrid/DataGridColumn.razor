@@ -1,6 +1,7 @@
 ﻿@typeparam TItem
 @inherits BlazorGridColumnBase
 
+@using Microsoft.AspNetCore.Components.Web
 @using BlazorDataGrid.Services
 @inject AppState AppState
 
@@ -66,7 +67,8 @@
     private string PreviousValue { get; set; } = string.Empty;
 
     private string _selectedDropdownFilter;
-    protected string SelectedDropdownFilter {
+    protected string SelectedDropdownFilter
+    {
         get => _selectedDropdownFilter;
         set
         {
@@ -158,9 +160,9 @@
         return filterList;
     }
 
-    private void OnInput(UIChangeEventArgs eventArgs)
+    private void OnInput(ChangeEventArgs eventArgs)
     {
-        var filterValue = ((UIChangeEventArgs)eventArgs).Value?.ToString();
+        var filterValue = ((ChangeEventArgs)eventArgs).Value?.ToString();
         Debounce(eventArgs, DebounceMilliseconds, async (e) =>
         {
             await InvokeAsync(async () =>

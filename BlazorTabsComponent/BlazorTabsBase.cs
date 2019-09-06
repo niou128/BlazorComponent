@@ -5,10 +5,10 @@ namespace BlazorTabsComponent
     public class BlazorTabsBase : ComponentBase
     {
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected RenderFragment TabContent { get; set; }
+        public RenderFragment TabContent { get; set; }
 
         public ITab ActiveTab { get; set; }
 

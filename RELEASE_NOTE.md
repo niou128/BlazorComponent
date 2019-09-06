@@ -1,6 +1,9 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
 # Release notes
+**1.7.0**
+> - compatibilité avec blazor preview 9
+
 **1.6.0**
 > - Mise à jour du style des filtres
 > - Ajout d'un paramètre **DropdownFilter** pour remplacer la zone de texte du filtre par une liste contenant toutes les valeurs différentes de la colonnes

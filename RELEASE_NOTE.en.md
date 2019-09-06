@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.7.0**
+> - Compatibility with Blazor preview 9
+
 **1.6.0**
 > - updating filter style
 > - Adding the parameter **DropdownFilter** to replace the filter input text by a list witch contains all different values of the column
