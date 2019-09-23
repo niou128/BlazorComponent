@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.8.0**
+> - Compatibility with .NET Core 3.0 Release Candidate 1
+
 **1.7.0**
 > - Compatibility with Blazor preview 9
 
