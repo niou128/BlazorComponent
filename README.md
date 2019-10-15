@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.8.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.9.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.8.0
+Install-Package BlazorDataGrid -Version 1.9.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.8.0
+dotnet add package BlazorDataGrid --version 1.9.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -35,7 +35,7 @@ services.AddScoped<AppState, AppState>();
 
 Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
 -	**Items** : La liste qui remplie la datagrid
--	**PageSize** : Le nombre de résultat par page. Le paramètre est obligatoire (0 signifie tout sur une seule page)
+-	**PageSize** : Le nombre initial de résultat par page. S'il n'est pas présent, le nombre initial correspond a la première valeur du selecteur.
 -   **ShowTotalResult** : Un booléen pour afficher ou non le nombre de résultats
 -	**BlazorDataGridColumn** : Un composant permettant d'afficher les header
 -	**GridRow** : Les lignes de la datagrid
@@ -124,5 +124,5 @@ La différentes valeur de clé sont les suivantes :
 
 ![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
 
-**[Release notes](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)** 
+**[Notes de version](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)** 
 

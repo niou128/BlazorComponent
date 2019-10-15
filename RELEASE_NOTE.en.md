@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.9.0**
+> - The PageSize parameter now allows you to set the initial number of items displayed. If it is not present, the initial number is the first value of the selector.
+
 **1.8.0**
 > - Compatibility with .NET Core 3.0 Release Candidate 1
 

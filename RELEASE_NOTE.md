@@ -1,6 +1,9 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
 # Release notes
+**1.9.0**
+> - Le paramètre PageSize permet désormais de définir le nombre initial d'éléments affichés. S'il n'est pas présent, c'est le premier nombre du sélecteur qui sera choisi.
+
 **1.8.0**
 > - compatibilité avec .NET Core 3.0 Release Candidate 1
 

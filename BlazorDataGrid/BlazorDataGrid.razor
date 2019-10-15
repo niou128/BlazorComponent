@@ -88,7 +88,7 @@
 
     public string CurrentSortColumn;
 
-    private int _pageSize;
+    private int _pageSize = -1;
     [Parameter]
     public int PageSize
     {
@@ -204,7 +204,7 @@
             }
             try
             {
-                if (PageSize == 0)
+                if (PageSize == -1)
                 PageSize = PageSizeList[0].Value;
             }
             catch (Exception)
