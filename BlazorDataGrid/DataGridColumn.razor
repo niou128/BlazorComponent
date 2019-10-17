@@ -122,6 +122,9 @@
 
     private void Filtering(string value, string columnName, bool fromlist = false)
     {
+        //BlazorDataTable.loadingRow = true;
+        //AppState.CallRequestRefresh();
+
         BlazorDataTable.FilterDictionary[columnName] = value;
 
         if (fromlist || value.Length < PreviousValue.Length)
@@ -129,11 +132,12 @@
             BlazorDataTable.Items = Items;
         }
 
-        foreach (var column in BlazorDataTable.FilterDictionary)
-        {
-            BlazorDataTable.Items = BlazorDataTable.Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-        }
+        //foreach (var column in BlazorDataTable.FilterDictionary)
+        //{
+        //    BlazorDataTable.Items = BlazorDataTable.Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+        //}
 
+        //BlazorDataTable.loadingRow = false;
         AppState.CallRequestRefresh();
         PreviousValue = value;
     }

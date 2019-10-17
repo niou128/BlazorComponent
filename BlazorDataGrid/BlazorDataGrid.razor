@@ -40,10 +40,17 @@
 
     </thead>
     <tbody class="@TbodyClass" style="@TbodyStyle">
-        @OtherContent
-        @foreach (var item in ItemList)
+        @if (loadingRow)
         {
-            <tr class="blazor-row-item">@GridRow(item)</tr>
+            <tr>loading ...</tr>
+        }
+        else
+        {
+            @OtherContent
+            @foreach (var item in ItemList)
+            {
+                <tr class="blazor-row-item">@GridRow(item)</tr>
+            }
         }
     </tbody>
 </table>
@@ -173,6 +180,8 @@
 
     public Dictionary<string, string> FilterDictionary { get; set; }
 
+    public bool loadingRow { get; set; } = false;
+
     protected override async Task OnInitializedAsync()
     {
         pagerSize = 5;
@@ -192,26 +201,26 @@
                 else
                 {
                     PageSizeList = new List<PageSizeStruct>
-{
-                    new PageSizeStruct() {Label = "5", Value = 5},
-                    new PageSizeStruct() {Label = "10", Value = 10},
-                    new PageSizeStruct() {Label = "25", Value = 25},
-                    new PageSizeStruct() {Label = "50", Value = 50},
-                    new PageSizeStruct() {Label = "100", Value = 100},
-                    new PageSizeStruct() {Label = "*", Value = 0},
-                };
+                    {
+                        new PageSizeStruct() {Label = "5", Value = 5},
+                        new PageSizeStruct() {Label = "10", Value = 10},
+                        new PageSizeStruct() {Label = "25", Value = 25},
+                        new PageSizeStruct() {Label = "50", Value = 50},
+                        new PageSizeStruct() {Label = "100", Value = 100},
+                        new PageSizeStruct() {Label = "*", Value = 0},
+                    };
                 }
             }
             try
             {
                 if (PageSize == -1)
-                PageSize = PageSizeList[0].Value;
+                    PageSize = PageSizeList[0].Value;
             }
             catch (Exception)
             {
                 PageSize = 5;
             }
-            
+
         }
 
         curPage = 1;
@@ -235,6 +244,8 @@
 
     public void updateList(int currentPage)
     {
+        LoadData();
+
         if (PageSize == 0)
         {
             ItemList = Items;
@@ -246,11 +257,12 @@
             totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
         }
         curPage = currentPage;
-        this.StateHasChanged();
+        
         if (NeedUpdate)
         {
             UpdateTranslationDictionnary();
         }
+        this.StateHasChanged();
     }
 
     public void SetPagerSize(string direction)
@@ -441,6 +453,23 @@
         {
             Console.WriteLine(nre.Message);
         }
+    }
+
+    private void LoadData()
+    {
+        loadingRow = true;
+        StateHasChanged();
+
+        if (FilterDictionary != null)
+        {
+            foreach (var column in FilterDictionary)
+            {
+                Items = Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+        }
+
+        loadingRow = false;
+        StateHasChanged();
     }
 
 }

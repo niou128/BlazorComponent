@@ -1,6 +1,10 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
 # Release notes
+**1.10.0**
+> - Amélioration du filtrage des colonnes.
+> - Ajout d'un message de chargement lors d'un filtrage long
+
 **1.9.0**
 > - Le paramètre PageSize permet désormais de définir le nombre initial d'éléments affichés. S'il n'est pas présent, c'est le premier nombre du sélecteur qui sera choisi.
 
