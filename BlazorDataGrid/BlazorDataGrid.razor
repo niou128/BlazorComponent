@@ -93,7 +93,9 @@
 
     int initCount;
 
-    public string CurrentSortColumn;
+    public string CurrentSortColumn = string.Empty;
+    public string LastSortedColumn = string.Empty;
+    public bool IsSortedAscending = false;
 
     private int _pageSize = -1;
     [Parameter]
@@ -257,7 +259,7 @@
             totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
         }
         curPage = currentPage;
-        
+
         if (NeedUpdate)
         {
             UpdateTranslationDictionnary();
@@ -465,6 +467,29 @@
             foreach (var column in FilterDictionary)
             {
                 Items = Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+        }
+
+        if (!string.IsNullOrEmpty(CurrentSortColumn))
+        {
+            if (!string.Equals(CurrentSortColumn, LastSortedColumn, StringComparison.OrdinalIgnoreCase))
+            {
+                Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                LastSortedColumn = CurrentSortColumn;
+                IsSortedAscending = true;
+            }
+            else
+            {
+                if (IsSortedAscending)
+            {
+                Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+            }
+            else
+            {
+                Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+            }
+
+            IsSortedAscending = !IsSortedAscending;
             }
         }
 

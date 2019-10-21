@@ -81,8 +81,6 @@
     {
         if (columnName != BlazorDataTable.CurrentSortColumn)
         {
-            BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-
             BlazorDataTable.CurrentSortColumn = columnName;
             IsSortedAscending = true;
             AppState.CallRequestRefresh();
@@ -90,15 +88,6 @@
         }
         else
         {
-            if (IsSortedAscending)
-            {
-                BlazorDataTable.Items = BlazorDataTable.Items.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-            }
-            else
-            {
-                BlazorDataTable.Items = BlazorDataTable.Items.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
-            }
-
             AppState.CallRequestRefresh();
             IsSortedAscending = !IsSortedAscending;
         }
@@ -122,9 +111,6 @@
 
     private void Filtering(string value, string columnName, bool fromlist = false)
     {
-        //BlazorDataTable.loadingRow = true;
-        //AppState.CallRequestRefresh();
-
         BlazorDataTable.FilterDictionary[columnName] = value;
 
         if (fromlist || value.Length < PreviousValue.Length)
@@ -132,12 +118,6 @@
             BlazorDataTable.Items = Items;
         }
 
-        //foreach (var column in BlazorDataTable.FilterDictionary)
-        //{
-        //    BlazorDataTable.Items = BlazorDataTable.Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-        //}
-
-        //BlazorDataTable.loadingRow = false;
         AppState.CallRequestRefresh();
         PreviousValue = value;
     }

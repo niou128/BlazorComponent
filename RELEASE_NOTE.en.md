@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.10.1**
+> - Update column sorting
+
 **1.10.0**
 > - Improved column filtering.
 > - Adding a load message during a long filter
