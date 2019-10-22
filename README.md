@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.10.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.10.2-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDatGrid/)
 
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.10.1
+Install-Package BlazorDataGrid -Version 1.10.2
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.10.1
+dotnet add package BlazorDataGrid --version 1.10.2
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -118,6 +118,7 @@ La différentes valeur de clé sont les suivantes :
 >   - **```__filteredcount__```** : le nombre de résultats filtrés.
 >   - **```__totalcount__```** : Le nombre total de résultats
 > - **selector** : Le text pour le nombre de résultats par page.
+> - **loading** : Le message de chargement.
 
 # Aperçu
 ![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)

@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.10.2**
+> - Add loading message in the dictionnary
+
 **1.10.1**
 > - Update column sorting
 

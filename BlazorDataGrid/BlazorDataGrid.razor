@@ -42,7 +42,7 @@
     <tbody class="@TbodyClass" style="@TbodyStyle">
         @if (loadingRow)
         {
-            <tr>loading ...</tr>
+        <tr>@Translation["loading"]</tr>
         }
         else
         {
@@ -95,7 +95,8 @@
 
     public string CurrentSortColumn = string.Empty;
     public string LastSortedColumn = string.Empty;
-    public bool IsSortedAscending = false;
+    public bool IsSortedAscending;
+    public bool ChangeSorting = false;
 
     private int _pageSize = -1;
     [Parameter]
@@ -203,7 +204,7 @@
                 else
                 {
                     PageSizeList = new List<PageSizeStruct>
-                    {
+                {
                         new PageSizeStruct() {Label = "5", Value = 5},
                         new PageSizeStruct() {Label = "10", Value = 10},
                         new PageSizeStruct() {Label = "25", Value = 25},
@@ -355,6 +356,7 @@
             OriginalFilteredResultsPlural = "__filteredcount__ résultats sur __totalcount__ enregistrements";
 
             Translation.Add("selector", "Résultats par page");
+            Translation.Add("loading", "Chargement ...");
 
         }
         else
@@ -423,6 +425,11 @@
                 {
                     Translation.Add("selector", "Résultats par page : ");
                 }
+
+                if (!Translation.ContainsKey("loading"))
+                {
+                    Translation.Add("loading", "Chargement ...");
+                }
             }
             catch (Exception ex)
             {
@@ -480,16 +487,30 @@
             }
             else
             {
-                if (IsSortedAscending)
-            {
-                Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
-            }
-            else
-            {
-                Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
-            }
-
-            IsSortedAscending = !IsSortedAscending;
+                if (ChangeSorting)
+                {
+                    if (IsSortedAscending)
+                    {
+                        Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    else
+                    {
+                        Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    IsSortedAscending = !IsSortedAscending;
+                    ChangeSorting = false;
+                }
+                else
+                {
+                    if (IsSortedAscending)
+                    {
+                        Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    else
+                    {
+                        Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                }
             }
         }
 

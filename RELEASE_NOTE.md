@@ -1,6 +1,9 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
 # Release notes
+**1.10.2**
+> - Ajout du message de chargement dans le dictionnaire
+
 **1.10.1**
 > - Mise à jour du tri des colonnes
 

@@ -83,11 +83,13 @@
         {
             BlazorDataTable.CurrentSortColumn = columnName;
             IsSortedAscending = true;
+            BlazorDataTable.ChangeSorting = true;
             AppState.CallRequestRefresh();
 
         }
         else
         {
+            BlazorDataTable.ChangeSorting = true;
             AppState.CallRequestRefresh();
             IsSortedAscending = !IsSortedAscending;
         }
