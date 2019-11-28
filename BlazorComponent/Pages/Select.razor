@@ -1,0 +1,20 @@
+﻿@page "/select"
+
+
+<h1>Test select</h1>
+<br />
+<BlazorSelect @bind-Value="@StringList" Name="Périodicité">
+    <BlazorOption Value="test">test</BlazorOption>
+    <BlazorOption Value="test2">test2</BlazorOption>
+</BlazorSelect>
+
+@foreach (var item in StringList)
+{
+   <li>@item</li>
+}
+
+@code {
+    public string Val { get; set; }
+
+    public List<string> StringList { get; set; } = new List<string>();
+}

@@ -1,0 +1,26 @@
+﻿@inherits BlazorSelectBase
+
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+    <button class="btn btn-outline-secondary dropdown-toggle" @onclick="@DropdownClick">@Name</button>
+<CascadingValue Value="@this">
+    <div @ref="Ref" class="dropdown-content @Show">
+        @ChildContent
+    </div>
+</CascadingValue>

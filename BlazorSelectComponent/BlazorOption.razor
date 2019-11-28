@@ -1,0 +1,6 @@
+﻿@inherits BlazorOptionBase
+
+    <div data-value="@Value" @ref="Ref" Id="@Id">
+        <input type="checkbox" @onclick="@ClickInput" /> @ChildContent
+    </div>
+

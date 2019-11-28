@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDataGrid", "BlazorDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTabsComponent", "BlazorTabsComponent\BlazorTabsComponent.csproj", "{71970260-F593-4D3A-9847-3F3BA845606B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSelectComponent", "BlazorSelectComponent\BlazorSelectComponent.csproj", "{CA1A98ED-6BE8-424D-B133-A88A43DDE688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{71970260-F593-4D3A-9847-3F3BA845606B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71970260-F593-4D3A-9847-3F3BA845606B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71970260-F593-4D3A-9847-3F3BA845606B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
