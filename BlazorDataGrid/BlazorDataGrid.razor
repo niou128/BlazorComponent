@@ -185,7 +185,7 @@
 
     public bool loadingRow { get; set; } = false;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         pagerSize = 5;
         initCount = Items.Count();
