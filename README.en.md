@@ -14,11 +14,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorData
 
 To install BlazorDataGrid using Package Manager run the following command
 ```
-Install-Package BlazorDataGrid -Version 1.10.2
+Install-Package BlazorDataGrid -Version 1.11.0
 ```
 To install BlazorDataGrid using .NET CLI run the following command
 ```
-dotnet add package BlazorDataGrid --version 1.10.2
+dotnet add package BlazorDataGrid --version 1.11.0
 ```
 
 After you have installed the package add the following line in the ```_Imports.razor``` file

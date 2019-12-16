@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.10.2
+Install-Package BlazorDataGrid -Version 1.11.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.10.2
+dotnet add package BlazorDataGrid --version 1.11.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
