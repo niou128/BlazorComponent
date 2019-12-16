@@ -1,5 +1,19 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.11.0**
+> - Update to .Net Core 3.1
+> - Updating pagination calculation
+
+**1.10.2**
+> - Add loading message in the dictionnary
+
+**1.10.1**
+> - Update column sorting
+
+**1.10.0**
+> - Improved column filtering.
+> - Adding a load message during a long filter
+
 **1.9.0**
 > - The PageSize parameter now allows you to set the initial number of items displayed. If it is not present, the initial number is the first value of the selector.
 

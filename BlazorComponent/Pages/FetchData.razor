@@ -34,6 +34,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(500).ConfigureAwait(false);
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 

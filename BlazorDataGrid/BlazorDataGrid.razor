@@ -40,10 +40,17 @@
 
     </thead>
     <tbody class="@TbodyClass" style="@TbodyStyle">
-        @OtherContent
-        @foreach (var item in ItemList)
+        @if (loadingRow)
         {
-            <tr class="blazor-row-item">@GridRow(item)</tr>
+        <tr>@Translation["loading"]</tr>
+        }
+        else
+        {
+            @OtherContent
+            @foreach (var item in ItemList)
+            {
+                <tr class="blazor-row-item">@GridRow(item)</tr>
+            }
         }
     </tbody>
 </table>
@@ -77,6 +84,7 @@
 </div>
 
 @functions {
+    const int defaultPagerSize = 5;
     int totalPages;
     int curPage;
     int pagerSize;
@@ -86,7 +94,10 @@
 
     int initCount;
 
-    public string CurrentSortColumn;
+    public string CurrentSortColumn = string.Empty;
+    public string LastSortedColumn = string.Empty;
+    public bool IsSortedAscending;
+    public bool ChangeSorting = false;
 
     private int _pageSize = -1;
     [Parameter]
@@ -173,9 +184,11 @@
 
     public Dictionary<string, string> FilterDictionary { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    public bool loadingRow { get; set; } = false;
+
+    protected override void OnInitialized()
     {
-        pagerSize = 5;
+        pagerSize = defaultPagerSize;
         initCount = Items.Count();
         if (ShowPageSelector)
         {
@@ -192,26 +205,26 @@
                 else
                 {
                     PageSizeList = new List<PageSizeStruct>
-{
-                    new PageSizeStruct() {Label = "5", Value = 5},
-                    new PageSizeStruct() {Label = "10", Value = 10},
-                    new PageSizeStruct() {Label = "25", Value = 25},
-                    new PageSizeStruct() {Label = "50", Value = 50},
-                    new PageSizeStruct() {Label = "100", Value = 100},
-                    new PageSizeStruct() {Label = "*", Value = 0},
-                };
+                {
+                        new PageSizeStruct() {Label = "5", Value = 5},
+                        new PageSizeStruct() {Label = "10", Value = 10},
+                        new PageSizeStruct() {Label = "25", Value = 25},
+                        new PageSizeStruct() {Label = "50", Value = 50},
+                        new PageSizeStruct() {Label = "100", Value = 100},
+                        new PageSizeStruct() {Label = "*", Value = 0},
+                    };
                 }
             }
             try
             {
                 if (PageSize == -1)
-                PageSize = PageSizeList[0].Value;
+                    PageSize = PageSizeList[0].Value;
             }
             catch (Exception)
             {
                 PageSize = 5;
             }
-            
+
         }
 
         curPage = 1;
@@ -235,6 +248,8 @@
 
     public void updateList(int currentPage)
     {
+        LoadData();
+
         if (PageSize == 0)
         {
             ItemList = Items;
@@ -246,11 +261,12 @@
             totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
         }
         curPage = currentPage;
-        this.StateHasChanged();
+
         if (NeedUpdate)
         {
             UpdateTranslationDictionnary();
         }
+        this.StateHasChanged();
     }
 
     public void SetPagerSize(string direction)
@@ -276,11 +292,17 @@
         if (direction == "filtre")
         {
             startPage = 1;
+            pagerSize = defaultPagerSize;
+            if (pagerSize > totalPages)
+            {
+                pagerSize = totalPages;
+            }
             endPage = pagerSize;
             if (endPage > totalPages)
             {
                 endPage = totalPages;
             }
+            this.StateHasChanged();
         }
     }
 
@@ -341,6 +363,7 @@
             OriginalFilteredResultsPlural = "__filteredcount__ résultats sur __totalcount__ enregistrements";
 
             Translation.Add("selector", "Résultats par page");
+            Translation.Add("loading", "Chargement ...");
 
         }
         else
@@ -409,6 +432,11 @@
                 {
                     Translation.Add("selector", "Résultats par page : ");
                 }
+
+                if (!Translation.ContainsKey("loading"))
+                {
+                    Translation.Add("loading", "Chargement ...");
+                }
             }
             catch (Exception ex)
             {
@@ -441,6 +469,60 @@
         {
             Console.WriteLine(nre.Message);
         }
+    }
+
+    private void LoadData()
+    {
+        loadingRow = true;
+        StateHasChanged();
+
+        if (FilterDictionary != null)
+        {
+            foreach (var column in FilterDictionary)
+            {
+                Items = Items.Where(x => x.GetType().GetProperty(column.Key).GetValue(x, null).ToString().IndexOf(column.Value, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+        }
+
+        if (!string.IsNullOrEmpty(CurrentSortColumn))
+        {
+            if (!string.Equals(CurrentSortColumn, LastSortedColumn, StringComparison.OrdinalIgnoreCase))
+            {
+                Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                LastSortedColumn = CurrentSortColumn;
+                IsSortedAscending = true;
+            }
+            else
+            {
+                if (ChangeSorting)
+                {
+                    if (IsSortedAscending)
+                    {
+                        Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    else
+                    {
+                        Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    IsSortedAscending = !IsSortedAscending;
+                    ChangeSorting = false;
+                }
+                else
+                {
+                    if (IsSortedAscending)
+                    {
+                        Items = Items.OrderBy(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                    else
+                    {
+                        Items = Items.OrderByDescending(x => x.GetType().GetProperty(CurrentSortColumn).GetValue(x, null)).ToList();
+                    }
+                }
+            }
+        }
+
+        loadingRow = false;
+        StateHasChanged();
     }
 
 }

@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.9.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.11.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/README.md)
 
@@ -14,11 +14,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorData
 
 To install BlazorDataGrid using Package Manager run the following command
 ```
-Install-Package BlazorDataGrid -Version 1.9.0
+Install-Package BlazorDataGrid -Version 1.11.0
 ```
 To install BlazorDataGrid using .NET CLI run the following command
 ```
-dotnet add package BlazorDataGrid --version 1.9.0
+dotnet add package BlazorDataGrid --version 1.11.0
 ```
 
 After you have installed the package add the following line in the ```_Imports.razor``` file
@@ -120,6 +120,7 @@ In the value part, it is possible to enter the following variables:
 >   - **```__filteredcount__```**: the number of filtered results.
 >   - **```__totalcount__```**: the total number of results
 > - **selector**: Text for the items per page selector
+> - **loading**: The loading message.
 
 # Aperçu
 ![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)
