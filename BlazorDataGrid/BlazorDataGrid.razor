@@ -84,6 +84,7 @@
 </div>
 
 @functions {
+    const int defaultPagerSize = 5;
     int totalPages;
     int curPage;
     int pagerSize;
@@ -187,7 +188,7 @@
 
     protected override void OnInitialized()
     {
-        pagerSize = 5;
+        pagerSize = defaultPagerSize;
         initCount = Items.Count();
         if (ShowPageSelector)
         {
@@ -291,11 +292,17 @@
         if (direction == "filtre")
         {
             startPage = 1;
+            pagerSize = defaultPagerSize;
+            if (pagerSize > totalPages)
+            {
+                pagerSize = totalPages;
+            }
             endPage = pagerSize;
             if (endPage > totalPages)
             {
                 endPage = totalPages;
             }
+            this.StateHasChanged();
         }
     }
 
