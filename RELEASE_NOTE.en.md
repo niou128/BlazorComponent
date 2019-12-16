@@ -1,5 +1,9 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**1.11.0**
+> - Update to .Net Core 3.1
+> - Updating pagination calculation
+
 **1.10.2**
 > - Add loading message in the dictionnary
 
