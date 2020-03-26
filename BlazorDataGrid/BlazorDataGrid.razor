@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Components.Web
 @using BlazorDataGrid.Services
 @inject AppState AppState
+@using BlazorDataGrid.Helpers
 
 
 @if (ShowTotalResult)
@@ -49,7 +50,28 @@
             @OtherContent
             @foreach (var item in ItemList)
             {
-                <tr class="blazor-row-item">@GridRow(item)</tr>
+                @if (Editable)
+                {
+                    @*<tr class="blazor-row-item" contenteditable @onfocusout="Focusouttest">@GridRow(item)</tr>*@
+                    <tr class="blazor-row-item">
+                        @foreach (var elt in typeof(TableItem).GetProperties())
+                        {
+                            @*@if (elt.PropertyType == typeof(DateTime))
+                                {
+                                    <td contenteditable>@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), "dd/MM/yyyy")</td>
+                                }
+                                else
+                                {
+                                    <td contenteditable>@item.GetType().GetProperty(elt.Name).GetValue(item, null)</td>
+                                }*@
+                            <td contenteditable>@item.GetType().GetProperty(elt.Name).GetValue(item, null)</td>
+                        }
+                    </tr>
+                }
+                else
+                {
+                    <tr class="blazor-row-item">@GridRow(item)</tr>
+                }
             }
         }
     </tbody>

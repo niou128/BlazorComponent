@@ -28,7 +28,7 @@ Ensuite il faut ajouter dans le fichier ```_Imports.razor```
 
 Et dans le fichier ```Startup.cs``` dans la méthode ```public void ConfigureServices(IServiceCollection services)```
 ```
-services.AddScoped<AppState, AppState>();
+services.AddScoped<AppState>();
 ```
 
 # Paramètres
@@ -101,7 +101,7 @@ private Dictionary<string, int> PageSelector = new Dictionary<string, int>
 
 # Traduction
 La traduction s'éffectue par l"intermédiaire d'un dictionnaire string string.
-La différentes valeur de clé sont les suivantes : 
+Les différentes valeur de clé sont les suivantes : 
 > - **next** : le bouton page suivante de la pagination
 > - **previous** : le bouton page précédente de la pagination
 > - **pages** : La zone d'affichage de la page courrante et du nombre total de pages. Dans la partie valeur, il est possible de renseigner les variables suivante

@@ -78,17 +78,13 @@ namespace BlazorDataGrid
 
         [Parameter]
         public Dictionary<string, string> Translation { get; set; }
+
+        [Parameter]
+        public bool Editable { get; set; } = false;
         #endregion
 
         const int defaultPagerSize = 5;
-        int totalPages;
-        int curPage;
-        int pagerSize;
-
-        int startPage;
-        int endPage;
-
-        int initCount;
+        int totalPages, curPage, pagerSize, startPage, endPage, initCount;
 
         private int _pageSize = -1;
 
@@ -235,7 +231,7 @@ namespace BlazorDataGrid
             else if (direction == "back" && startPage > 1)
             {
                 endPage = startPage - 1;
-                startPage = startPage - pagerSize;
+                startPage -= pagerSize;
             }
             if (direction == "filtre")
             {
@@ -295,13 +291,15 @@ namespace BlazorDataGrid
         {
             if (Translation is null)
             {
-                Translation = new Dictionary<string, string>();
-                Translation.Add("previous", "Prec.");
-                Translation.Add("next", "Suiv.");
-                Translation.Add("pages", $"Page {curPage} de {totalPages}");
+                Translation = new Dictionary<string, string>
+                {
+                    { "previous", "Prec." },
+                    { "next", "Suiv." },
+                    { "pages", $"Page {curPage} de {totalPages}" }
+                };
                 OriginalPages = "Page __curpage__ de __totalpages__";
-                Translation.Add("totalresult", $"{Items.Count().ToString()} enregistrement");
-                Translation.Add("totalresultplural", $"{Items.Count().ToString()} enregistrements");
+                Translation.Add("totalresult", $"{Items.Count()} enregistrement");
+                Translation.Add("totalresultplural", $"{Items.Count()} enregistrements");
                 OriginalTotalResult = "__totalcount__ enregistrement";
                 OriginalTotalResultPlural = "__totalcount__ enregistrements";
 
@@ -338,7 +336,7 @@ namespace BlazorDataGrid
 
                     if (!Translation.ContainsKey("totalresult"))
                     {
-                        Translation.Add("totalresult", $"{Items.Count().ToString()} enregistrement");
+                        Translation.Add("totalresult", $"{Items.Count()} enregistrement");
                         OriginalTotalResult = "__totalcount__ enregistrement";
                     }
                     else
@@ -348,7 +346,7 @@ namespace BlazorDataGrid
 
                     if (!Translation.ContainsKey("totalresultplural"))
                     {
-                        Translation.Add("totalresultplural", $"{Items.Count().ToString()} enregistrements");
+                        Translation.Add("totalresultplural", $"{Items.Count()} enregistrements");
                         OriginalTotalResultPlural = "__totalcount__ enregistrements";
                     }
                     else
@@ -471,6 +469,11 @@ namespace BlazorDataGrid
 
             LoadingRow = false;
             StateHasChanged();
+        }
+
+        protected void Focusouttest()
+        {
+
         }
     }
 }

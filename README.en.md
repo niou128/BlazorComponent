@@ -28,7 +28,7 @@ After you have installed the package add the following line in the ```_Imports.r
 
 And in the ```Startup.cs``` file in the method ```public void ConfigureServices(IServiceCollection services)```
 ```
-services.AddScoped<AppState, AppState>();
+services.AddScoped<AppState>();
 ```
 
 # Parameters
