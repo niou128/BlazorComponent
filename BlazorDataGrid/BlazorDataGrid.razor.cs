@@ -81,7 +81,15 @@ namespace BlazorDataGrid
 
         [Parameter]
         public bool Editable { get; set; } = false;
+
+        [Parameter]
+        public string Culture { get; set; }
         #endregion
+
+        public string Format
+        {
+            get => AppState.Format;
+        }
 
         const int defaultPagerSize = 5;
         int totalPages, curPage, pagerSize, startPage, endPage, initCount;
@@ -132,6 +140,9 @@ namespace BlazorDataGrid
 
         protected override void OnInitialized()
         {
+            //AppState.StateChanged += AppState_StateChanged;
+            //AppState.OnChange += StateHasChanged;
+
             pagerSize = defaultPagerSize;
             initCount = Items.Count();
             if (ShowPageSelector)
@@ -180,6 +191,14 @@ namespace BlazorDataGrid
             InitTranslationDictionnary();
             NeedUpdate = true;
             UpdateTranslationDictionnary();
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                StateHasChanged();
+            }
         }
 
         private void RefreshMe()

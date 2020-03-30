@@ -28,6 +28,13 @@ namespace BlazorDataGrid
         [Parameter]
         public IEnumerable<TItem> Items { get; set; }
 
+        [Parameter]
+        public string Format
+        {
+            get => AppState.Format;
+            set => AppState.SetFormat(value);
+        }
+
         [CascadingParameter]
         BlazorDataGrid<TItem> BlazorDataTable { get; set; }
         #endregion
@@ -61,13 +68,13 @@ namespace BlazorDataGrid
             DebounceTimerInterval = null;
         }
 
-       
+
 
         private bool IsSortedAscending;
 
         protected int DebounceMilliseconds { get; set; } = 800;
 
-        
+
 
         private string PreviousValue { get; set; } = string.Empty;
 

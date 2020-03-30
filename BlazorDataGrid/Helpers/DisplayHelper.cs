@@ -1,30 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace BlazorDataGrid.Helpers
 {
     public static class DisplayHelper
     {
-        public static string DisplayDate(object dt, string format = null)
+        public static string DisplayDate(object dt, string format = null, string cultureInfo = null)
         {
-            string displayDate;
-            if (dt.GetType() == typeof(string))
+            if (dt is null)
             {
-                displayDate = dt.ToString();
+                return string.Empty;
             }
-            else if (dt.GetType() == typeof(DateTime))
+
+            CultureInfo culture;
+            if (cultureInfo == null)
             {
-                var rr = Convert.ToDateTime(dt);
-                displayDate = rr.ToString(format);
+                culture = CultureInfo.InvariantCulture;
             }
             else
             {
-                displayDate = "other";
+                try
+                {
+                    culture = new CultureInfo(cultureInfo);
+                }
+                catch (CultureNotFoundException)
+                {
+                    culture = CultureInfo.InvariantCulture;
+                }
             }
 
+            string displayDate;
 
+            if (dt.GetType() == typeof(DateTime))
+            {
+                var rr = Convert.ToDateTime(dt);
+                if (string.IsNullOrEmpty(format))
+                {
+                    displayDate = rr.ToString(culture);
+                }
+                else
+                {
+                    displayDate = rr.ToString(format, culture);
+                }
+            }
+            else
+            {
+                DateTime dateTime;
+                try
+                {
+
+                    dateTime = DateTime.Parse(dt.ToString(), culture);
+
+                    displayDate = string.IsNullOrEmpty(format) ? dateTime.ToString(culture) : dateTime.ToString(format);
+                }
+                catch (FormatException)
+                {
+                    return string.Empty;
+                }
+            }
             return displayDate;
         }
     }
