@@ -82,13 +82,16 @@ namespace BlazorDataGrid
         [Parameter]
         public bool Editable { get; set; } = false;
 
-        [Parameter]
-        public string Culture { get; set; }
         #endregion
 
         public string Format
         {
             get => AppState.Format;
+        }
+
+        public string Culture
+        {
+            get => AppState.Culture;
         }
 
         const int defaultPagerSize = 5;

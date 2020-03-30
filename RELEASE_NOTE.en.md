@@ -1,5 +1,9 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**2.0.0**
+> - Add parameter format to display date to a specfific format.
+> - Add parameter Editable allow the datagrid to be editable.
+
 **1.11.0**
 > - Update to .Net Core 3.1
 > - Updating pagination calculation

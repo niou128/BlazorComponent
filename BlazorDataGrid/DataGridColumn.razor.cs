@@ -35,6 +35,13 @@ namespace BlazorDataGrid
             set => AppState.SetFormat(value);
         }
 
+        [Parameter]
+        public string Culture
+        {
+            get => AppState.Culture;
+            set => AppState.SetCulture(value);
+        }
+
         [CascadingParameter]
         BlazorDataGrid<TItem> BlazorDataTable { get; set; }
         #endregion

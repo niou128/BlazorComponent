@@ -58,7 +58,7 @@
                         {
                             @if (elt.PropertyType == typeof(DateTime))
                             {
-                                <td contenteditable>@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format)</td>
+                                <td contenteditable>@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format, Culture)</td>
                             }
                             else
                             {

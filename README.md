@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.11.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDatGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v2.0.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDatGrid/)
 
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorDataGrid -Version 1.11.0
+Install-Package BlazorDataGrid -Version 2.0.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorDataGrid --version 1.11.0
+dotnet add package BlazorDataGrid --version 2.0.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
@@ -48,6 +48,7 @@ Le composant ```<BlazorDataGrid>``` accepte les paramètres suivant :
     - "50", 50
     - "100", 100
     - "*", 0
+- **Editable** : true ou false, permet de rendre la datagrid éditable. Si le paramètre n'est pas présent, la datagrid n'est pas éditable.    
 
 Le composant ```<BlazorDataGridColumn>``` accepte les paramètres suivant :
 -	**DataGridColumn** : Le composant détaillant chaque header
@@ -59,12 +60,14 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 -	**Filter** : true ou false pour afficher ou non le champ filtre sur la colonne
 - **DropdownFilter** : true ou false. Remplace la zone de texte du filtre par une liste contenant toutes les valeurs différentes de la colonnes.
 
+- **Format** : Spécifie un format de date pour l'affichage.  
+
 # Exemple d'utilisation
 
 ```
-<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector">
+<BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector" Editable="true">
     <BlazorDataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true"><strong>Date</strong></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" DropdownFilter="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>

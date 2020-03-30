@@ -15,16 +15,17 @@ namespace BlazorDataGrid.Services
         public void SetFormat(string format)
         {
             Format = format;
-            //StateHasChanged();
             NotifyStateChanged();
         }
 
-        public event EventHandler StateChanged;
+        public string Culture { get; private set; }
 
-        private void StateHasChanged()
+        public void SetCulture(string culture)
         {
-            StateChanged?.Invoke(this, EventArgs.Empty);
+            Culture = culture;
+            NotifyStateChanged();
         }
+
 
         public event Action OnChange;
 
