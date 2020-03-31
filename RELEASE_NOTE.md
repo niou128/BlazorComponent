@@ -3,7 +3,8 @@
 # Release notes
 **2.0.0**
 > - Ajout d'un paramètre format permettant d'afficher les dates dans un format spécific.
-> - Ajout du paramètre Editable permettant de rendre la datagrid éditable.  
+> - Ajout du paramètre Editable permettant de rendre la datagrid éditable. 
+> - Ajout du paramètre ReadOnly permettant de rendre une colonne non éditable lorsque la datagrid est éditable. 
 
 **1.11.0**
 > - Mise à jour vers .net Core 3.1

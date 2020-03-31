@@ -3,6 +3,7 @@
 **2.0.0**
 > - Add parameter format to display date to a specfific format.
 > - Add parameter Editable allow the datagrid to be editable.
+> - Add parameter ReadOnly who set a column ReadOnly when the datagrid is editable 
 
 **1.11.0**
 > - Update to .Net Core 3.1

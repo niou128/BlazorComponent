@@ -61,6 +61,7 @@ It is possible to pass the contents of the header between the tags instead*
 -	**Filter**: true or false to show or not the input filter on the column
 - **DropdownFilter**: true or false. Replacing the filter input text by a list witch contains all different values of the column.
 - **Format**: Specifies the date format to display
+- **ReadOnly**: Set a column ReadOnly when the datagrid is editable.
 
 # Example of use:
 
@@ -68,7 +69,7 @@ It is possible to pass the contents of the header between the tags instead*
 <BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector" Editable="true">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" DropdownFilter="true" ReadOnly="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>
     </BlazorDataGridColumn>

@@ -52,17 +52,16 @@
             {
                 @if (Editable)
                 {
-                    @*<tr class="blazor-row-item" contenteditable @onfocusout="Focusouttest">@GridRow(item)</tr>*@
                     <tr class="blazor-row-item">
                         @foreach (var elt in typeof(TableItem).GetProperties())
                         {
                             @if (elt.PropertyType == typeof(DateTime))
                             {
-                                <td contenteditable>@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format, Culture)</td>
+                               <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format, Culture)</td>
                             }
                             else
                             {
-                                <td contenteditable>@item.GetType().GetProperty(elt.Name).GetValue(item, null)</td>
+                                <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@item.GetType().GetProperty(elt.Name).GetValue(item, null)</td>
                             }
                         }
                     </tr>
@@ -101,6 +100,5 @@
     </ul>
 
     <span class="pagebutton btn btn-link disabled">@Translation["pages"]</span>
-
 </div>
 

@@ -94,6 +94,32 @@ namespace BlazorDataGrid
             get => AppState.Culture;
         }
 
+        //public bool ReadOnly
+        //{
+        //    get => AppState.ReadOnly;
+        //}
+
+        public bool ReadOnly(string colunmName, string attribut)
+        {
+            var attributValue = AppState.GetAttribut(colunmName, attribut);
+            if (attributValue == null)
+            {
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    return (bool)attributValue;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+
         const int defaultPagerSize = 5;
         int totalPages, curPage, pagerSize, startPage, endPage, initCount;
 

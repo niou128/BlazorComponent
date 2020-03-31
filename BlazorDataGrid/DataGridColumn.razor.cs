@@ -42,6 +42,18 @@ namespace BlazorDataGrid
             set => AppState.SetCulture(value);
         }
 
+        [Parameter]
+        public bool ReadOnly
+        {
+            get
+            {
+              var test =  AppState.ListAttributs.Where(x => x.Key == ColumnName);
+                var ariel = test.Where(x => x.Key == "ReadOnly");
+                return true;
+            }
+            set => AppState.SetListAttributs(ColumnName, "ReadOnly", value);
+        }
+
         [CascadingParameter]
         BlazorDataGrid<TItem> BlazorDataTable { get; set; }
         #endregion
@@ -95,6 +107,7 @@ namespace BlazorDataGrid
                 Filtering(value, ColumnName, true);
             }
         }
+
 
         private void SortTable(string columnName)
         {

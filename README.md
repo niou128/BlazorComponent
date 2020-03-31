@@ -60,7 +60,8 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 -	**Filter** : true ou false pour afficher ou non le champ filtre sur la colonne
 - **DropdownFilter** : true ou false. Remplace la zone de texte du filtre par une liste contenant toutes les valeurs différentes de la colonnes.
 
-- **Format** : Spécifie un format de date pour l'affichage.  
+- **Format** : Spécifie un format de date pour l'affichage.
+- **ReadOnly** : Permet de rendre une colonne non éditable lorsque la datagrid est éditable.
 
 # Exemple d'utilisation
 
@@ -68,7 +69,7 @@ Le composant ```<DataGridColumn>``` accepte les paramètres suivant :
 <BlazorDataGrid Items="@forecasts" PageSize="5" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate" ShowPageSelector="true" PageSelector="@PageSelector" Editable="true">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" DropdownFilter="true"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" DropdownFilter="true" ReadOnly="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary"></DataGridColumn>
     </BlazorDataGridColumn>
