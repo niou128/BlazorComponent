@@ -94,9 +94,7 @@ namespace BlazorDataGrid.Services
                 return null;
             }
 
-            var jasmine = ListAttributs[columnName].FirstOrDefault(x => x.ContainsKey(attribut)).Values.FirstOrDefault();
-
-            return jasmine;
+            return ListAttributs[columnName].Find(x => x.ContainsKey(attribut))?.Values.FirstOrDefault();
         }
     }
 }

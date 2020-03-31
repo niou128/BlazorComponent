@@ -57,7 +57,7 @@
                         {
                             @if (elt.PropertyType == typeof(DateTime))
                             {
-                               <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format, Culture)</td>
+                               <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))</td>
                             }
                             else
                             {

@@ -31,26 +31,18 @@ namespace BlazorDataGrid
         [Parameter]
         public string Format
         {
-            get => AppState.Format;
-            set => AppState.SetFormat(value);
+            set => AppState.SetListAttributs(ColumnName, "Format", value);
         }
 
         [Parameter]
         public string Culture
         {
-            get => AppState.Culture;
-            set => AppState.SetCulture(value);
+            set => AppState.SetListAttributs(ColumnName, "Culture", value);
         }
 
         [Parameter]
         public bool ReadOnly
         {
-            get
-            {
-              var test =  AppState.ListAttributs.Where(x => x.Key == ColumnName);
-                var ariel = test.Where(x => x.Key == "ReadOnly");
-                return true;
-            }
             set => AppState.SetListAttributs(ColumnName, "ReadOnly", value);
         }
 

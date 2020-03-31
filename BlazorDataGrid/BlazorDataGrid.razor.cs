@@ -84,20 +84,19 @@ namespace BlazorDataGrid
 
         #endregion
 
-        public string Format
+        public string Culture(string colunmName)
         {
-            get => AppState.Format;
+            var attributValue = AppState.GetAttribut(colunmName, "Culture");
+
+            return (string)attributValue;
         }
 
-        public string Culture
+        public string Format(string colunmName)
         {
-            get => AppState.Culture;
-        }
+            var attributValue = AppState.GetAttribut(colunmName, "Format");
 
-        //public bool ReadOnly
-        //{
-        //    get => AppState.ReadOnly;
-        //}
+            return (string)attributValue;
+        }
 
         public bool ReadOnly(string colunmName, string attribut)
         {
