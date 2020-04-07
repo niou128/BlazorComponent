@@ -35,4 +35,8 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorInput\BlazorInput.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace BlazorDataGrid
 {
@@ -44,7 +47,6 @@ namespace BlazorDataGrid
 
         [Parameter]
         public RenderFragment BlazorDataGridColumn { get; set; }
-
 
         [Parameter]
         public RenderFragment<TableItem> GridRow { get; set; }
@@ -118,9 +120,25 @@ namespace BlazorDataGrid
             }
         }
 
+        public string ContentEditableText
+        {
+            get => null;
+            set => ContentItem = value;          
+        }
 
-        const int defaultPagerSize = 5;
-        int totalPages, curPage, pagerSize, startPage, endPage, initCount;
+        public object ContentTest
+        {
+            get => ContentTest;
+            set => ContentTest = value;
+        }
+
+        private string ContentItem { get; set; }
+
+        protected string DisplayLabelError { get; set; } = "display: none";
+        protected string LabelError { get; set; }
+
+        private const int defaultPagerSize = 5;
+        private int totalPages, curPage, pagerSize, startPage, endPage, initCount;
 
         private int _pageSize = -1;
 
@@ -159,7 +177,6 @@ namespace BlazorDataGrid
         private bool NeedUpdate { get; set; } = false;
         #endregion
 
-
         IEnumerable<TableItem> ItemList { get; set; }
 
         public Dictionary<string, string> FilterDictionary { get; set; }
@@ -168,9 +185,6 @@ namespace BlazorDataGrid
 
         protected override void OnInitialized()
         {
-            //AppState.StateChanged += AppState_StateChanged;
-            //AppState.OnChange += StateHasChanged;
-
             pagerSize = defaultPagerSize;
             initCount = Items.Count();
             if (ShowPageSelector)
@@ -207,7 +221,6 @@ namespace BlazorDataGrid
                 {
                     PageSize = 5;
                 }
-
             }
 
             curPage = 1;
@@ -518,9 +531,30 @@ namespace BlazorDataGrid
             StateHasChanged();
         }
 
-        protected void Focusouttest()
+        protected void UpdateList(TableItem item, string name)
         {
+            try
+            {
+                var jasmine = ContentItem;
+                var ariel = Items.FirstOrDefault(x => ReferenceEquals(x, item));
 
+                Type type = item.GetType().GetProperty(name).PropertyType;
+                try
+                {
+                    var elsa = Convert.ChangeType(jasmine, type);
+                    ariel.GetType().GetProperty(name).SetValue(ariel, elsa);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    LabelError = "Le format saisi n'est pas correct";
+                    DisplayLabelError = "display: block";
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

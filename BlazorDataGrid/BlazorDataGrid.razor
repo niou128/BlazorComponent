@@ -5,6 +5,62 @@
 @using BlazorDataGrid.Services
 @inject AppState AppState
 @using BlazorDataGrid.Helpers
+@using BlazorInput
+
+<style>
+    input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        color: black;
+    }
+
+        input::placeholder {
+            color: black;
+        }
+
+
+        input:focus {
+            color: black;
+        }
+
+        input:disabled {
+            color: #dddddd;
+        }
+
+            input:disabled::placeholder {
+                color: gray;
+            }
+
+    .no-outline:focus {
+        outline: none;
+    }
+
+    .errorField {
+        color: #f44336;
+        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+        font-size: 12px;
+        font-weight: normal;
+        box-sizing: border-box;
+    }
+
+    .errorFieldContent {
+        background-color: inherit;
+        height: 100%;
+        line-height: 16px;
+        overflow-wrap: break-word;
+        overflow-x: hidden;
+        padding: 3px 6px;
+        position: relative;
+        white-space: normal;
+        width: 100%;
+        word-break: break-word;
+        z-index: 1;
+    }
+</style>
+
 
 
 @if (ShowTotalResult)
@@ -57,11 +113,28 @@
                         {
                             @if (elt.PropertyType == typeof(DateTime))
                             {
-                               <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))</td>
+                                <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))"
+                                    @onfocusout="() => UpdateList(item, elt.Name)">
+                                    @*<input placeholder="@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))"
+                                        @bind="ContentEditableText"
+                                        disabled="@(ReadOnly(elt.Name, "ReadOnly"))" />*@
+                                    <BlazorInputText Placeholder="@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))"
+                                                     ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
+                                                     @bind-Input="ContentEditableText"
+                                                     ObjectName="@elt.Name"
+                                                     CurrentObject="item"/>
+                                </td>
                             }
                             else
                             {
-                                <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))">@item.GetType().GetProperty(elt.Name).GetValue(item, null)</td>
+                                <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))"
+                                    @onfocusout="() => UpdateList(item, elt.Name)">
+                                    <BlazorInputText Placeholder="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
+                                                     ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
+                                                     @bind-Input="ContentEditableText"
+                                                     ObjectName="@elt.Name"
+                                                     CurrentObject="item"/>
+                                </td>
                             }
                         }
                     </tr>

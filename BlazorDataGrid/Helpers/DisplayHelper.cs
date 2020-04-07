@@ -48,7 +48,6 @@ namespace BlazorDataGrid.Helpers
                 DateTime dateTime;
                 try
                 {
-
                     dateTime = DateTime.Parse(dt.ToString(), culture);
 
                     displayDate = string.IsNullOrEmpty(format) ? dateTime.ToString(culture) : dateTime.ToString(format);

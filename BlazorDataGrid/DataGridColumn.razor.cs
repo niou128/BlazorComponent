@@ -79,13 +79,9 @@ namespace BlazorDataGrid
             DebounceTimerInterval = null;
         }
 
-
-
         private bool IsSortedAscending;
 
         protected int DebounceMilliseconds { get; set; } = 800;
-
-
 
         private string PreviousValue { get; set; } = string.Empty;
 
@@ -100,7 +96,6 @@ namespace BlazorDataGrid
             }
         }
 
-
         private void SortTable(string columnName)
         {
             if (columnName != BlazorDataTable.CurrentSortColumn)
@@ -109,7 +104,6 @@ namespace BlazorDataGrid
                 IsSortedAscending = true;
                 BlazorDataTable.ChangeSorting = true;
                 AppState.CallRequestRefresh();
-
             }
             else
             {
@@ -173,16 +167,14 @@ namespace BlazorDataGrid
         private void OnInput(ChangeEventArgs eventArgs)
         {
             var filterValue = eventArgs.Value?.ToString();
-            Debounce(eventArgs, DebounceMilliseconds, async (e) =>
+            Debounce(eventArgs, DebounceMilliseconds, async (_) =>
             {
                 await InvokeAsync(async () =>
                 {
                     await Task.Delay(1);
                     Filtering(filterValue, ColumnName);
                 }).ConfigureAwait(false);
-
             });
-
         }
     }
 }
