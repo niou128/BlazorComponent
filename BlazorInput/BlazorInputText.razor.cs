@@ -36,7 +36,8 @@ namespace BlazorInput
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> InputAttributes { get; set; }
 
-        protected string LabelError { get; set; }
+        [Parameter]
+        public string LabelError { get; set; }
 
         protected string StyleError { get; set; } = "display: none";
 
@@ -68,7 +69,6 @@ namespace BlazorInput
                 }
                 else if (type.IsGenericType && type.GetGenericTypeDefinition() != typeof(Nullable<>) && ariel == null)
                 {
-                    LabelError = "Format non valide";
                     StyleError = "display: block";
                 }
 
@@ -82,7 +82,6 @@ namespace BlazorInput
                 }
                 else
                 {
-                    LabelError = "Format non valide";
                     StyleError = "display: block";
                 }
             }
@@ -93,36 +92,9 @@ namespace BlazorInput
             base.OnParametersSet();
 
             Input = Placeholder?.ToString();
-
         }
-
-        //protected override void OnAfterRender(bool firstRender)
-        //{
-        //    if (firstRender)
-        //    {
-        //        Input = Placeholder.ToString();
-        //    }
-        //}
 
         [Parameter]
         public Type InputType { get; set; }
-
-        //private bool firstAffect = true;
-        //private void OnInputFocusin()
-        //{
-        //    if (firstAffect)
-        //    {
-        //        Input = Placeholder.ToString();
-        //        firstAffect = false;
-        //    }
-        //}
-
-        private void OnInputFocusOut()
-        {
-            //Type type = CurrentObject.GetType();
-            //var elsa = Convert.ChangeType(Input, type);
-            //LabelError = "Une petite erreur";
-            //StyleError = "display: block";
-        }
     }
 }

@@ -119,7 +119,8 @@
                                                      ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
                                                      @bind-Input="ContentEditableText"
                                                      InputObject="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
-                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"/>
+                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"
+                                                     LabelError="@(Translation["labelError"])"/>
                                 </td>
                             }
                             else
@@ -130,7 +131,8 @@
                                                      ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
                                                      @bind-Input="ContentEditableText"
                                                      InputObject="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
-                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"/>
+                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"
+                                                     LabelError="@(Translation["labelError"])"/>
                                 </td>
                             }
                         }

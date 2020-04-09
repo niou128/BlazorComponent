@@ -371,6 +371,7 @@ namespace BlazorDataGrid
                 Translation.Add("selector", "Résultats par page");
                 Translation.Add("loading", "Chargement ...");
 
+                Translation.Add("labelError", "Format invalide");
             }
             else
             {
@@ -442,6 +443,11 @@ namespace BlazorDataGrid
                     if (!Translation.ContainsKey("loading"))
                     {
                         Translation.Add("loading", "Chargement ...");
+                    }
+
+                    if (!Translation.ContainsKey("labelError"))
+                    {
+                        Translation.Add("labelError", "Format invalide");
                     }
                 }
                 catch (Exception ex)
@@ -581,7 +587,6 @@ namespace BlazorDataGrid
 
             return (TableItem)ariel;
         }
-
       
     }
 }
