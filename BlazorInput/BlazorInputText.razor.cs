@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BlazorInput
@@ -32,10 +31,7 @@ namespace BlazorInput
         }
 
         [Parameter]
-        public object CurrentObject { get; set; }
-
-        [Parameter]
-        public string ObjectName { get; set; }
+        public object InputObject { get; set; }
 
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> InputAttributes { get; set; }
@@ -47,6 +43,7 @@ namespace BlazorInput
         private Task OnInputChanged(ChangeEventArgs e)
         {
             Input = e.Value.ToString();
+
             return InputChanged.InvokeAsync(Input);
         }
 
@@ -55,16 +52,70 @@ namespace BlazorInput
             try
             {
                 var ariel = e.Value;
-                Type type = CurrentObject.GetType().GetProperty(ObjectName).PropertyType;
-                var elsa = Convert.ChangeType(ariel, type);
+                Type type = InputType;
+                if (type != typeof(string) && string.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    ariel = null;
+                }
+                if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>) && ariel != null)
+                {
+                    type = Nullable.GetUnderlyingType(type);
+                    Convert.ChangeType(ariel, type);
+                }
+                else if (type.IsGenericType && type.GetGenericTypeDefinition() != typeof(Nullable<>) && ariel != null)
+                {
+                    Convert.ChangeType(ariel, type);
+                }
+                else if (type.IsGenericType && type.GetGenericTypeDefinition() != typeof(Nullable<>) && ariel == null)
+                {
+                    LabelError = "Format non valide";
+                    StyleError = "display: block";
+                }
+
                 StyleError = "display: none";
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                LabelError = "Format non valide";
-                StyleError = "display: block";
+                if (string.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    StyleError = "display: none";
+                }
+                else
+                {
+                    LabelError = "Format non valide";
+                    StyleError = "display: block";
+                }
             }
         }
+
+        protected override void OnParametersSet()
+        {
+            base.OnParametersSet();
+
+            Input = Placeholder?.ToString();
+
+        }
+
+        //protected override void OnAfterRender(bool firstRender)
+        //{
+        //    if (firstRender)
+        //    {
+        //        Input = Placeholder.ToString();
+        //    }
+        //}
+
+        [Parameter]
+        public Type InputType { get; set; }
+
+        //private bool firstAffect = true;
+        //private void OnInputFocusin()
+        //{
+        //    if (firstAffect)
+        //    {
+        //        Input = Placeholder.ToString();
+        //        firstAffect = false;
+        //    }
+        //}
 
         private void OnInputFocusOut()
         {

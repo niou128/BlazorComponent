@@ -541,8 +541,26 @@ namespace BlazorDataGrid
                 Type type = item.GetType().GetProperty(name).PropertyType;
                 try
                 {
-                    var elsa = Convert.ChangeType(jasmine, type);
-                    ariel.GetType().GetProperty(name).SetValue(ariel, elsa);
+                    if (type != typeof(string) && string.IsNullOrEmpty(ContentItem))
+                    {
+                        jasmine = null;
+                    }
+
+                    if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    {
+                        type = Nullable.GetUnderlyingType(type);
+                    }
+
+                    if (!string.IsNullOrEmpty(jasmine))
+                    {
+                        var elsa = Convert.ChangeType(jasmine, type);
+                        ariel.GetType().GetProperty(name).SetValue(ariel, elsa);
+                    }
+                    else
+                    {
+                        ariel.GetType().GetProperty(name).SetValue(ariel, jasmine);
+                    }
+
                 }
                 catch (FormatException ex)
                 {
@@ -556,5 +574,14 @@ namespace BlazorDataGrid
                 Debug.WriteLine(ex.Message);
             }
         }
+
+        protected TableItem GetValue(TableItem obj, string PropertyName)
+        {
+            var ariel = obj.GetType().GetProperty(PropertyName).GetValue(obj, null);
+
+            return (TableItem)ariel;
+        }
+
+      
     }
 }

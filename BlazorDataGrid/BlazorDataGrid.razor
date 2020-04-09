@@ -115,14 +115,11 @@
                             {
                                 <td contenteditable="@(!ReadOnly(elt.Name, "ReadOnly"))"
                                     @onfocusout="() => UpdateList(item, elt.Name)">
-                                    @*<input placeholder="@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))"
-                                        @bind="ContentEditableText"
-                                        disabled="@(ReadOnly(elt.Name, "ReadOnly"))" />*@
                                     <BlazorInputText Placeholder="@DisplayHelper.DisplayDate(item.GetType().GetProperty(elt.Name).GetValue(item, null), Format(elt.Name), Culture(elt.Name))"
                                                      ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
                                                      @bind-Input="ContentEditableText"
-                                                     ObjectName="@elt.Name"
-                                                     CurrentObject="item"/>
+                                                     InputObject="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
+                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"/>
                                 </td>
                             }
                             else
@@ -132,8 +129,8 @@
                                     <BlazorInputText Placeholder="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
                                                      ReadOnly="@(ReadOnly(elt.Name, "ReadOnly"))"
                                                      @bind-Input="ContentEditableText"
-                                                     ObjectName="@elt.Name"
-                                                     CurrentObject="item"/>
+                                                     InputObject="@item.GetType().GetProperty(elt.Name).GetValue(item, null)"
+                                                     InputType="@item.GetType().GetProperty(elt.Name).PropertyType"/>
                                 </td>
                             }
                         }
