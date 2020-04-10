@@ -5,6 +5,8 @@
 > - Ajout d'un paramètre format permettant d'afficher les dates dans un format spécific.
 > - Ajout du paramètre Editable permettant de rendre la datagrid éditable. 
 > - Ajout du paramètre ReadOnly permettant de rendre une colonne non éditable lorsque la datagrid est éditable. 
+> - Ajout du label d'erreur lors la saisie d'un mauvais type dans une datagrid editable.
+> - Ajout du mot clé labelError au dictionnaire de traduction 
 
 **1.11.0**
 > - Mise à jour vers .net Core 3.1

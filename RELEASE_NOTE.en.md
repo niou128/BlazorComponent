@@ -4,6 +4,8 @@
 > - Add parameter format to display date to a specfific format.
 > - Add parameter Editable allow the datagrid to be editable.
 > - Add parameter ReadOnly who set a column ReadOnly when the datagrid is editable 
+> - Add an error label when you enter an invalide format in the editable datagrid.
+> - Add a keyword labelError in the translation dictionnary
 
 **1.11.0**
 > - Update to .Net Core 3.1

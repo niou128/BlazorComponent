@@ -123,6 +123,7 @@ Les différentes valeur de clé sont les suivantes :
 >   - **```__totalcount__```** : Le nombre total de résultats
 > - **selector** : Le text pour le nombre de résultats par page.
 > - **loading** : Le message de chargement.
+> - **labelError** : Le message d'erreur lorsqu'un format saisie dans la datagrid est incorect.
 
 # Aperçu
 ![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)

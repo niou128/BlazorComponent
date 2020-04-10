@@ -63,6 +63,7 @@ It is possible to pass the contents of the header between the tags instead*
 - **Format**: Specifies the date format to display
 - **ReadOnly**: Set a column ReadOnly when the datagrid is editable.
 
+
 # Example of use:
 
 ```
@@ -124,6 +125,7 @@ In the value part, it is possible to enter the following variables:
 >   - **```__totalcount__```**: the total number of results
 > - **selector**: Text for the items per page selector
 > - **loading**: The loading message.
+> - **labelError**: Error message when you enter an invalid format in the datagrid.
 
 # Aperçu
 ![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)
