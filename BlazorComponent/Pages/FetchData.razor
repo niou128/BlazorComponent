@@ -29,16 +29,18 @@ else
 </BlazorDataGrid>
 
 <button @onclick="ClickTest">Test</button>
+<button @onclick="AjoutListe">Ajout Element liste</button>
 
 }
 
 @code {
-    WeatherForecast[] forecasts;
+    //WeatherForecast[] forecasts;
+    List<WeatherForecast> forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(500).ConfigureAwait(false);
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = await ForecastService.GetForecastListAsync(DateTime.Now);
     }
 
     private Dictionary<string, string> translate = new Dictionary<string, string>
@@ -66,6 +68,17 @@ else
     public void ClickTest()
     {
         var test = forecasts;
+    }
+
+    public void AjoutListe()
+    {
+        forecasts.Add(new WeatherForecast
+        {
+            Date = DateTime.Now,
+            TemperatureC = 10,
+            Summary = "Cool"
+        });
+        StateHasChanged();
     }
 
 }

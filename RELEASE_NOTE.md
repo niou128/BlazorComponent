@@ -1,6 +1,9 @@
 [Read in english](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)
 
-# Release notes
+# Notes de version
+**2.0.1**
+> - Correction d'un bug sur l'affichage du nombre de résultat quand on ajoute un élément dans la liste de départ.
+
 **2.0.0**
 > - Ajout d'un paramètre format permettant d'afficher les dates dans un format spécific.
 > - Ajout du paramètre Editable permettant de rendre la datagrid éditable. 

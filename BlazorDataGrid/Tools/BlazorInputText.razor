@@ -1,0 +1,63 @@
+﻿<style>
+    input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        color: black;
+    }
+
+        input::placeholder {
+            color: black;
+        }
+
+
+        input:focus {
+            color: black;
+        }
+
+        input:disabled {
+            color: #dddddd;
+        }
+
+            input:disabled::placeholder {
+                color: gray;
+            }
+
+    .no-outline:focus {
+        outline: none;
+    }
+
+    .errorField {
+        color: #f44336;
+        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+        font-size: 12px;
+        font-weight: normal;
+        box-sizing: border-box;
+    }
+
+    .errorFieldContent {
+        background-color: inherit;
+        height: 100%;
+        line-height: 16px;
+        overflow-wrap: break-word;
+        overflow-x: hidden;
+        padding: 3px 6px;
+        position: relative;
+        white-space: normal;
+        width: 100%;
+        word-break: break-word;
+        z-index: 1;
+    }
+</style>
+
+
+<input placeholder="@Placeholder"
+       @bind-value="Input"
+       @bind-value:event="onchange"
+       disabled="@(ReadOnly)"
+       @attributes="InputAttributes" />
+
+
+<label style="@StyleError" class="errorField errorFieldContent">@LabelError</label>

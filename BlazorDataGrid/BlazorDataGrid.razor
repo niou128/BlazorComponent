@@ -67,7 +67,7 @@
 {
     if (@Items.Count() != @initCount)
     {
-        <h4 class="TotalCount" style="float:left">@(ItemList.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
+        <h4 class="TotalCount" style="float:left">@(Items.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
     }
     else
     {

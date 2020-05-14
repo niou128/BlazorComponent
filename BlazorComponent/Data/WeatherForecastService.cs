@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +21,17 @@ namespace BlazorComponent.Data
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             }).ToArray());
+        }
+
+        public Task<List<WeatherForecast>> GetForecastListAsync(DateTime startDate)
+        {
+            var rng = new Random();
+            return Task.FromResult(Enumerable.Range(1, 100).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            }).ToList());
         }
     }
 }

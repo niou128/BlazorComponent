@@ -1,5 +1,8 @@
 [Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
 # Release notes
+**2.0.1**
+> - fix a bug on the display of number of result when an item is add in the start list.
+
 **2.0.0**
 > - Add parameter format to display date to a specfific format.
 > - Add parameter Editable allow the datagrid to be editable.

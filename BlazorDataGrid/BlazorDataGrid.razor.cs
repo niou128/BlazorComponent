@@ -51,8 +51,22 @@ namespace BlazorDataGrid
         [Parameter]
         public RenderFragment<TableItem> GridRow { get; set; }
 
+        private IEnumerable<TableItem> _items;
         [Parameter]
-        public IEnumerable<TableItem> Items { get; set; }
+        public IEnumerable<TableItem> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value;
+                if (!FromFilter)
+                {
+                    initCount = _items.Count();
+                    UpdateTranslationDictionnary();
+                }
+                FromFilter = false;
+            }
+        }
 
         [Parameter]
         public bool ShowTotalResult { get; set; } = false;
@@ -123,7 +137,7 @@ namespace BlazorDataGrid
         public string ContentEditableText
         {
             get => null;
-            set => ContentItem = value;          
+            set => ContentItem = value;
         }
 
         public object ContentTest
@@ -146,6 +160,7 @@ namespace BlazorDataGrid
         public string LastSortedColumn = string.Empty;
         public bool IsSortedAscending;
         public bool ChangeSorting = false;
+        public bool FromFilter = false;
 
         public int ItemPerPage { get; set; }
 
@@ -202,14 +217,14 @@ namespace BlazorDataGrid
                     else
                     {
                         PageSizeList = new List<PageSizeStruct>
-            {
-                        new PageSizeStruct() {Label = "5", Value = 5},
-                        new PageSizeStruct() {Label = "10", Value = 10},
-                        new PageSizeStruct() {Label = "25", Value = 25},
-                        new PageSizeStruct() {Label = "50", Value = 50},
-                        new PageSizeStruct() {Label = "100", Value = 100},
-                        new PageSizeStruct() {Label = "*", Value = 0},
-                    };
+                        {
+                            new PageSizeStruct() {Label = "5", Value = 5},
+                            new PageSizeStruct() {Label = "10", Value = 10},
+                            new PageSizeStruct() {Label = "25", Value = 25},
+                            new PageSizeStruct() {Label = "50", Value = 50},
+                            new PageSizeStruct() {Label = "100", Value = 100},
+                            new PageSizeStruct() {Label = "*", Value = 0},
+                        };
                     }
                 }
                 try
@@ -244,6 +259,7 @@ namespace BlazorDataGrid
 
         private void RefreshMe()
         {
+            FromFilter = true;
             StateHasChanged();
             curPage = 1;
             UpdateList(curPage);
@@ -575,7 +591,7 @@ namespace BlazorDataGrid
                     DisplayLabelError = "display: block";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
@@ -587,6 +603,6 @@ namespace BlazorDataGrid
 
             return (TableItem)ariel;
         }
-      
+
     }
 }
