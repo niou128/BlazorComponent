@@ -147,15 +147,18 @@ namespace BlazorDataGrid
             List<string> filterList = new List<string>();
 
             var properties = typeof(TItem).GetProperties();
-            foreach (var item in Items)
+            if (Items != null)
             {
-                foreach (var property in properties)
+                foreach (var item in Items)
                 {
-                    if (string.Equals(property.Name, ColumnName, StringComparison.OrdinalIgnoreCase))
+                    foreach (var property in properties)
                     {
-                        if (!filterList.Any(x => x == property.GetValue(item, null).ToString()))
+                        if (string.Equals(property.Name, ColumnName, StringComparison.OrdinalIgnoreCase))
                         {
-                            filterList.Add(property.GetValue(item, null).ToString());
+                            if (!filterList.Any(x => x == property.GetValue(item, null).ToString()))
+                            {
+                                filterList.Add(property.GetValue(item, null).ToString());
+                            }
                         }
                     }
                 }
