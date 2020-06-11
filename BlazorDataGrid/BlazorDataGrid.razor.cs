@@ -58,7 +58,7 @@ namespace BlazorDataGrid
             get => _items;
             set
             {
-                _items = value;
+                _items = value ?? new List<TableItem>();
                 if (!FromFilter)
                 {
                     initCount = _items.Count();
@@ -279,6 +279,10 @@ namespace BlazorDataGrid
             {
                 ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
                 totalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                if (totalPages == 0)
+                {
+                    totalPages = 1;
+                }
             }
             curPage = currentPage;
 
