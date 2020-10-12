@@ -14,8 +14,8 @@
     <Description>Blazor Tabs</Description>
     <Copyright>© Sébastien Bernard</Copyright>
     <Version>1.4.0</Version>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
+    <AssemblyVersion>1.4.0.3</AssemblyVersion>
+    <FileVersion>1.4.0.3</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

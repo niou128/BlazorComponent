@@ -1,3 +1,4 @@
+[Lire en français](README.md)
 # BlazorComponents
 Components for Blazor
 

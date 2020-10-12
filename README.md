@@ -1,3 +1,4 @@
+[Read in english](README.en.md)
 ## _BlazorDataGrid_
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.

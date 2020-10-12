@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
 [![Package Version](https://img.shields.io/badge/nuget-v2.0.2-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDatGrid/)
 
-[Read in english](README.en.md)
+[Read in english](BlazorDatagrid.en.md)
 
 # BlazorDatagrid
 
@@ -130,5 +130,5 @@ Les différentes valeur de clé sont les suivantes :
 
 ![sortie 2](BlazorDataGrid/content/output2.png)
 
-**[Notes de version](RELEASE_NOTE.md)** 
+**[Notes de version](BlazorDatagrid_RELEASE_NOTE.md)** 
 
