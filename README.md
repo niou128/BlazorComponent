@@ -1,25 +1,22 @@
-# BlazorComponents
-Components for Blazor
-
 ## _BlazorDataGrid_
 
-It's a Blazor component. A filtered, paged and sorted datagrid.
+Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
 
-**[Installation](https://github.com/niou128/BlazorComponent/blob/master/BlazorDatagrid.en.md)** 
+**[Installation](BlazorDatagrid.md)** 
 
-**[Release Note](https://github.com/niou128/BlazorComponent/blob/master/BlazorDatagrid_RELEASE_NOTE.en.md)** 
+**[Note de version](BlazorDatagrid_RELEASE_NOTE.md)** 
 
 ___
 
 ## _BlazorTabs_
-Tabs for Blazor
+Des onglets pour Blazor
 
 **[Installation]** 
 
-**[Release Note]** 
+**[Note de version]** 
 
 
 
-# Lastest releases
+# Dernières version
 - BlazorDataGrid 2.0.2
 - BlazorTab 1.4.0

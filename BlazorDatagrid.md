@@ -1,7 +1,7 @@
-[![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
 [![Package Version](https://img.shields.io/badge/nuget-v2.0.2-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDatGrid/)
 
-[Read in english](https://github.com/niou128/BlazorComponent/blob/master/README.en.md)
+[Read in english](README.en.md)
 
 # BlazorDatagrid
 
@@ -126,9 +126,9 @@ Les différentes valeur de clé sont les suivantes :
 > - **labelError** : Le message d'erreur lorsqu'un format saisie dans la datagrid est incorect.
 
 # Aperçu
-![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)
+![sortie 1](BlazorDataGrid/content/output1.png)
 
-![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
+![sortie 2](BlazorDataGrid/content/output2.png)
 
-**[Notes de version](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)** 
+**[Notes de version](RELEASE_NOTE.md)** 
 
