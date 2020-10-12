@@ -12,11 +12,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorTabs
 
 # Installation
 
-To install BlazorDataGrid using Package Manager run the following command 
+To install BlazorNTab using Package Manager run the following command 
 ```
 Install-Package BlazorTabs -Version 1.4.0
 ```
-To install BlazorDataGrid using .NET CLI run the following command
+To install BlazorNTab using .NET CLI run the following command
 ```
 dotnet add package BlazorTabs --version 1.4.0
 ```
@@ -55,5 +55,5 @@ It is possible to define a more complex title with styles by placing it in the t
 # preview
 Soon
 ___
-**[Release Notes](BlazorDatagrid_RELEASE_NOTE.md)** 
+**[Release Notes](BlazorNTab_RELEASE_NOTE.md)** 
 

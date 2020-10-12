@@ -12,11 +12,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorNToo
 
 # Installation
 
-To install BlazorDataGrid using Package Manager run the following command
+To install BlazorNTooltip using Package Manager run the following command
 ```
 Install-Package BlazorNTooltip -Version 1.0.0
 ```
-To install BlazorDataGrid using .NET CLI run the following command
+To install BlazorNTooltip using .NET CLI run the following command
 ```
 dotnet add package BlazorNTooltip --version 1.0.0
 ```

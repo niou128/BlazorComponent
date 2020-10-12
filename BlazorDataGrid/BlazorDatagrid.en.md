@@ -128,8 +128,8 @@ In the value part, it is possible to enter the following variables:
 > - **labelError**: Error message when you enter an invalid format in the datagrid.
 
 # preview
-![sortie 1](BlazorDataGrid/content/output1.png)
+![sortie 1](content/output1.png)
 
-![sortie 2](BlazorDataGrid/content/output2.png)
+![sortie 2](content/output2.png)
 
 **[Release Notes](BlazorDatagrid_RELEASE_NOTE.en.md)** 

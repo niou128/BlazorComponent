@@ -1,4 +1,4 @@
-[Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
+[Read in english](BlazorNTooltip_RELEASE_NOTE.en.md)
 
 # Notes de version
 
