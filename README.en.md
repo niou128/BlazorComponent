@@ -6,24 +6,30 @@ Components for Blazor
 
 It's a Blazor component. A filtered, paged and sorted datagrid.
 
-**[Installation](https://github.com/niou128/BlazorComponent/blob/master/BlazorDatagrid.en.md)** 
+**[Installation](BlazorDataGrid\BlazorDatagrid.en.md)** 
 
-**[Release Note](https://github.com/niou128/BlazorComponent/blob/master/BlazorDatagrid_RELEASE_NOTE.en.md)** 
+**[Release Notes](BlazorDataGrid\BlazorDatagrid_RELEASE_NOTE.en.md)** 
 
 ___
 
 ## _BlazorTabs_
 Tabs for Blazor
 
-**[Installation]** 
+**[Installation](BlazorTabsComponent\BlazorNTab.en.md)** 
 
-**[Release Note]** 
+**[Release Notes](BlazorTabsComponent\BlazorNTab_RELEASE_NOTE.en.md)** 
+
+___
+## _BlazorNTooltip_
+A tooltip component
+
+**[Installation](BlazorNTooltip\BlazorNTooltip.en.md)** 
+
+**[Release Notes](BlazorNTooltip\BlazorNTooltip_RELEASE_NOTE.en.md)** 
 
 
 
 # Lastest releases
 - BlazorDataGrid 2.0.2
 - BlazorTab 1.4.0
-
-# BlazorComponents
-Composants pour Blazor.
+- BlazorNTooltip 1.0.0

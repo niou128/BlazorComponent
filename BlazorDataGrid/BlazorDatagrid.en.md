@@ -127,7 +127,7 @@ In the value part, it is possible to enter the following variables:
 > - **loading**: The loading message.
 > - **labelError**: Error message when you enter an invalid format in the datagrid.
 
-# Aperçu
+# preview
 ![sortie 1](BlazorDataGrid/content/output1.png)
 
 ![sortie 2](BlazorDataGrid/content/output2.png)
