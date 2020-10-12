@@ -1,7 +1,7 @@
-[![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](https://github.com/niou128/BlazorComponent/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
 [![Package Version](https://img.shields.io/badge/nuget-v2.0.2-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
-[Lire en français](https://github.com/niou128/BlazorComponent/blob/master/README.md)
+[Lire en français](README.md)
 
 # BlazorDatagrid
 
@@ -128,8 +128,8 @@ In the value part, it is possible to enter the following variables:
 > - **labelError**: Error message when you enter an invalid format in the datagrid.
 
 # Aperçu
-![sortie 1](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output1.png)
+![sortie 1](BlazorDataGrid/content/output1.png)
 
-![sortie 2](https://github.com/niou128/BlazorComponent/blob/master/BlazorDataGrid/content/output2.png)
+![sortie 2](BlazorDataGrid/content/output2.png)
 
-**[Release Notes](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.en.md)** 
+**[Release Notes](RELEASE_NOTE.en.md)** 

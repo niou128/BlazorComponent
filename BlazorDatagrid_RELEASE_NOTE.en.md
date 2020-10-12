@@ -1,4 +1,4 @@
-[Lire en français](https://github.com/niou128/BlazorComponent/blob/master/RELEASE_NOTE.md)
+[Lire en français](RELEASE_NOTE.md)
 # Release notes
 **2.0.2**
 > - If the input list is null, the result is a table with 0 element.
