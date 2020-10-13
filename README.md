@@ -12,9 +12,9 @@ ___
 ## _BlazorTabs_
 Des onglets pour Blazor
 
-**[Installation](BlazorTabsComponent/BlazorNTab.md)** 
+**[Installation](BlazorNtabs/BlazorNTab.md)** 
 
-**[Note de version](BlazorTabsComponent/BlazorNTab_RELEASE_NOTE.md)** 
+**[Note de version](BlazorNtabs/BlazorNTab_RELEASE_NOTE.md)** 
 
 ___
 ## _BlazorNTooltip_
@@ -27,5 +27,5 @@ Un composant tooltip
 
 # Dernières version
 - BlazorDataGrid 2.0.2
-- BlazorTab 1.4.0
-- BlazorNTooltip 1.0.0
+- BlazorTab 1.5.0
+- BlazorNTooltip 1.0.1
