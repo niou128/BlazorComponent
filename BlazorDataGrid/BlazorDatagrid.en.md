@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
 [![Package Version](https://img.shields.io/badge/nuget-v2.0.2-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
-[Lire en français](README.md)
+[Lire en français](BlazorDatagrid.md)
 
 # BlazorDatagrid
 
@@ -127,9 +127,9 @@ In the value part, it is possible to enter the following variables:
 > - **loading**: The loading message.
 > - **labelError**: Error message when you enter an invalid format in the datagrid.
 
-# Aperçu
-![sortie 1](BlazorDataGrid/content/output1.png)
+# preview
+![sortie 1](content/output1.png)
 
-![sortie 2](BlazorDataGrid/content/output2.png)
+![sortie 2](content/output2.png)
 
-**[Release Notes](RELEASE_NOTE.en.md)** 
+**[Release Notes](BlazorDatagrid_RELEASE_NOTE.en.md)** 
