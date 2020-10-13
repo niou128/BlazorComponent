@@ -3,13 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <AssemblyVersion>1.0.0.31</AssemblyVersion>
-    <FileVersion>1.0.0.31</FileVersion>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
     <Authors>Sébastien Bernard</Authors>
     <Description>Tooltip for Blazor</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Company>NullRefException</Company>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <PackageTags>tooltip, blazor, blazorTooltip, .netCore, netCore 3.1</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

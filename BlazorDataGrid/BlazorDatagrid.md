@@ -126,9 +126,9 @@ Les différentes valeur de clé sont les suivantes :
 > - **labelError** : Le message d'erreur lorsqu'un format saisie dans la datagrid est incorect.
 
 # Aperçu
-![sortie 1](BlazorDataGrid/content/output1.png)
+![sortie 1](content/output1.png)
 
-![sortie 2](BlazorDataGrid/content/output2.png)
+![sortie 2](content/output2.png)
 
 **[Notes de version](BlazorDatagrid_RELEASE_NOTE.md)** 
 
