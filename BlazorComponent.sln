@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNTooltip", "BlazorNTo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNtabs", "BlazorNtabs\BlazorNtabs.csproj", "{A323AAE6-E9A0-4BFA-8C2F-44415CAC50D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorNDataGrid", "BlazorNDataGrid\BlazorNDataGrid.csproj", "{D578722F-3E16-425D-8FCD-3BEB6F86A77B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A323AAE6-E9A0-4BFA-8C2F-44415CAC50D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A323AAE6-E9A0-4BFA-8C2F-44415CAC50D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A323AAE6-E9A0-4BFA-8C2F-44415CAC50D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D578722F-3E16-425D-8FCD-3BEB6F86A77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D578722F-3E16-425D-8FCD-3BEB6F86A77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D578722F-3E16-425D-8FCD-3BEB6F86A77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D578722F-3E16-425D-8FCD-3BEB6F86A77B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

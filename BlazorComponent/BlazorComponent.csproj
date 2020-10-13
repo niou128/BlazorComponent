@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>7.3</LangVersion>
-    <AssemblyVersion>1.1.0.38</AssemblyVersion>
-    <FileVersion>1.1.0.38</FileVersion>
+    <AssemblyVersion>1.1.0.56</AssemblyVersion>
+    <FileVersion>1.1.0.56</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorDataGrid\BlazorDataGrid.csproj" />
+    <ProjectReference Include="..\BlazorNDataGrid\BlazorNDataGrid.csproj" />
     <ProjectReference Include="..\BlazorNtabs\BlazorNtabs.csproj" />
     <ProjectReference Include="..\BlazorNTooltip\BlazorNTooltip.csproj" />
     <ProjectReference Include="..\BlazorSelectComponent\BlazorSelectComponent.csproj" />

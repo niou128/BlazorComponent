@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorDataGrid\BlazorDataGrid.csproj" />
+    <ProjectReference Include="..\BlazorNDataGrid\BlazorNDataGrid.csproj" />
   </ItemGroup>
 
 </Project>

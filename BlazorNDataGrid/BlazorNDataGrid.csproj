@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <RootNamespace>BlazorDataGrid</RootNamespace>
+    <PackageId>BlazorDataGrid</PackageId>
+    <Version>2.0.3</Version>
+    <Authors>Sébastien Bernard</Authors>
+    <Company>NRE</Company>
+    <Product>BlazorDataGrid</Product>
+    <Description>A filtered, paged and sorted datagrid</Description>
+    <Copyright>© Sébastien Bernard</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
+    <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
+    <AssemblyVersion>2.0.3.4</AssemblyVersion>
+    <FileVersion>2.0.3.4</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorInput\BlazorInput.csproj" />
+  </ItemGroup>
+
+
+</Project>
