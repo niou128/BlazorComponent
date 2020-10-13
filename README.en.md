@@ -15,9 +15,9 @@ ___
 ## _BlazorTabs_
 Tabs for Blazor
 
-**[Installation](BlazorTabsComponent/BlazorNTab.en.md)** 
+**[Installation](BlazorNtabs/BlazorNTab.en.md)** 
 
-**[Release Notes](BlazorTabsComponent/BlazorNTab_RELEASE_NOTE.en.md)** 
+**[Release Notes](BlazorNtabs/BlazorNTab_RELEASE_NOTE.en.md)** 
 
 ___
 ## _BlazorNTooltip_
@@ -31,5 +31,5 @@ A tooltip component
 
 # Lastest releases
 - BlazorDataGrid 2.0.2
-- BlazorTab 1.4.0
-- BlazorNTooltip 1.0.0
+- BlazorTab 1.5.0
+- BlazorNTooltip 1.0.1

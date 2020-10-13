@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v1.4.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorTabs/)
+[![Package Version](https://img.shields.io/badge/nuget-v1.5.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorTabs/)
 
 [Read in english](BlazorNTab.en.md)
 
@@ -14,16 +14,16 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorTabs -Version 1.4.0
+Install-Package BlazorTabs -Version 1.5.0
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorTabs --version 1.4.0
+dotnet add package BlazorTabs --version 1.5.0
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
 ```
-@using BlazorTabsComponent
+@using BlazorNtabs
 ```
 
 # Paramètres  
@@ -55,5 +55,5 @@ Il est possible de définir un titre plus complexe avec des styles en le plaçan
 # Aperçu
 A venir
 ___
-**[Notes de version](BlazorNTab_RELEASE_NOTE.md)** 
+**[Notes de version](BlazorDatagrid_RELEASE_NOTE.md)** 
 

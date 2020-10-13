@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Version>1.5.0</Version>
+    <Copyright>© Sébastien Bernard</Copyright>
+    <Description>Tabs for Blazor</Description>
+    <Authors>Sébastien Bernard</Authors>
+    <Company>NRE</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>blazor, tabs, tabs for blazor, .netCore, .netCore 3.1</PackageTags>
+    <PackageReleaseNotes>breaking change : replace @using BlazorTabsComponent by  @using BlazorNtabs in _imports.razor</PackageReleaseNotes>
+    <AssemblyVersion>1.5.0.4</AssemblyVersion>
+    <FileVersion>1.5.0.4</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+</Project>
