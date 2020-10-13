@@ -1,0 +1,38 @@
+﻿@inherits TabBase
+@using Microsoft.AspNetCore.Components.Web
+<style>
+    .nav-tabs .nav-link {
+        border-color: #dee2e6 #dee2e6 #fff;
+        border-bottom-color: #dee2e6;
+        background-color: #f9f9f9;
+    }
+
+    .nav-tabs .active {
+        border-top: 4px solid #00ff21 !important;
+        padding-top: 5px;
+        border-bottom: 1px solid transparent;
+        background-color: white;
+    }
+
+    .nav-tabs > li {
+        margin-bottom: -1px;
+    }
+
+    .nav-tabs-body {
+        border: 1px solid #dee2e6;
+        border-top-width: 0;
+    }
+</style>
+
+<li>
+    <a @onclick=@Activate class="nav-link @TitleCssClass" href="" @onclick:preventDefault>
+        @if (TabHeader == null)
+        {
+            @Title
+        }
+        else
+        {
+            @TabHeader
+        }
+    </a>
+</li>
