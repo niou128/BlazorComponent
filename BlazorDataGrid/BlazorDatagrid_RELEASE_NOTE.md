@@ -1,4 +1,4 @@
-[Read in english](RELEASE_NOTE.en.md)
+[Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
 **2.0.2**
