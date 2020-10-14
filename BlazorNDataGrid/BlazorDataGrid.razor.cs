@@ -565,7 +565,7 @@ namespace BlazorDataGrid
             StateHasChanged();
         }
 
-        protected void UpdateList(TableItem item, string name)
+        public void UpdateList(TableItem item, string name)
         {
             try
             {
@@ -615,6 +615,5 @@ namespace BlazorDataGrid
 
             return (TableItem)ariel;
         }
-
     }
 }

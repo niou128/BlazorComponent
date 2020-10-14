@@ -13,7 +13,7 @@
 else
 {
 <BlazorDataGrid Items="@forecasts" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate"
-                ShowPageSelector="true" PageSelector="@PageSelector" Editable="false" RowSelector="true">
+                ShowPageSelector="true" PageSelector="@PageSelector" Editable="true" RowSelector="true">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
