@@ -1,0 +1,25 @@
+﻿@typeparam TItem
+
+@namespace BlazorDataGrid
+@using BlazorDataGrid.Services
+@inject AppState AppState
+@using Microsoft.AspNetCore.Components.Web
+
+<td>
+    @if (@Content == null)
+    {
+        @ChildContent
+    }
+    else
+    {
+        if (BlazorDataTable.Editable)
+        {
+            @((MarkupString)ConvertParamToValue(Content))
+        }
+        else
+        {
+            @((MarkupString)ConvertParamToValue(Content))
+        }
+    }
+
+</td>

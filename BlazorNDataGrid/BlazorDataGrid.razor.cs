@@ -46,8 +46,11 @@ namespace BlazorDataGrid
         [Parameter]
         public RenderFragment BlazorDataGridColumn { get; set; }
 
+        //[Parameter]
+        //public RenderFragment<TableItem> GridRow { get; set; }
+
         [Parameter]
-        public RenderFragment<TableItem> GridRow { get; set; }
+        public RenderFragment GridRow { get; set; }
 
         private IEnumerable<TableItem> _items;
         [Parameter]
