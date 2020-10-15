@@ -14,8 +14,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
     <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
-    <AssemblyVersion>2.0.3.79</AssemblyVersion>
-    <FileVersion>2.0.3.79</FileVersion>
+    <AssemblyVersion>2.0.3.89</AssemblyVersion>
+    <FileVersion>2.0.3.89</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

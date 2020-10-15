@@ -4,7 +4,10 @@
 <h1>Blazor input</h1>
 
 <BlazorInputText Placeholder="Ariel"
-                 @bind-Value="Ariel" />
+                 @bind-Value="Ariel"
+                 ReadOnly="false"
+                 LabelError="Ceci est une erreur"
+                 ValidationPattern="^[-]?\d+$"/>
 
 @Ariel
 <br />

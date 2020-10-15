@@ -21,8 +21,8 @@ else
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
     </BlazorDataGridColumn>
     <GridRow>
-        <Row Items="@forecasts" Content="{{Date}}" />
-        <Row Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" />
+        <Row Items="@forecasts" Content="{{Date}}"/>
+        <Row Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
         <Row Items="@forecasts" Content="{{TemperatureF}}" />
         <Row Items="@forecasts" Content="{{Summary}}" />
     </GridRow>

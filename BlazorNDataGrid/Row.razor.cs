@@ -18,6 +18,12 @@ namespace BlazorDataGrid
         [Parameter]
         public string Content { get; set; }
 
+        [Parameter]
+        public string ValidationPattern { get; set; }
+
+        [Parameter]
+        public string LabelError { get; set; } = "error";
+
         [CascadingParameter(Name = "BlazorDataTable")]
         protected BlazorDataGrid<TItem> BlazorDataTable { get; set; }
 

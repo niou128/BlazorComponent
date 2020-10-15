@@ -29,7 +29,9 @@ else
                 LabelError="@(BlazorDataTable.Translation["labelError"])" />*@
             @*<BlazorInputText @bind-Input="ContentEditableText"></BlazorInputText>*@
             <BlazorInputText Placeholder="PlaceHolderValue"
-                             @bind-Value="InputValue" />
+                             @bind-Value="InputValue" 
+                             LabelError="@LabelError"
+                             ValidationPattern="@ValidationPattern"/>
 
         </td>
 
