@@ -87,6 +87,12 @@ namespace BlazorInput
             }
         }
 
+        protected void InputValueChanged(string value)
+        {
+            Input = value;
+            InputChanged.InvokeAsync(Input);
+        }
+
         protected override void OnParametersSet()
         {
             base.OnParametersSet();

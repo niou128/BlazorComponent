@@ -3,7 +3,6 @@ using BlazorDataGrid.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 using System.Text.RegularExpressions;
 
 namespace BlazorDataGrid
@@ -26,8 +25,6 @@ namespace BlazorDataGrid
         protected TItem CurrentItem { get; set; }
 
         public string NameItem { get; set; }
-
-        public string ContentEditableText { get; set; }
 
         protected override void OnInitialized()
         {
@@ -56,7 +53,7 @@ namespace BlazorDataGrid
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
             {
-                foreach(var elt in typeof(TItem).GetProperties())
+                foreach (var elt in typeof(TItem).GetProperties())
                 {
                     if (elt.Name == match.Groups[2].Value)
                     {
@@ -107,6 +104,42 @@ namespace BlazorDataGrid
                     return false;
                 }
             }
+        }
+
+        public string InputValue
+        {
+            get => CurrentItem.GetType().GetProperty(NameItem).GetValue(CurrentItem, null)?.ToString();
+            set
+            {
+                BlazorDataTable.ContentEditableText = value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    PlaceHolderValue = "";
+                }
+                else
+                {
+                    PlaceHolderValue = value;
+                }
+                Items = BlazorDataTable.Items;
+                StateHasChanged();
+            }
+        }
+
+        private string _placeHolderValue;
+        public string PlaceHolderValue
+        {
+            get => _placeHolderValue ?? CurrentItem.GetType().GetProperty(NameItem).GetValue(CurrentItem, null)?.ToString();
+            set
+            {
+                _placeHolderValue = value;
+                StateHasChanged();
+            }
+        }
+
+        protected override void OnParametersSet()
+        {
+            base.OnParametersSet();
+            PlaceHolderValue = null;
         }
     }
 }

@@ -594,7 +594,6 @@ namespace BlazorDataGrid
                     {
                         ariel.GetType().GetProperty(name).SetValue(ariel, jasmine);
                     }
-
                 }
                 catch (FormatException ex)
                 {

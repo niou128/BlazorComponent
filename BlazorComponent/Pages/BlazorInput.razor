@@ -1,14 +1,30 @@
 ﻿@page "/blazorinput"
+@using BlazorNInput
 
 <h1>Blazor input</h1>
 
-@*<BlazorInputText Placeholder="Toto"
-                 ReadOnly="false"
-                 @bind-Input="ContentEditableText"
-                 InputObject="toto"
-                 InputType="string"
-                 LabelError="super erreur" />*@
+<BlazorInputText Placeholder="Ariel"
+                 @bind-Value="Ariel" />
+
+@Ariel
+<br />
+
+<button @onclick="newInput">modification</button>
 
 @code{
-    public string ContentEditableText { get; set; }
+
+    private string _ariel = "Jasmine";
+    public string Ariel {
+        get => _ariel;
+        set
+        {
+            _ariel = value;
+            StateHasChanged();
+        }
+    }
+
+    public void newInput()
+    {
+        Ariel = "Nouvel input";
+    }
 }

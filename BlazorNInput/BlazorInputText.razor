@@ -1,0 +1,6 @@
+﻿@inherits BlazorInputTextBase
+
+<input  type="text"
+       placeholder="@Placeholder"
+       @bind-value="Value" @bind-value:event="oninput"
+       @attributes="InputAttributes"/>
