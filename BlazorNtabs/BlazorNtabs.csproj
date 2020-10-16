@@ -11,8 +11,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>blazor, tabs, tabs for blazor, .netCore, .netCore 3.1</PackageTags>
     <PackageReleaseNotes>breaking change : replace @using BlazorTabsComponent by  @using BlazorNtabs in _imports.razor</PackageReleaseNotes>
-    <AssemblyVersion>1.5.0.9</AssemblyVersion>
-    <FileVersion>1.5.0.9</FileVersion>
+    <AssemblyVersion>1.5.0.10</AssemblyVersion>
+    <FileVersion>1.5.0.10</FileVersion>
     <PackageId>BlazorTabs</PackageId>
   </PropertyGroup>
 

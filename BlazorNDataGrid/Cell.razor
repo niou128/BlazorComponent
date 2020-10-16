@@ -17,17 +17,8 @@ else
 {
     if (BlazorDataTable.Editable)
     {
-        @*@((MarkupString)ConvertParamToValue(Content))*@
-
         <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))"
             @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
-            @*<BlazorInputText Placeholder="@CurrentItem.GetType().GetProperty(NameItem).GetValue(CurrentItem, null)"
-                ReadOnly="@(ReadOnly(NameItem, "ReadOnly"))"
-                @bind-Input="@ContentEditableText"
-                InputObject="@CurrentItem.GetType().GetProperty(NameItem).GetValue(CurrentItem, null)"
-                InputType="@CurrentItem.GetType().GetProperty(NameItem).PropertyType"
-                LabelError="@(BlazorDataTable.Translation["labelError"])" />*@
-            @*<BlazorInputText @bind-Input="ContentEditableText"></BlazorInputText>*@
             <BlazorInputText Placeholder="PlaceHolderValue"
                              @bind-Value="InputValue" 
                              LabelError="@LabelError"

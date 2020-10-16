@@ -5,17 +5,20 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <RootNamespace>BlazorDataGrid</RootNamespace>
     <PackageId>BlazorDataGrid</PackageId>
-    <Version>2.0.3</Version>
+    <Version>3.0.0</Version>
     <Authors>Sébastien Bernard</Authors>
     <Company>NRE</Company>
     <Product>BlazorDataGrid</Product>
-    <Description>A filtered, paged and sorted datagrid</Description>
+    <Description>A filtered, paged, sorted and editabled datagrid</Description>
     <Copyright>© Sébastien Bernard</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
     <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
-    <AssemblyVersion>2.0.3.89</AssemblyVersion>
-    <FileVersion>2.0.3.89</FileVersion>
+    <AssemblyVersion>3.0.0.4</AssemblyVersion>
+    <FileVersion>3.0.0.4</FileVersion>
+    <PackageReleaseNotes>breaking changes: 
+The management of lines has changed.
+You must now specify each cell with the Cell component.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

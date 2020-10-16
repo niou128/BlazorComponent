@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace BlazorDataGrid
 {
-    public partial class Row<TItem>
+    public partial class Cell<TItem>
     {
         [Parameter]
         public IEnumerable<TItem> Items { get; set; }
