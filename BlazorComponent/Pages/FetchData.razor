@@ -13,7 +13,7 @@
 else
 {
 <BlazorDataGrid Items="@forecasts" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate"
-                ShowPageSelector="true" PageSelector="@PageSelector" Editable="true">
+                ShowPageSelector="true" PageSelector="@PageSelector" Editable="true" RowSelector="true">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
@@ -21,10 +21,10 @@ else
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
     </BlazorDataGridColumn>
     <GridRow>
-        <td>@context.Date.ToShortDateString()</td>
-        <td>@context.TemperatureC</td>
-        <td>@context.TemperatureF</td>
-        <td>@context.Summary</td>
+        <Cell Items="@forecasts" Content="{{Date}}"/>
+        <Cell Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
+        <Cell Items="@forecasts" Content="{{TemperatureF}}" />
+        <Cell Items="@forecasts" Content="{{Summary}}" />
     </GridRow>
 </BlazorDataGrid>
 
@@ -73,11 +73,17 @@ else
 
     public void AjoutListe()
     {
+         string[] Summaries = new[]
+        {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
+        Random rnd = new Random();
         forecasts.Add(new WeatherForecast
         {
             Date = DateTime.Now,
-            TemperatureC = 10,
-            Summary = "Cool"
+            TemperatureC = rnd.Next(-20, 55),
+            Summary = Summaries[rnd.Next(Summaries.Length)]
         });
         StateHasChanged();
     }

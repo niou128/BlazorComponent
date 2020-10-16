@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <PackageId>BlazorInput</PackageId>
+    <Version>1.1.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>© Sébastien Bernard</Copyright>
+    <Authors>Sébastien Bernard</Authors>
+    <Company>NRE</Company>
+    <PackageTags>input, Blazor, inputText</PackageTags>
+    <Description>Input fields</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+</Project>

@@ -58,5 +58,8 @@
        @oninput="OnInputChanged"
        @onchange="OnchangedEvent"
        disabled="@(ReadOnly)"
-       @attributes="InputAttributes"/>
+       @attributes="InputAttributes" />
 <label style="@StyleError" class="errorField errorFieldContent">@LabelError</label>
+
+@*<input id="name" Value="@Input" ValueChanged="InputValueChanged" ValueExpresions="() => Input"/>*@
+

@@ -1,11 +1,13 @@
 [Read in english](README.en.md)
-## _BlazorDataGrid_
+## _BlazorNDataGrid_
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
 
-**[Installation](BlazorDataGrid/BlazorDatagrid.md)** 
+**[Installation](BlazorNDataGrid/BlazorDatagrid.md)** 
 
-**[Note de version](BlazorDataGrid/BlazorDatagrid_RELEASE_NOTE.md)** 
+**[Note de version](BlazorNDataGrid/BlazorDatagrid_RELEASE_NOTE.md)** 
+
+__Attention, la version 3.0.0 introduit des changements par rapport à la version précédente qui nécessite de revoir l'implémentation dans vos programmes.__
 
 ___
 
@@ -24,8 +26,16 @@ Un composant tooltip
 
 **[Note de version](BlazorNTooltip/BlazorNTooltip_RELEASE_NOTE.md)** 
 
+___
+## _BlazorNInput_
+Des champs de saisie pour Blazor
+
+**[Installation](BlazorNInput/BlazorNInput.md)** 
+
+**[Release Notes](BlazorNInput/BlazorNInput_RELEASE_NOTE.md)** 
 
 # Dernières version
-- BlazorDataGrid 2.0.2
+- BlazorDataGrid 3.0.0
 - BlazorTab 1.5.0
 - BlazorNTooltip 1.0.1
+- BlazorNInput 1.1.0

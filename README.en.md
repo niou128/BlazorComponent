@@ -10,6 +10,7 @@ It's a Blazor component. A filtered, paged and sorted datagrid.
 
 **[Release Notes](BlazorDataGrid/BlazorDatagrid_RELEASE_NOTE.en.md)** 
 
+__Warning, version 3.0.0 introduces changes compared to the previous version which requires to review the implementation in your programs__
 ___
 
 ## _BlazorTabs_
@@ -27,9 +28,15 @@ A tooltip component
 
 **[Release Notes](BlazorNTooltip/BlazorNTooltip_RELEASE_NOTE.en.md)** 
 
+___
+## _BlazorNInput_
+Input fields for Blazor
 
+**[Installation](BlazorNInput/BlazorNInput.en.md)** 
+
+**[Release Notes](BlazorNInput/BlazorNInput_RELEASE_NOTE.en.md)** 
 
 # Lastest releases
-- BlazorDataGrid 2.0.2
+- BlazorDataGrid 3.0.0
 - BlazorTab 1.5.0
 - BlazorNTooltip 1.0.1

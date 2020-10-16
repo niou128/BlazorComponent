@@ -1,0 +1,39 @@
+﻿@typeparam TItem
+
+@namespace BlazorDataGrid
+@using BlazorDataGrid.Services
+@inject AppState AppState
+@using Microsoft.AspNetCore.Components.Web
+@using BlazorNInput
+
+
+@if (@Content == null)
+{
+    <td>
+        @ChildContent
+    </td>
+}
+else
+{
+    if (BlazorDataTable.Editable)
+    {
+        <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))"
+            @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
+            <BlazorInputText Placeholder="PlaceHolderValue"
+                             @bind-Value="InputValue" 
+                             LabelError="@LabelError"
+                             ValidationPattern="@ValidationPattern"/>
+
+        </td>
+
+
+    }
+    else
+    {
+        <td>
+            @((MarkupString)ConvertParamToValue(Content))
+        </td>
+    }
+}
+
+
