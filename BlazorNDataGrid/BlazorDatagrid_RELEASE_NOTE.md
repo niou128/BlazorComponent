@@ -1,6 +1,19 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**4.0.0**
+- Mise à jour vers .Net5
+
+**3.0.0**
+- Changement structurant nécessitant de revoir l'implémentation de la datagrid dans le code.
+- Ajout d'un composant Cell à la datagrid afin de gérer les cellules. Ce composant se place dans la partie GridRow et devient obligatoire.
+
+* Ajout de nouveaux paramètres pour le composant Cell
+    * Items qui est le même paramètre que pour la datagrid
+    * Content qui contient de contenu de la cellule
+    * ValidationPattern qui permet d'ajouter un patron de validation
+    * LabelError qui contient le message d'erreur en cas d'échec de la validation
+
 **2.0.2**
 > - Lorsque la liste en entrée est null, le résultat est une grille avec 0 élément.
 

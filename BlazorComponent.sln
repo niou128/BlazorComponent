@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29123.89
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorComponent", "BlazorComponent\BlazorComponent.csproj", "{4C5BE8FC-A28E-408C-A2DA-7CFC9706DD0F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDataGrid", "BlazorDataGrid\BlazorDataGrid.csproj", "{B0D995CA-B870-4BB0-B706-74B5D3AB6BC7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSelectComponent", "BlazorSelectComponent\BlazorSelectComponent.csproj", "{CA1A98ED-6BE8-424D-B133-A88A43DDE688}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDatagridTests", "BlazorDatagridTests\BlazorDatagridTests.csproj", "{610AB3F7-CA21-433A-B19B-D647180803EF}"
@@ -19,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNtabs", "BlazorNtabs\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNDataGrid", "BlazorNDataGrid\BlazorNDataGrid.csproj", "{D578722F-3E16-425D-8FCD-3BEB6F86A77B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorNInput", "BlazorNInput\BlazorNInput.csproj", "{3579FE89-47B4-40C9-A756-80BAD63D280F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNInput", "BlazorNInput\BlazorNInput.csproj", "{3579FE89-47B4-40C9-A756-80BAD63D280F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{4C5BE8FC-A28E-408C-A2DA-7CFC9706DD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C5BE8FC-A28E-408C-A2DA-7CFC9706DD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C5BE8FC-A28E-408C-A2DA-7CFC9706DD0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0D995CA-B870-4BB0-B706-74B5D3AB6BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0D995CA-B870-4BB0-B706-74B5D3AB6BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0D995CA-B870-4BB0-B706-74B5D3AB6BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0D995CA-B870-4BB0-B706-74B5D3AB6BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA1A98ED-6BE8-424D-B133-A88A43DDE688}.Release|Any CPU.ActiveCfg = Release|Any CPU
