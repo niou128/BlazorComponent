@@ -75,6 +75,7 @@ namespace BlazorDataGrid
                     }
                 }
             }
+
             return result;
         }
 
