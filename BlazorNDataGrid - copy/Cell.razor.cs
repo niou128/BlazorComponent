@@ -1,38 +1,19 @@
 ﻿using BlazorDataGrid.Helpers;
 using BlazorDataGrid.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BlazorDataGrid
 {
     public partial class Cell<TItem>
     {
-        [Inject]
-        IJSRuntime JSRuntime { get; set; }
-
         [Parameter]
         public IEnumerable<TItem> Items { get; set; }
 
-        private RenderFragment childContent;
         [Parameter]
-        public RenderFragment ChildContent
-        {
-            get => childContent;
-            set
-            {
-                childContent = value;
-                if (value != null)
-                {
-                    Content = null;
-                }
-            }
-        }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
         public string Content { get; set; }
@@ -51,58 +32,21 @@ namespace BlazorDataGrid
 
         public string NameItem { get; set; }
 
-        protected string Id { get; set; }
-
-        private Task<IJSObjectReference> _module;
-
-        const string ImportPath = "./_content/BlazorDataGrid/tools.js";
-        private Task<IJSObjectReference> Module => _module ??= JSRuntime.InvokeAsync<IJSObjectReference>("import", ImportPath).AsTask();
-
         protected override void OnInitialized()
         {
-            Id = $"cell-{AppState.IdCell++}";
-            AppState.RefreshCell += async () => await UpdateCell();
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
+            const string pattern = ".*({{(.*)}}).*";
+            Match match = Regex.Match(Content, pattern, RegexOptions.IgnoreCase);
+            if (match.Success)
             {
-                if (ChildContent != null)
+                foreach (var elt in typeof(TItem).GetProperties())
                 {
-                    try
+                    if (elt.Name == match.Groups[2].Value)
                     {
-                        var module = await Module;
-                        var ariel = await module.InvokeAsync<string>("GetHtmlFromId", Id);
-                        Content = ConvertParamToValue(ariel);
-                        StateHasChanged();
-                    }
-                    catch (Exception)
-                    {
-                        Debug.WriteLine("Echec de récupération du contenu HTML");
-                    }
-                }
-            }
-            else
-            {
-                if (ChildContent != null)
-                {
-                    try
-                    {
-                        var module = await Module;
-                        var ariel = await module.InvokeAsync<string>("GetHtmlFromId", Id);
-                        Content = ConvertParamToValue(ariel);
-                        ChildContent = null;
-                        StateHasChanged();
-                    }
-                    catch (Exception)
-                    {
-                        Debug.WriteLine("Echec de récupération du contenu HTML");
+                        NameItem = elt.Name;
                     }
                 }
             }
         }
-
 
         public string ConvertParamToValue(string text)
         {
@@ -203,25 +147,6 @@ namespace BlazorDataGrid
         {
             base.OnParametersSet();
             PlaceHolderValue = null;
-        }
-
-        public async Task UpdateCell()
-        {
-            if (ChildContent != null)
-            {
-                try
-                {
-                    string ariel = null;
-                    var module = await Module;
-                    ariel = await module.InvokeAsync<string>("GetHtmlFromId", Id);
-                    Content = ConvertParamToValue(ariel);
-                    StateHasChanged();
-                }
-                catch (Exception)
-                {
-                    Debug.WriteLine("Echec de récupération du contenu HTML");
-                }
-            }
         }
     }
 }

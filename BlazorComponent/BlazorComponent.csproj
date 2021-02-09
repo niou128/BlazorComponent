@@ -13,6 +13,7 @@
     <ProjectReference Include="..\BlazorNtabs\BlazorNtabs.csproj" />
     <ProjectReference Include="..\BlazorNTooltip\BlazorNTooltip.csproj" />
     <ProjectReference Include="..\BlazorSelectComponent\BlazorSelectComponent.csproj" />
+    <ProjectReference Include="..\TestJsIsolation\TestJsIsolation.csproj" />
   </ItemGroup>
 
 </Project>
