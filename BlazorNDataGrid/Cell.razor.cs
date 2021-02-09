@@ -5,7 +5,6 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -61,6 +60,22 @@ namespace BlazorDataGrid
         protected override void OnInitialized()
         {
             Id = $"cell-{AppState.IdCell++}";
+
+            if (Content != null)
+            {
+                const string pattern = ".*({{(.*)}}).*";
+                Match match = Regex.Match(Content, pattern, RegexOptions.IgnoreCase);
+                if (match.Success)
+                {
+                    foreach (var elt in typeof(TItem).GetProperties())
+                    {
+                        if (elt.Name == match.Groups[2].Value)
+                        {
+                            NameItem = elt.Name;
+                        }
+                    }
+                }
+            }
             AppState.RefreshCell += async () => await UpdateCell();
         }
 

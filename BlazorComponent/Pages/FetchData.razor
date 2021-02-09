@@ -19,14 +19,16 @@ else
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF" DropdownFilter="true" ReadOnly="true"></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="" DisplayColumnName="Test" Filter="false"></DataGridColumn>
+        <DataGridColumn Items="@forecasts" ColumnName="" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
     </BlazorDataGridColumn>
     <GridRow>
-        <Cell Items="@forecasts" Content="{{Date}}"/>
-        <Cell Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
+        <Cell Items="@forecasts" Content="{{Date}}" />
+        <Cell Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]" />
         <Cell Items="@forecasts" Content="{{TemperatureF}}" />
         <Cell Items="@forecasts" Content="<a href='https://nullrefexception.com/'>{{Summary}}</a>" />
-        <Cell Items="@forecasts">Test content with param -- {{Summary}}</Cell>
+        <Cell Items="@forecasts">
+            <a href='https://nullrefexception.com/'>{{Summary}}</a>
+        </Cell>
     </GridRow>
 </BlazorDataGrid>
 
