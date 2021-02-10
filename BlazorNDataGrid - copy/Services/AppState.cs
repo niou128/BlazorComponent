@@ -12,14 +12,6 @@ namespace BlazorDataGrid.Services
             RefreshRequested?.Invoke();
         }
 
-        public event Action RefreshCell;
-        public void CallRefreshCell()
-        {
-            RefreshCell?.Invoke();
-        }
-
-        public long IdCell { get; set; } = 1;
-
         public string Format { get; private set; }
 
         public void SetFormat(string format)

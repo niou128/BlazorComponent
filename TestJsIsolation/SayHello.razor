@@ -1,0 +1,32 @@
+﻿@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject IJSRuntime JSRuntime
+@implements IAsyncDisposable
+Enter your name:
+<input @bind="name" />
+<button @onclick="Submit">Submit</button>
+
+@code {
+    private string name;
+    private Task<IJSObjectReference> _module;
+
+    const string ImportPath = "./_content/TestJsIsolation/demo.js";
+    private Task<IJSObjectReference> Module => _module ??= JSRuntime.InvokeAsync<IJSObjectReference>("import", ImportPath).AsTask();
+
+    async Task Submit()
+    {
+        var module = await Module;
+        await module.InvokeVoidAsync("sayHi", name);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module != null)
+        {
+            var module = await _module;
+            await module.DisposeAsync();
+        }
+    }
+}

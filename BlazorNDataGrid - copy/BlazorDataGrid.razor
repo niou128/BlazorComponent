@@ -1,0 +1,151 @@
+﻿@typeparam TableItem
+
+@namespace BlazorDataGrid
+@using Microsoft.AspNetCore.Components.Web
+@using BlazorDataGrid.Services
+@inject AppState AppState
+@using BlazorDataGrid.Helpers
+@using BlazorNInput
+
+<style>
+    input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        color: black;
+    }
+
+        input::placeholder {
+            color: black;
+        }
+
+
+        input:focus {
+            color: black;
+        }
+
+        input:disabled {
+            color: #dddddd;
+        }
+
+            input:disabled::placeholder {
+                color: gray;
+            }
+
+    .no-outline:focus {
+        outline: none;
+    }
+
+    .errorField {
+        color: #f44336;
+        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+        font-size: 12px;
+        font-weight: normal;
+        box-sizing: border-box;
+    }
+
+    .errorFieldContent {
+        background-color: inherit;
+        height: 100%;
+        line-height: 16px;
+        overflow-wrap: break-word;
+        overflow-x: hidden;
+        padding: 3px 6px;
+        position: relative;
+        white-space: normal;
+        width: 100%;
+        word-break: break-word;
+        z-index: 1;
+    }
+</style>
+
+
+
+@if (ShowTotalResult)
+{
+    if (@Items.Count() != @initCount)
+    {
+        <h4 class="TotalCount" style="float:left">@(Items.Count() <= 1 ? Translation["filteredresults"] : Translation["filteredresultsplural"])</h4>
+    }
+    else
+    {
+        <h4 class="TotalCount" style="float:left">@(Items.Count() <= 1 ? Translation["totalresult"] : Translation["totalresultplural"])</h4>
+    }
+}
+@if (ShowPageSelector)
+{
+    <div class="form-inline" style="float:right">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">@Translation["selector"]</label>
+
+        <select @bind="@PageSize" style="margin-right:5px" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            @foreach (var item in PageSizeList)
+            {
+                <option value="@item.Value">@item.Label</option>
+            }
+        </select>
+    </div>
+}
+<table class="@TableClass" style="@TableStyle">
+    <thead class="@TheadClass" style="@TheadStyle">
+        <tr>
+            @*@if (RowSelector)
+                {
+                    <th>
+                        <div class="form-check">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                        </div>
+                    </th>
+                }*@
+            <CascadingValue Value="this">
+                @BlazorDataGridColumn
+            </CascadingValue>
+        </tr>
+
+    </thead>
+    <tbody class="@TbodyClass" style="@TbodyStyle">
+        @if (LoadingRow)
+        {
+            <tr>@Translation["loading"]</tr>
+        }
+        else
+        {
+            @foreach (var item in ItemList)
+            {
+                <CascadingValue Value="this" Name="BlazorDataTable">
+                    <CascadingValue Value="@item" Name="CurrentItem">
+                        <tr class="blazor-row-item">@GridRow</tr>
+                    </CascadingValue>
+                </CascadingValue>
+            }
+        }
+    </tbody>
+</table>
+<div class="pagination">
+    <ul class="pagination">
+        <li class="page-item @(endPage - pagerSize <= 1 ? "disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.PreviousSegment))>&laquo;</button>
+        </li>
+        <li class="page-item @(curPage==1?"disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.Previous)) tabindex="-1" aria-disabled="true">@Translation["previous"]</button>
+        </li>
+        @for (int i = startPage; i <= endPage; i++)
+        {
+            var currentPage = i;
+            <li class="page-item @(currentPage==curPage?"active":"")">
+                <button class="page-link" @onclick=@(async () => UpdateList(currentPage))>
+                    @currentPage
+                </button>
+            </li>
+        }
+        <li class="page-item @(curPage==totalPages?"disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.Next)) tabindex="-1" aria-disabled="true">@Translation["next"]</button>
+        </li>
+        <li class="page-item @(startPage + pagerSize >= totalPages ? "disabled":"")">
+            <button class="page-link" @onclick=@(async () => NavigateToPage(Direction.NextSegment))>&raquo;</button>
+        </li>
+    </ul>
+
+    <span class="pagebutton btn btn-link disabled">@Translation["pages"]</span>
+</div>
