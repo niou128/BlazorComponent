@@ -2,7 +2,13 @@
 
 # Notes de version
 **4.0.0**
+
+_Nouveauté_
 - Mise à jour vers .Net5
+- Les variables entre double accolade sont maintenant interprétées lorsque le contenu est passé entre les balises ```<Cell></Cell>```
+
+_Correctif_
+- Correction du plantage lorsque le Paramètre Content du composant Cell est null.
 
 **3.0.0**
 - Changement structurant nécessitant de revoir l'implémentation de la datagrid dans le code.
