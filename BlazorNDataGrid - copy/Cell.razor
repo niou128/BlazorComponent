@@ -9,7 +9,7 @@
 
 @if (@Content == null)
 {
-    <td id="@Id">
+    <td>
         @ChildContent
     </td>
 }
@@ -17,7 +17,7 @@ else
 {
     if (BlazorDataTable.Editable)
     {
-        <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))" id="@Id"
+        <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))"
             @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
             <BlazorInputText Placeholder="PlaceHolderValue"
                              @bind-Value="InputValue" 
@@ -30,7 +30,7 @@ else
     }
     else
     {
-        <td id="@Id">
+        <td>
             @((MarkupString)ConvertParamToValue(Content))
         </td>
     }

@@ -1,13 +1,7 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
 **4.0.0**
-
-_New_
 - Update to .Net5
-- Variables in double braces are now interpreted when content is passed between tags ```<Cell></Cell>```
-
-_Fix_
-- Fixed crash when the Parameter Content of the Cell component is null.
 
 **3.0.0**
 - Structural change requiring to review the implementation of the datagrid in the code.

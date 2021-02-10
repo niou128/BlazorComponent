@@ -2,30 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <RootNamespace>BlazorDataGrid</RootNamespace>
     <PackageId>BlazorDataGrid</PackageId>
+    <Version>3.0.0</Version>
     <Authors>Sébastien Bernard</Authors>
     <Company>NRE</Company>
-    <Version>4.0.0</Version>
-    <Copyright>© Sébastien Bernard</Copyright>
     <Product>BlazorDataGrid</Product>
     <Description>A filtered, paged, sorted and editabled datagrid</Description>
-    <PackageProjectUrl>https://github.com/niou128/BlazorComponent</PackageProjectUrl>
+    <Copyright>© Sébastien Bernard</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
     <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
+    <PackageReleaseNotes>breaking changes: 
+The management of lines has changed.
+You must now specify each cell with the Cell component.</PackageReleaseNotes>
   </PropertyGroup>
 
-  
   <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorNInput\BlazorNInput.csproj" />
   </ItemGroup>
+
 
 </Project>

@@ -1,0 +1,36 @@
+﻿@typeparam TItem
+
+@namespace BlazorDataGrid
+@using Microsoft.AspNetCore.Components.Web
+
+<th>
+    @if (ChildContent != null)
+    {
+        <span @onclick="@(() => SortTable(ColumnName))">@ChildContent</span>
+    }
+    else
+    {
+        <span @onclick="@(() => SortTable(ColumnName))">@DisplayColumnName</span>
+    }
+    <span class="oi @(GetSortStyle(ColumnName))"></span>
+    @if (Filter && !DropdownFilter)
+    {
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-sm" @oninput="@((e) => OnInput(e))" />
+            </div>
+        </form>
+    }
+    @if (DropdownFilter)
+    {
+        <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect01" @bind="@SelectedDropdownFilter">
+                <option selected value=""></option>
+                @foreach (var item in CreateFilterList())
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+        </div>
+    }
+</th>

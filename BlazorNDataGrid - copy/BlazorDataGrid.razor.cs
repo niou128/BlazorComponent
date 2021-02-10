@@ -298,7 +298,6 @@ namespace BlazorDataGrid
             {
                 UpdateTranslationDictionnary();
             }
-            //AppState.CallRefreshCell();
             this.StateHasChanged();
         }
 
