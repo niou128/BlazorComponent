@@ -1,5 +1,14 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**4.1.0**
+
+_New_
+- When the datagrid is not editable, it is possible to go through the context to retrieve the data when the content is placed between the tags ```<Cell></Cell>```
+```
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
 **4.0.0**
 
 _New_

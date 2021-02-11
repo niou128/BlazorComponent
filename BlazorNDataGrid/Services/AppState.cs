@@ -19,6 +19,7 @@ namespace BlazorDataGrid.Services
         }
 
         public long IdCell { get; set; } = 1;
+        public int RowNumber { get; set; } = 1;
 
         public string Format { get; private set; }
 

@@ -1,6 +1,16 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**4.1.0**
+
+_Nouveauté_
+- Quand la datagrid n'est pas éditable, il est possible de passer par le contexte pour récupérer les données lorque le contenu est placé entre les balises  ```<Cell></Cell>```
+```
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+
 **4.0.0**
 
 _Nouveauté_

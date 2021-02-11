@@ -10,8 +10,9 @@
 @if (@Content == null)
 {
     <td id="@Id">
-        @ChildContent
+        @ChildContent(ItemList.ToList()[RowNumber])
     </td>
+
 }
 else
 {
@@ -20,9 +21,9 @@ else
         <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))" id="@Id"
             @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
             <BlazorInputText Placeholder="PlaceHolderValue"
-                             @bind-Value="InputValue" 
+                             @bind-Value="InputValue"
                              LabelError="@LabelError"
-                             ValidationPattern="@ValidationPattern"/>
+                             ValidationPattern="@ValidationPattern" />
 
         </td>
 
