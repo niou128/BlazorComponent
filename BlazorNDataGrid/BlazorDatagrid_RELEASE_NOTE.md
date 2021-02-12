@@ -1,7 +1,7 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
-**4.2.0**
+**4.1.1**
 
 _Correctifs_
 - Correction d'un problème avec une dépendance

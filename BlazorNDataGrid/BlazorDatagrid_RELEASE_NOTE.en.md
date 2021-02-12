@@ -1,6 +1,6 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
-**4.2.0**
+**4.1.1**
 
 _Fixes_
 - Fixed a problem with a dependancy

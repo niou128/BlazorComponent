@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v4.2.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v4.1.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Read in english](BlazorDatagrid.en.md)
 
@@ -16,11 +16,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```powershell
-Install-Package BlazorDataGrid -Version 4.2.0
+Install-Package BlazorDataGrid -Version 4.1.1
 ```
 Ou avec .Net CLI
 ```bash
-dotnet add package BlazorDataGrid --version 4.2.0
+dotnet add package BlazorDataGrid --version 4.1.1
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```
