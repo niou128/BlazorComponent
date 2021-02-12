@@ -10,9 +10,8 @@
 @if (@Content == null)
 {
     <td id="@Id">
-        @ChildContent(ItemList.ToList()[RowNumber])
+        @ChildContent(CurrentItem)
     </td>
-
 }
 else
 {

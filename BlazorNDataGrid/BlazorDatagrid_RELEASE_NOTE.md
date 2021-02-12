@@ -1,11 +1,30 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**4.1.1**
+
+_Correctifs_
+- Correction d'un problème avec une dépendance
+- Correction d'un soucis de rendu du contenu de la cellule
+- L'utilisation de la double accolade entre les balises `<Cell></Cell>` empêche le fonctionnement des méthodes C#. Cette fonctionnalité est donc retirée. Il faut passer par le contexte à la place. L'utilisation des accolades dans le paramètre Content n'est pas impactée.
+
+```razor
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+au lieu de ça
+```razor
+<Cell Items="@forecasts" Context="cellcontext">
+    {{Summary}}
+</Cell>
+```
+
 **4.1.0**
 
 _Nouveauté_
-- Quand la datagrid n'est pas éditable, il est possible de passer par le contexte pour récupérer les données lorque le contenu est placé entre les balises  ```<Cell></Cell>```
-```
+- Quand la datagrid n'est pas éditable, il est possible de passer par le contexte pour récupérer les données lorque le contenu est placé entre les balises  `<Cell></Cell>`
+```razor
 <Cell Items="@forecasts" Context="cellcontext">
     @cellcontext.Summary
 </Cell>
@@ -13,9 +32,9 @@ _Nouveauté_
 
 **4.0.0**
 
-_Nouveauté_
+_Nouveautés_
 - Mise à jour vers .Net5
-- Les variables entre double accolade sont maintenant interprétées lorsque le contenu est passé entre les balises ```<Cell></Cell>```
+- Les variables entre double accolade sont maintenant interprétées lorsque le contenu est passé entre les balises `<Cell></Cell>`
 
 _Correctif_
 - Correction du plantage lorsque le Paramètre Content du composant Cell est null.

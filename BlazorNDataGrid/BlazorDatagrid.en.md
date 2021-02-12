@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v4.1.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v4.1.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Lire en français](BlazorDatagrid.md)
 
@@ -15,27 +15,27 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorData
 # Installation
 
 To install BlazorDataGrid using Package Manager run the following command
-```
-Install-Package BlazorDataGrid -Version 4.1.0
+```powershell
+Install-Package BlazorDataGrid -Version 4.1.1
 ```
 To install BlazorDataGrid using .NET CLI run the following command
-```
-dotnet add package BlazorDataGrid --version 4.1.0
+```bash
+dotnet add package BlazorDataGrid --version 4.1.1
 ```
 
 After you have installed the package add the following line in the ```_Imports.razor``` file
-```
+```razor
 @using BlazorDataGrid
 ```
 
 And in the ```Startup.cs``` file in the method ```public void ConfigureServices(IServiceCollection services)```
-```
+```csharp
 services.AddScoped<AppState>();
 ```
 
 # Parameters
 
-- **The  ```<BlazorDataGrid>``` component accepts following parameters:**
+- **The  `<BlazorDataGrid>` component accepts following parameters:**
     -	**Items**(mandatory): The list with the results to show in the datagrid
     -	**PageSize**: The initial number of results per page. If it is not present, the initial number is the first value of the selector.
     -   **ShowTotalResult**: A boolean to show or not the total number of results.
@@ -74,9 +74,9 @@ services.AddScoped<AppState>();
 
 # Example of use:
 
-```
+```razor
 <BlazorDataGrid Items="@forecasts" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate"
-                ShowPageSelector="true" PageSelector="@PageSelector" Editable="true" RowSelector="true">
+                ShowPageSelector="true" PageSelector="@PageSelector" Editable="false" RowSelector="true">
     <BlazorDataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
         <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
@@ -87,10 +87,13 @@ services.AddScoped<AppState>();
         <Cell Items="@forecasts" Content="{{Date}}"/>
         <Cell Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
         <Cell Items="@forecasts" Content="{{TemperatureF}}" />
-        <Cell Items="@forecasts" Content="{{Summary}}" />
+        <Cell Items="@forecasts" Context="ctx" >
+            @ctx.Summary
+        </Cell>
     </GridRow>
 </BlazorDataGrid>
-
+```
+```csharp
 private Dictionary<string, string> translate = new Dictionary<string, string>
     {
         {"next", "next" },

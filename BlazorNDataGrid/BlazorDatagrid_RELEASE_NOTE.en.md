@@ -1,10 +1,30 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**4.1.1**
+
+_Fixes_
+- Fixed a problem with a dependancy
+- Fixed a problem with rendering cell content
+- Using the double curly brace between `<Cell></Cell>` tags prevents C # methods from working. This feature is therefore withdrawn. You have to go through the context instead. The use of braces in the Content parameter is not impacted.
+- 
+
+```razor
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+instead of
+```razor
+<Cell Items="@forecasts" Context="cellcontext">
+    {{Summary}}
+</Cell>
+```
+
 **4.1.0**
 
 _New_
-- When the datagrid is not editable, it is possible to go through the context to retrieve the data when the content is placed between the tags ```<Cell></Cell>```
-```
+- When the datagrid is not editable, it is possible to go through the context to retrieve the data when the content is placed between the tags `<Cell></Cell>`
+```razor
 <Cell Items="@forecasts" Context="cellcontext">
     @cellcontext.Summary
 </Cell>
@@ -13,7 +33,7 @@ _New_
 
 _New_
 - Update to .Net5
-- Variables in double braces are now interpreted when content is passed between tags ```<Cell></Cell>```
+- Variables in double braces are now interpreted when content is passed between tags `<Cell></Cell>`
 
 _Fix_
 - Fixed crash when the Parameter Content of the Cell component is null.

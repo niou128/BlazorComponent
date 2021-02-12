@@ -49,9 +49,6 @@ namespace BlazorDataGrid
         [CascadingParameter(Name = "CurrentItem")]
         protected TItem CurrentItem { get; set; }
 
-        [CascadingParameter(Name = "ItemList")]
-        protected IEnumerable<TItem> ItemList { get; set; }
-
         public string NameItem { get; set; }
 
         protected string Id { get; set; }
@@ -65,13 +62,6 @@ namespace BlazorDataGrid
 
         protected override void OnInitialized()
         {
-            if ((((int)AppState.IdCell - 1) / (AppState.RowNumber)) - ItemList.Count() == 0)
-            { 
-                AppState.RowNumber++;
-            }
-
-            RowNumber = AppState.RowNumber - 1;
-
             Id = $"cell-{AppState.IdCell++}";
 
             if (Content != null)
@@ -90,45 +80,6 @@ namespace BlazorDataGrid
                 }
             }
             AppState.RefreshCell += async () => await UpdateCell();
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                if (ChildContent != null)
-                {
-                    try
-                    {
-                        var module = await Module;
-                        var ariel = await module.InvokeAsync<string>("GetHtmlFromId", Id);
-                        Content = ConvertParamToValue(ariel);
-                        StateHasChanged();
-                    }
-                    catch (Exception)
-                    {
-                        Debug.WriteLine("Echec de récupération du contenu HTML");
-                    }
-                }
-            }
-            else
-            {
-                if (ChildContent != null)
-                {
-                    try
-                    {
-                        var module = await Module;
-                        var ariel = await module.InvokeAsync<string>("GetHtmlFromId", Id);
-                        Content = ConvertParamToValue(ariel);
-                        ChildContent = null;
-                        StateHasChanged();
-                    }
-                    catch (Exception)
-                    {
-                        Debug.WriteLine("Echec de récupération du contenu HTML");
-                    }
-                }
-            }
         }
 
         public string ConvertParamToValue(string text)
