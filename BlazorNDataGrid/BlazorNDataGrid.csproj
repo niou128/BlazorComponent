@@ -6,15 +6,15 @@
     <PackageId>BlazorDataGrid</PackageId>
     <Authors>Sébastien Bernard</Authors>
     <Company>NRE</Company>
-    <Version>4.1.0</Version>
+    <Version>4.1.1-beta.2</Version>
     <Copyright>© Sébastien Bernard</Copyright>
     <Product>BlazorDataGrid</Product>
     <Description>A filtered, paged, sorted and editabled datagrid</Description>
     <PackageProjectUrl>https://github.com/niou128/BlazorComponent</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
-    <AssemblyVersion>4.1.0.0</AssemblyVersion>
-    <FileVersion>4.1.0.0</FileVersion>
+    <AssemblyVersion>4.1.1.0</AssemblyVersion>
+    <FileVersion>4.1.1.0</FileVersion>
   </PropertyGroup>
 
   
