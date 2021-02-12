@@ -37,6 +37,7 @@ Input fields for Blazor
 **[Release Notes](BlazorNInput/BlazorNInput_RELEASE_NOTE.en.md)** 
 
 # Lastest releases
-- BlazorDataGrid 4.0.0
+- BlazorDataGrid 4.1.0
 - BlazorTab 1.5.0
 - BlazorNTooltip 1.0.1
+- BlazorNInput 1.1.0

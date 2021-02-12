@@ -5,6 +5,7 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace BlazorDataGrid
         [Parameter]
         public IEnumerable<TItem> Items { get; set; }
 
-        private RenderFragment childContent;
+        private RenderFragment<TItem> childContent;
         [Parameter]
-        public RenderFragment ChildContent
+        public RenderFragment<TItem> ChildContent
         {
             get => childContent;
             set
@@ -48,9 +49,14 @@ namespace BlazorDataGrid
         [CascadingParameter(Name = "CurrentItem")]
         protected TItem CurrentItem { get; set; }
 
+        [CascadingParameter(Name = "ItemList")]
+        protected IEnumerable<TItem> ItemList { get; set; }
+
         public string NameItem { get; set; }
 
         protected string Id { get; set; }
+
+        protected int RowNumber { get; set; } = 0;
 
         private Task<IJSObjectReference> _module;
 
@@ -59,6 +65,13 @@ namespace BlazorDataGrid
 
         protected override void OnInitialized()
         {
+            if ((((int)AppState.IdCell - 1) / (AppState.RowNumber)) - ItemList.Count() == 0)
+            { 
+                AppState.RowNumber++;
+            }
+
+            RowNumber = AppState.RowNumber - 1;
+
             Id = $"cell-{AppState.IdCell++}";
 
             if (Content != null)
@@ -117,7 +130,6 @@ namespace BlazorDataGrid
                 }
             }
         }
-
 
         public string ConvertParamToValue(string text)
         {
