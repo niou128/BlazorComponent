@@ -35,7 +35,7 @@ Des champs de saisie pour Blazor
 **[Release Notes](BlazorNInput/BlazorNInput_RELEASE_NOTE.md)** 
 
 # Dernières version
-- BlazorDataGrid 4.1.1
+- BlazorDataGrid 5.0.0
 - BlazorTab 1.5.0
 - BlazorNTooltip 1.0.1
 - BlazorNInput 2.0.0

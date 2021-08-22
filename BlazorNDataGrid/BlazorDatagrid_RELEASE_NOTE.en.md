@@ -1,5 +1,29 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**5.0.0**
+
+_New_
+- Update to .Net6
+- You don't have to specified the colection used in each column anymore
+
+```razor
+<DataGridColumn ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+
+<Cell Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+
+instead of
+
+```razor
+<DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+
 **4.1.1**
 
 _Fixes_
