@@ -1,5 +1,10 @@
 ﻿using BlazorDataGrid.Services;
 using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BlazorDataGrid
 {
@@ -51,6 +56,11 @@ namespace BlazorDataGrid
         private Timer DebounceTimerInterval { get; set; }
         private Action<object> DebounceAction { get; set; }
         private object LastObjectDebounced { get; set; }
+
+        protected override void OnInitialized()
+        {
+            Items ??= BlazorDataTable.Items;
+        }
 
         protected void Debounce(object obj, int interval, Action<object> debounceAction)
         {

@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace BlazorDataGrid
 {
@@ -50,6 +53,7 @@ namespace BlazorDataGrid
         public RenderFragment GridRow { get; set; }
 
         private IEnumerable<TableItem> _items;
+        
         [Parameter]
         public IEnumerable<TableItem> Items
         {
