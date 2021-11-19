@@ -3,43 +3,37 @@ using System.Text.RegularExpressions;
 
 namespace BlazorNInput
 {
-    public class BlazorInputTextBase : ComponentBase
+    public partial class BlazorInputNumber : ComponentBase
     {
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> InputAttributes { get; set; }
 
         [Parameter]
-        public object Placeholder { get; set; }
-
-        [Parameter]
-        public EventCallback<string> ValueChanged { get; set; }
-
-        [Parameter]
-        public bool ReadOnly { get; set; }
-
-        [Parameter]
-        public string LabelError { get; set; } = "Le champ n'est pas correct";
+        public EventCallback<int> ValueChanged { get; set; }
 
         [Parameter]
         public string ValidationPattern { get; set; }
 
-        protected string StyleError { get; set; } = "display: none";
+        [Parameter]
+        public string LabelError { get; set; } = "Le champ n'est pas correct";
 
-        private string _value;
-        protected string Value
+        private int _value;
+        protected int Value
         {
-            get => Placeholder?.ToString() ?? _value;
+            get => _value;
             set
             {
                 if (!string.IsNullOrEmpty(ValidationPattern))
                 {
-                    Validation(value, ValidationPattern);
+                    Validation(value.ToString(), ValidationPattern);
                 }
                 _value = value;
-                Placeholder = string.IsNullOrEmpty(value) ? "" : value;
+                //Placeholder = string.IsNullOrEmpty(value) ? "" : value;
                 ValueChanged.InvokeAsync(Value);
             }
         }
+
+        protected string StyleError { get; set; } = "display: none";
 
         public void Validation(string value, string pattern)
         {
@@ -55,6 +49,5 @@ namespace BlazorNInput
                 StateHasChanged();
             }
         }
-
     }
 }

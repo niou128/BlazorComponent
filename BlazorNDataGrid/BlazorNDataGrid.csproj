@@ -12,7 +12,7 @@
     <Description>A filtered, paged, sorted and editabled datagrid</Description>
     <PackageProjectUrl>https://github.com/niou128/BlazorComponent</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
+    <PackageTags>Datagrid, blazorDatagrid, .Net6, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
     <AssemblyVersion>5.0.0.0</AssemblyVersion>
     <FileVersion>5.0.0.0</FileVersion>
   </PropertyGroup>

@@ -4,7 +4,7 @@
 
 _New_
 - Update to .Net6
-- You don't have to specified the colection used in each column anymore
+- You don't have to specified the colection used in each column and cells anymore
 
 ```razor
 <DataGridColumn ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>

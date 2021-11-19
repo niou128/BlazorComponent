@@ -5,6 +5,7 @@
 
 __Warning, version 3.0.0 introduces changes compared to the previous version which requires to review the implementation in your programs__
 
+__Since version 5.0.0 it's not longer necesary to specified the colection used in each column and cells anymore__
 # BlazorDatagrid
 
 It's a Blazor component. A filtered, paged and sorted datagrid.

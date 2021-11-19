@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29123.89
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorComponent", "BlazorComponent\BlazorComponent.csproj", "{4C5BE8FC-A28E-408C-A2DA-7CFC9706DD0F}"
 EndProject
@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNtabs", "BlazorNtabs\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNInput", "BlazorNInput\BlazorNInput.csproj", "{3579FE89-47B4-40C9-A756-80BAD63D280F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestJsIsolation", "TestJsIsolation\TestJsIsolation.csproj", "{4CCC79B3-C9CD-4E1C-974F-923464D9E942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestJsIsolation", "TestJsIsolation\TestJsIsolation.csproj", "{4CCC79B3-C9CD-4E1C-974F-923464D9E942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorNDataGrid", "BlazorNDataGrid\BlazorNDataGrid.csproj", "{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNDataGrid", "BlazorNDataGrid\BlazorNDataGrid.csproj", "{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

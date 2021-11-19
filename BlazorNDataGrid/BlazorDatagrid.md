@@ -5,6 +5,8 @@
 
 __Attention, la version 3.0.0 introduit des changements par rapport à la version précédente qui nécessite de revoir l'implémentation dans vos programmes.__
 
+__A partir de la version 5.0.0, il n'est plus necessaire de spécifier la collection utiliser pour chaque colonne et chaque cellule__
+
 # BlazorDatagrid
 
 Il s'agit d'un composant pour Blazor. Une datagrid avec pagination, filtre et la possiblité de trier la colonnes par ordre croissant ou décroissant.
