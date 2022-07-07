@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSelectComponent", "Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDatagridTests", "BlazorDatagridTests\BlazorDatagridTests.csproj", "{610AB3F7-CA21-433A-B19B-D647180803EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorInput", "BlazorInput\BlazorInput.csproj", "{F26C352B-7103-460E-8B39-BC81C8A29379}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNTooltip", "BlazorNTooltip\BlazorNTooltip.csproj", "{6F2BE4DD-7AC3-43FB-BA27-AEB536E11C8B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNtabs", "BlazorNtabs\BlazorNtabs.csproj", "{A323AAE6-E9A0-4BFA-8C2F-44415CAC50D9}"
@@ -39,10 +37,6 @@ Global
 		{610AB3F7-CA21-433A-B19B-D647180803EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610AB3F7-CA21-433A-B19B-D647180803EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{610AB3F7-CA21-433A-B19B-D647180803EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F26C352B-7103-460E-8B39-BC81C8A29379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F26C352B-7103-460E-8B39-BC81C8A29379}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F26C352B-7103-460E-8B39-BC81C8A29379}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F26C352B-7103-460E-8B39-BC81C8A29379}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F2BE4DD-7AC3-43FB-BA27-AEB536E11C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F2BE4DD-7AC3-43FB-BA27-AEB536E11C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F2BE4DD-7AC3-43FB-BA27-AEB536E11C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU

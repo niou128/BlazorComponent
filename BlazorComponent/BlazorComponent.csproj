@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorNDataGrid\BlazorNDataGrid.csproj" />
-    <ProjectReference Include="..\BlazorNInput\BlazorNInput.csproj" />
     <ProjectReference Include="..\BlazorNtabs\BlazorNtabs.csproj" />
     <ProjectReference Include="..\BlazorNTooltip\BlazorNTooltip.csproj" />
     <ProjectReference Include="..\BlazorSelectComponent\BlazorSelectComponent.csproj" />

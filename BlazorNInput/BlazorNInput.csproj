@@ -4,9 +4,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
-    <PackageId>BlazorInput</PackageId>
-    <Version>2.0.0</Version>
+    <FileVersion>3.0.0.0</FileVersion>
+    <PackageId>BlazorNInput</PackageId>
+    <Version>3.0.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>© Sébastien Bernard</Copyright>
     <Authors>Sébastien Bernard</Authors>
