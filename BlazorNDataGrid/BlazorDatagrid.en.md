@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v5.0.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v5.0.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Lire en français](BlazorDatagrid.md)
 

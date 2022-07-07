@@ -1,5 +1,8 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**5.0.1**
+update dependency to BlazorNInput
+
 **5.0.0**
 
 _New_

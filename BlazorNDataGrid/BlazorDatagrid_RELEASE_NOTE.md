@@ -1,6 +1,9 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**5.0.1**
+Mise à jour de la dépendance à BlazorNInput
+
 **5.0.0**
 _Nouveauté_
 - Mise à niveau vers .Net6
