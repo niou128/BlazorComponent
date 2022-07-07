@@ -3,27 +3,45 @@
 
 <h1>Blazor input</h1>
 
+<h3>BlazorInputText</h3>
 <BlazorInputText Placeholder="Ariel"
                  @bind-Value="Ariel"
                  ReadOnly="false"
                  LabelError="Ceci est une erreur"
-                 ValidationPattern="^[-]?\d+$"/>
+                 ValidationPattern="^[-]?\d+$" />
 
 @Ariel
 <br />
 
 <button @onclick="newInput">modification</button>
 
-@code{
+<br />
+<br />
+<h3>BlazorInputNumber</h3>
+<label>Select a year between 1900 and 2099</label>
+<BlazorInputNumber @bind-Value="year"
+                   LabelError="This is not a valid year"
+                   ValidationPattern="^(19|20)\d{2}$"
+                   max="4"/>
+<div>number : @year</div>
+
+@code {
 
     private string _ariel = "Jasmine";
-    public string Ariel {
+    public string Ariel
+    {
         get => _ariel;
         set
         {
             _ariel = value;
             StateHasChanged();
         }
+    }
+
+    public int year
+    {
+        get;
+        set;
     }
 
     public void newInput()

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlazorDataGrid
 {
-    public partial class DataGridColumn<TItem>
+    public partial class DataGridColumn<TableItem>
     {
         #region Parameters
         [Parameter]
@@ -26,7 +26,7 @@ namespace BlazorDataGrid
         public bool DropdownFilter { get; set; } = false;
 
         [Parameter]
-        public IEnumerable<TItem> Items { get; set; }
+        public IEnumerable<TableItem> Items { get; set; }
 
         [Parameter]
         public string Format
@@ -47,7 +47,7 @@ namespace BlazorDataGrid
         }
 
         [CascadingParameter]
-        BlazorDataGrid<TItem> BlazorDataTable { get; set; }
+        BlazorDataGrid<TableItem> BlazorDataTable { get; set; }
         #endregion
 
         [Inject]
@@ -56,6 +56,11 @@ namespace BlazorDataGrid
         private Timer DebounceTimerInterval { get; set; }
         private Action<object> DebounceAction { get; set; }
         private object LastObjectDebounced { get; set; }
+
+        protected override void OnInitialized()
+        {
+            Items ??= BlazorDataTable.Items;
+        }
 
         protected void Debounce(object obj, int interval, Action<object> debounceAction)
         {
@@ -146,7 +151,7 @@ namespace BlazorDataGrid
         {
             List<string> filterList = new List<string>();
 
-            var properties = typeof(TItem).GetProperties();
+            var properties = typeof(TableItem).GetProperties();
             if (Items != null)
             {
                 foreach (var item in Items)

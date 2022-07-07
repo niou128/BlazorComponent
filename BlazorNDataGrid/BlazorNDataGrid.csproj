@@ -1,20 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>BlazorDataGrid</RootNamespace>
     <PackageId>BlazorDataGrid</PackageId>
     <Authors>Sébastien Bernard</Authors>
     <Company>NRE</Company>
-    <Version>4.1.1</Version>
+    <Version>5.0.1</Version>
     <Copyright>© Sébastien Bernard</Copyright>
     <Product>BlazorDataGrid</Product>
     <Description>A filtered, paged, sorted and editabled datagrid</Description>
     <PackageProjectUrl>https://github.com/niou128/BlazorComponent</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>Datagrid, blazorDatagrid, netcore3, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
-    <AssemblyVersion>4.1.1.0</AssemblyVersion>
-    <FileVersion>4.1.1.0</FileVersion>
+    <PackageTags>Datagrid, blazorDatagrid, .Net6, blazor, blazor-datagrid, blazorcomponent, blazor-component</PackageTags>
+    <AssemblyVersion>5.0.1.0</AssemblyVersion>
+    <FileVersion>5.0.1.0</FileVersion>
+    <PackageReadmeFile>BlazorDatagrid.en.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/niou128/BlazorComponent</RepositoryUrl>
   </PropertyGroup>
 
   
@@ -23,11 +25,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorNInput\BlazorNInput.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BlazorDatagrid.en.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

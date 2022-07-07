@@ -1,10 +1,11 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v4.1.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
+[![Package Version](https://img.shields.io/badge/nuget-v5.0.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorDataGrid/)
 
 [Lire en français](BlazorDatagrid.md)
 
 __Warning, version 3.0.0 introduces changes compared to the previous version which requires to review the implementation in your programs__
 
+__Since version 5.0.0 it's not longer necesary to specified the colection used in each column and cells anymore__
 # BlazorDatagrid
 
 It's a Blazor component. A filtered, paged and sorted datagrid.
@@ -16,11 +17,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorData
 
 To install BlazorDataGrid using Package Manager run the following command
 ```powershell
-Install-Package BlazorDataGrid -Version 4.1.1
+Install-Package BlazorDataGrid -Version 5.0.0
 ```
 To install BlazorDataGrid using .NET CLI run the following command
 ```bash
-dotnet add package BlazorDataGrid --version 4.1.1
+dotnet add package BlazorDataGrid --version 5.0.0
 ```
 
 After you have installed the package add the following line in the ```_Imports.razor``` file
@@ -56,7 +57,6 @@ services.AddScoped<AppState>();
     -	**DataGridColumn**: The header component.
 
 - **The ```<DataGridColumn>``` component accepts following parameters:**
-    -	**Items** (mandatory): You need to pass the same component as ```<BlazorDataGrid>```
     -	**ColumnName**: The actual name of the column on which the filter and the sorted are based
     -	**DisplayColumnName**: (non mandatory) The name that will be displayed in the header. *It is possible to pass the contents of the header between the tags instead*
     -	**Filter**: true or false to show or not the input filter on the column
@@ -67,7 +67,6 @@ services.AddScoped<AppState>();
 - **The ```<GridRow>``` component accepts following parameters:**
     - **Cell** : The component detailing each cell of the row.
 - **The ```Cell``` component accepts following parameters:**
-    - **Items** (mandatory): You need to pass the same component as ```<BlazorDataGrid>```
     - **Content** : The contents of the cell. The parameter of the collection to display is placed in a double brace {{}}
     - **ValidationPattern** : A regular expression to apply a control on the cell.
     - **LabelError** : The message to display in case of validation failure.
@@ -78,16 +77,16 @@ services.AddScoped<AppState>();
 <BlazorDataGrid Items="@forecasts" ShowTotalResult="true" TheadClass="thead-dark" Translation="@translate"
                 ShowPageSelector="true" PageSelector="@PageSelector" Editable="false" RowSelector="true">
     <BlazorDataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="TemperatureF" DisplayColumnName="TemperatureF" DropdownFilter="true" ReadOnly="true"></DataGridColumn>
-        <DataGridColumn Items="@forecasts" ColumnName="Summary" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
+        <DataGridColumn ColumnName="Date" Filter="true" Format="dd/MM/yyyy"><strong>Date</strong></DataGridColumn>
+        <DataGridColumn ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+        <DataGridColumn ColumnName="TemperatureF" DisplayColumnName="TemperatureF" DropdownFilter="true" ReadOnly="true"></DataGridColumn>
+        <DataGridColumn ColumnName="Summary" DisplayColumnName="Summary" Filter="true"></DataGridColumn>
     </BlazorDataGridColumn>
     <GridRow>
-        <Cell Items="@forecasts" Content="{{Date}}"/>
-        <Cell Items="@forecasts" Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
-        <Cell Items="@forecasts" Content="{{TemperatureF}}" />
-        <Cell Items="@forecasts" Context="ctx" >
+        <Cell Content="{{Date}}"/>
+        <Cell Content="<strong>{{TemperatureC}}</strong>" ValidationPattern="^[-]?\d+$" LabelError="@translate["labelError"]"/>
+        <Cell Content="{{TemperatureF}}" />
+        <Cell Context="ctx" >
             @ctx.Summary
         </Cell>
     </GridRow>

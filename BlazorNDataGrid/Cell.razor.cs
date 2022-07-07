@@ -5,23 +5,22 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BlazorDataGrid
 {
-    public partial class Cell<TItem>
+    public partial class Cell<TableItem>
     {
         [Inject]
         IJSRuntime JSRuntime { get; set; }
 
         [Parameter]
-        public IEnumerable<TItem> Items { get; set; }
+        public IEnumerable<TableItem> Items { get; set; }
 
-        private RenderFragment<TItem> childContent;
+        private RenderFragment<TableItem> childContent;
         [Parameter]
-        public RenderFragment<TItem> ChildContent
+        public RenderFragment<TableItem> ChildContent
         {
             get => childContent;
             set
@@ -44,10 +43,10 @@ namespace BlazorDataGrid
         public string LabelError { get; set; } = "error";
 
         [CascadingParameter(Name = "BlazorDataTable")]
-        protected BlazorDataGrid<TItem> BlazorDataTable { get; set; }
+        protected BlazorDataGrid<TableItem> BlazorDataTable { get; set; }
 
         [CascadingParameter(Name = "CurrentItem")]
-        protected TItem CurrentItem { get; set; }
+        protected TableItem CurrentItem { get; set; }
 
         public string NameItem { get; set; }
 
@@ -70,7 +69,7 @@ namespace BlazorDataGrid
                 Match match = Regex.Match(Content, pattern, RegexOptions.IgnoreCase);
                 if (match.Success)
                 {
-                    foreach (var elt in typeof(TItem).GetProperties())
+                    foreach (var elt in typeof(TableItem).GetProperties())
                     {
                         if (elt.Name == match.Groups[2].Value)
                         {
@@ -93,7 +92,7 @@ namespace BlazorDataGrid
             Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
             if (match.Success)
             {
-                foreach (var elt in typeof(TItem).GetProperties())
+                foreach (var elt in typeof(TableItem).GetProperties())
                 {
                     if (elt.Name == match.Groups[2].Value)
                     {

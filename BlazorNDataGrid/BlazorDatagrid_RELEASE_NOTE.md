@@ -1,6 +1,32 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**5.0.1**
+Mise à jour de la dépendance à BlazorNInput
+
+**5.0.0**
+_Nouveauté_
+- Mise à niveau vers .Net6
+- Il n'est plus necessaire de spéficier la collection utiliser pour chaque colonne et chaque cellule. 
+
+```razor
+<DataGridColumn ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+
+<Cell Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+
+au lieu de ça 
+
+```razor
+<DataGridColumn Items="@forecasts" ColumnName="TemperatureC" DisplayColumnName="TemperatureC" Filter="true"></DataGridColumn>
+
+<Cell Items="@forecasts" Context="cellcontext">
+    @cellcontext.Summary
+</Cell>
+```
+
 **4.1.1**
 
 _Correctifs_

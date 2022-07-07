@@ -53,6 +53,7 @@ namespace BlazorDataGrid
         public RenderFragment GridRow { get; set; }
 
         private IEnumerable<TableItem> _items;
+        
         [Parameter]
         public IEnumerable<TableItem> Items
         {
