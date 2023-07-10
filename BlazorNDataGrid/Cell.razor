@@ -21,7 +21,7 @@ else
         {
             <td id="@Id" @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
                 <BlazorInputText Placeholder="PlaceHolderValue"
-                                 @bind-Value="InputValue"
+                                 @bind-value="InputValue"
                                  LabelError="@LabelError"
                                  ValidationPattern="@ValidationPattern"
                                  ReadOnly="true" />
@@ -31,7 +31,7 @@ else
         {
             <td contenteditable="true" id="@Id" @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
                 <BlazorInputText Placeholder="PlaceHolderValue"
-                                 @bind-Value="InputValue"
+                                 @bind-value="InputValue"
                                  LabelError="@LabelError"
                                  ValidationPattern="@ValidationPattern" />
             </td>

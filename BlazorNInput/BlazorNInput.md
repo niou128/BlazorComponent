@@ -42,7 +42,7 @@ Ensuite il faut ajouter dans le fichier ```_Imports.razor```
 
 ```
 <BlazorInputText Placeholder="Placeholder"
-                 @bind-Value="value"
+                 @bind-value="value"
                  ReadOnly="false"
                  LabelError="Ceci est une erreur"
                  ValidationPattern="^[-]?\d+$"/>

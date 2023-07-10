@@ -41,7 +41,7 @@ After you have installed the package add the following line in the ```_Imports.r
 
 ```
 <BlazorInputText Placeholder="Placeholder"
-                 @bind-Value="value"
+                 @bind-value="value"
                  ReadOnly="false"
                  LabelError="Ceci est une erreur"
                  ValidationPattern="^[-]?\d+$"/>
