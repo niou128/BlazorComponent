@@ -17,14 +17,25 @@ else
 {
     if (BlazorDataTable.Editable)
     {
-        <td contenteditable="@(!ReadOnly(NameItem, "ReadOnly"))" id="@Id"
-            @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
-            <BlazorInputText Placeholder="PlaceHolderValue"
-                             @bind-Value="InputValue"
-                             LabelError="@LabelError"
-                             ValidationPattern="@ValidationPattern" />
-
-        </td>
+        @if (ReadOnly(NameItem, "ReadOnly"))
+        {
+            <td id="@Id" @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
+                <BlazorInputText Placeholder="PlaceHolderValue"
+                                 @bind-Value="InputValue"
+                                 LabelError="@LabelError"
+                                 ValidationPattern="@ValidationPattern"
+                                 ReadOnly="true" />
+            </td>
+        }
+        else
+        {
+            <td contenteditable="true" id="@Id" @onfocusout="() => BlazorDataTable.UpdateList(CurrentItem, NameItem)">
+                <BlazorInputText Placeholder="PlaceHolderValue"
+                                 @bind-Value="InputValue"
+                                 LabelError="@LabelError"
+                                 ValidationPattern="@ValidationPattern" />
+            </td>
+        }
 
 
     }
