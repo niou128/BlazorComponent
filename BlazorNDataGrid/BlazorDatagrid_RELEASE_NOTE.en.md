@@ -1,6 +1,14 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**6.0.0**
+_New_
+- Update to .NET7
+
+_Fixes_
+- Fix the issue that caused a read-only cell to still be editable.
+
 **5.0.1**
+
 update dependency to BlazorNInput
 
 **5.0.0**

@@ -28,10 +28,16 @@ namespace BlazorDataGrid
         [Parameter]
         public IEnumerable<TableItem> Items { get; set; }
 
+        private string _format;
         [Parameter]
         public string Format
         {
-            set => AppState.SetListAttributs(ColumnName, "Format", value);
+            get => _format;
+            set
+            {
+                _format = value;
+                AppState.SetListAttributs(ColumnName, "Format", value);
+            }
         }
 
         [Parameter]
@@ -44,6 +50,7 @@ namespace BlazorDataGrid
         public bool ReadOnly
         {
             set => AppState.SetListAttributs(ColumnName, "ReadOnly", value);
+            
         }
 
         [CascadingParameter]
