@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.0.0</FileVersion>
+    <AssemblyVersion>4.0.1.0</AssemblyVersion>
+    <FileVersion>4.0.1.0</FileVersion>
     <PackageId>BlazorNInput</PackageId>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>© Sébastien Bernard</Copyright>
     <Authors>Sébastien Bernard</Authors>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
   </ItemGroup>
 
   <ItemGroup>

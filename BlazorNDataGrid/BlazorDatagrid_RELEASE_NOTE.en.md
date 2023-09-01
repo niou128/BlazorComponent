@@ -1,5 +1,9 @@
 [Lire en français](BlazorDatagrid_RELEASE_NOTE.md)
 # Release notes
+**6.0.1**
+_New_
+- BlazorNInput dependency update
+
 **6.0.0**
 _New_
 - Update to .NET7

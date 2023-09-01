@@ -1,5 +1,9 @@
 [Lire en français](BlazorNTab_RELEASE_NOTE.md)
 # Release notes
+**4.0.1**
+_New_
+- Remove dependency on Microsoft.AspNetCore.App
+
 **4.0.0**
 
 _New_

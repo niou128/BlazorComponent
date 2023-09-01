@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v4.0.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorInput/)
+[![Package Version](https://img.shields.io/badge/nuget-v4.0.1-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorInput/)
 
 [Read in english](BlazorNInput.en.md)
 
@@ -14,11 +14,11 @@ La paquet NuGet est disponible sur le site nuget.org à cette adresse https://ww
 
 Ajouter le paquet NuGet à votre solution. 
 ```
-Install-Package BlazorInput -Version 4.0.0
+Install-Package BlazorInput -Version 4.0.1
 ```
 Ou avec .Net CLI
 ```
-dotnet add package BlazorInput --version 4.0.0
+dotnet add package BlazorInput --version 4.0.1
 ```
 
 Ensuite il faut ajouter dans le fichier ```_Imports.razor```

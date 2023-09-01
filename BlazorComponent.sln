@@ -19,6 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestJsIsolation", "TestJsIs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNDataGrid", "BlazorNDataGrid\BlazorNDataGrid.csproj", "{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBlazorWasm.Server", "TestBlazorWasm\Server\TestBlazorWasm.Server.csproj", "{AF117835-04E6-4888-8C1D-C644B8E2DC9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBlazorWasm.Client", "TestBlazorWasm\Client\TestBlazorWasm.Client.csproj", "{0EBA4F24-8644-469F-AA50-AEE900C80AF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBlazorWasm.Shared", "TestBlazorWasm\Shared\TestBlazorWasm.Shared.csproj", "{134AA239-D9FE-4645-938A-854C1E316444}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +63,18 @@ Global
 		{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08D5BF63-D5D1-4C94-BFF6-BF86285F89FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF117835-04E6-4888-8C1D-C644B8E2DC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF117835-04E6-4888-8C1D-C644B8E2DC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF117835-04E6-4888-8C1D-C644B8E2DC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF117835-04E6-4888-8C1D-C644B8E2DC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBA4F24-8644-469F-AA50-AEE900C80AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBA4F24-8644-469F-AA50-AEE900C80AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBA4F24-8644-469F-AA50-AEE900C80AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBA4F24-8644-469F-AA50-AEE900C80AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{134AA239-D9FE-4645-938A-854C1E316444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{134AA239-D9FE-4645-938A-854C1E316444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{134AA239-D9FE-4645-938A-854C1E316444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{134AA239-D9FE-4645-938A-854C1E316444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/TestBlazorWasm/Client/TestBlazorWasm.Client.csproj
+/TestBlazorWasm/Server/TestBlazorWasm.Server.csproj
+/TestBlazorWasm/Shared/TestBlazorWasm.Shared.csproj
+/TestBlazorWasm

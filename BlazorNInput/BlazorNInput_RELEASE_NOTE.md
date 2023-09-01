@@ -1,6 +1,11 @@
 [Read in english](BlazorNTab_RELEASE_NOTE.en.md)
 
 # Notes de version
+**4.0.1**
+
+_Nouveauté_
+- Supression de la dépendance à Microsoft.AspNetCore.App  
+
 **4.0.0**
 
 _Nouveauté_
