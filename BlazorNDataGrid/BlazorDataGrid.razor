@@ -91,14 +91,6 @@
 <table class="@TableClass" style="@TableStyle">
     <thead class="@TheadClass" style="@TheadStyle">
         <tr>
-            @*@if (RowSelector)
-                {
-                    <th>
-                        <div class="form-check">
-                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                        </div>
-                    </th>
-                }*@
             <CascadingValue Value="this">
                 @BlazorDataGridColumn
             </CascadingValue>

@@ -1,0 +1,6 @@
+{
+    "conventionalCommits.scopes": [
+        "BlazorNDatagrid"
+    ],
+    "dotnet.defaultSolution": "BlazorComponent.sln"
+}

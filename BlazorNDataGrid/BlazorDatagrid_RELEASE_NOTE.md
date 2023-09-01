@@ -1,10 +1,19 @@
 [Read in english](BlazorDatagrid_RELEASE_NOTE.en.md)
 
 # Notes de version
+**6.0.0**
+_Nouveauté_
+- Mise à niveau vers .NET7
+
+_Correctifs_
+- Correction du problème qui faisait qu'une cellule en lecture seule était quand même modifiable.
+
 **5.0.1**
+
 Mise à jour de la dépendance à BlazorNInput
 
 **5.0.0**
+
 _Nouveauté_
 - Mise à niveau vers .Net6
 - Il n'est plus necessaire de spéficier la collection utiliser pour chaque colonne et chaque cellule. 

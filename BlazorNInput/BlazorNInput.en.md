@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/BlazorExtensions/Storage.svg?longCache=true&style=flat-square)](LICENSE)
-[![Package Version](https://img.shields.io/badge/nuget-v2.0.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorInput/)
+[![Package Version](https://img.shields.io/badge/nuget-v4.0.0-blue.svg?longCache=true&style=flat-square)](https://www.nuget.org/packages/BlazorInput/)
 
 [Lire en français](BlazorInput.md)
 
@@ -14,11 +14,11 @@ The Nuget package page can be found at https://www.nuget.org/packages/BlazorInpu
 
 To install BlazorNInput using Package Manager run the following command 
 ```
-Install-Package BlazorInput -Version 2.0.0
+Install-Package BlazorInput -Version 4.0.0
 ```
 To install BlazorNInput using .NET CLI run the following command
 ```
-dotnet add package BlazorInput --version 2.0.0
+dotnet add package BlazorInput --version 4.0.0
 ```
 
 After you have installed the package add the following line in the ```_Imports.razor``` file
@@ -41,7 +41,7 @@ After you have installed the package add the following line in the ```_Imports.r
 
 ```
 <BlazorInputText Placeholder="Placeholder"
-                 @bind-Value="value"
+                 @bind-value="value"
                  ReadOnly="false"
                  LabelError="Ceci est une erreur"
                  ValidationPattern="^[-]?\d+$"/>
